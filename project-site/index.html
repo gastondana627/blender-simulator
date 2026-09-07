@@ -43,6 +43,7 @@
           <li><a href="#overview" class="nav-link">Overview</a></li>
           <li><a href="#technical-benchmark" class="nav-link">Technical Benchmark</a></li>
           <li><a href="#data-findings" class="nav-link">Data & Findings</a></li>
+          <li><a href="#ai-benchmark" class="nav-link">AI Benchmark</a></li>
           <li><a href="#visual-mappings" class="nav-link">Mappings</a></li>
           <li><a href="#media-companion" class="nav-link">Commander Pip</a></li>
           <li><a href="#resources" class="nav-link">Resource Hub</a></li>
@@ -373,6 +374,218 @@
                   View Original Kaggle Notebook Findings →
                 </a>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4.5. Frontier AI Reasoning Benchmark Section -->
+    <section id="ai-benchmark" class="section">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-eyebrow">AI Evaluation &amp; Epistemic Calibration</p>
+          <h2 class="section-title">RR-10 Transcriptomics Reasoning Benchmark</h2>
+          <p class="section-description">
+            Spaceflight multi-omics is inherently high-dimensional, noisy, and prone to LLM hallucination. To evaluate whether frontier foundation models can reliably reason about space biology without generating misleading claims, we engineered an official 5-part Kaggle benchmark harness.
+          </p>
+        </div>
+
+        <!-- 5-Dimension Rubric Cards Grid -->
+        <div class="rubric-grid">
+          <div class="rubric-card">
+            <div class="rubric-card-header">
+              <span class="rubric-number">Task 01</span>
+              <span class="badge badge-cyan">Comprehension</span>
+            </div>
+            <h3 class="rubric-card-title">Study Design &amp; Multi-Tissue Architecture</h3>
+            <p class="rubric-card-desc">
+              Tests whether models accurately parse paired brain region RNA-seq architecture (Cerebellum OSD-563 vs Hippocampus OSD-564), sequencing parameters, and spaceflight (FLT) vs ground control (GC) conditions.
+            </p>
+          </div>
+
+          <div class="rubric-card">
+            <div class="rubric-card-header">
+              <span class="rubric-number">Task 02</span>
+              <span class="badge badge-cyan">Statistical Rigor</span>
+            </div>
+            <h3 class="rubric-card-title">FDR <em>q</em>-Value vs <em>p</em>-Value Calibration</h3>
+            <p class="rubric-card-desc">
+              Enforces strict statistical calibration. Evaluates if the model correctly rejects false positives when an unadjusted <em>p</em> = 0.04 fails the Benjamini-Hochberg FDR threshold at <em>q</em> = 0.12 (&gt; 0.05).
+            </p>
+          </div>
+
+          <div class="rubric-card highlight-danger">
+            <div class="rubric-card-header">
+              <span class="rubric-number">Task 03</span>
+              <span class="badge badge-terracotta">Crucial Boundary</span>
+            </div>
+            <h3 class="rubric-card-title">Epistemic Caution &amp; Overgeneralization</h3>
+            <p class="rubric-card-desc">
+              Penalizes models that overclaim 30-day rodent low Earth orbit (LEO) transcriptomics as direct proof of human astronaut pathology during 3-year deep-space Mars missions. <strong>Primary hurdle for frontier models.</strong>
+            </p>
+          </div>
+
+          <div class="rubric-card">
+            <div class="rubric-card-header">
+              <span class="rubric-number">Task 04</span>
+              <span class="badge badge-cyan">Non-Fabrication</span>
+            </div>
+            <h3 class="rubric-card-title">NASA OSDR Provenance &amp; Verification</h3>
+            <p class="rubric-card-desc">
+              Tests retrieval fidelity against authenticated NASA OSDR accessions (OSD-563, OSD-564, OSD-396) and penalizes generation of fabricated study identifiers or synthetic mission references.
+            </p>
+          </div>
+
+          <div class="rubric-card highlight-warning">
+            <div class="rubric-card-header">
+              <span class="rubric-number">Task 05</span>
+              <span class="badge badge-gold">Code Consistency</span>
+            </div>
+            <h3 class="rubric-card-title">Pipeline-to-Conclusion Consistency</h3>
+            <p class="rubric-card-desc">
+              Tests whether models cross-verify claims: detects contradictions when a narrative abstract claims "massive transcriptomic remodeling" but the actual DESeq2 pipeline output reveals modest differential expression.
+            </p>
+          </div>
+        </div>
+
+        <!-- Benchmark Leaderboard Scorecard -->
+        <div class="benchmark-scorecard-container">
+          <div class="benchmark-scorecard-header">
+            <div>
+              <h3 class="benchmark-table-title">Frontier Model Evaluation Matrix</h3>
+              <p class="benchmark-table-sub">Results evaluated across 6 frontier LLMs using the official Kaggle benchmark code harness.</p>
+            </div>
+            <div class="benchmark-badges">
+              <span class="badge badge-terracotta">5-Dimension Rubric</span>
+              <span class="badge badge-gold">Domain Evaluation</span>
+            </div>
+          </div>
+
+          <div class="table-wrapper">
+            <table class="benchmark-table">
+              <thead>
+                <tr>
+                  <th scope="col" style="width: 28%;">Model &amp; Architecture</th>
+                  <th scope="col" class="text-center">T1: Design</th>
+                  <th scope="col" class="text-center">T2: Stats (<em>q</em> vs <em>p</em>)</th>
+                  <th scope="col" class="text-center">T3: Caution (LEO≠Mars)</th>
+                  <th scope="col" class="text-center">T4: OSDR ID</th>
+                  <th scope="col" class="text-center">T5: Consistency</th>
+                  <th scope="col" class="text-center" style="width: 14%;">Overall Score</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="row-perfect">
+                  <td>
+                    <div class="model-cell">
+                      <span class="model-name">OpenAI GPT-5.4</span>
+                      <span class="model-vendor">OpenAI Frontier Reasoning</span>
+                    </div>
+                  </td>
+                  <td class="text-center"><span class="score-pill pass">✅ Pass</span></td>
+                  <td class="text-center"><span class="score-pill pass">✅ Pass</span></td>
+                  <td class="text-center"><span class="score-pill pass">✅ Pass</span></td>
+                  <td class="text-center"><span class="score-pill pass">✅ Pass</span></td>
+                  <td class="text-center"><span class="score-pill pass">✅ Pass</span></td>
+                  <td class="text-center"><span class="score-pill total-100">100% (5/5)</span></td>
+                </tr>
+                <tr class="row-perfect">
+                  <td>
+                    <div class="model-cell">
+                      <span class="model-name">DeepSeek-R1</span>
+                      <span class="model-vendor">DeepSeek AI Open Reasoning</span>
+                    </div>
+                  </td>
+                  <td class="text-center"><span class="score-pill pass">✅ Pass</span></td>
+                  <td class="text-center"><span class="score-pill pass">✅ Pass</span></td>
+                  <td class="text-center"><span class="score-pill pass">✅ Pass</span></td>
+                  <td class="text-center"><span class="score-pill pass">✅ Pass</span></td>
+                  <td class="text-center"><span class="score-pill pass">✅ Pass</span></td>
+                  <td class="text-center"><span class="score-pill total-100">100% (5/5)</span></td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="model-cell">
+                      <span class="model-name">Anthropic Claude Sonnet 4.5</span>
+                      <span class="model-vendor">Anthropic Baseline Runner</span>
+                    </div>
+                  </td>
+                  <td class="text-center"><span class="score-pill pass">✅ Pass</span></td>
+                  <td class="text-center"><span class="score-pill pass">✅ Pass</span></td>
+                  <td class="text-center"><span class="score-pill fail">❌ Fail</span></td>
+                  <td class="text-center"><span class="score-pill pass">✅ Pass</span></td>
+                  <td class="text-center"><span class="score-pill pass">✅ Pass</span></td>
+                  <td class="text-center"><span class="score-pill total-high">80% (4/5)</span></td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="model-cell">
+                      <span class="model-name">Google Gemini 2.5 Pro</span>
+                      <span class="model-vendor">Google DeepMind</span>
+                    </div>
+                  </td>
+                  <td class="text-center"><span class="score-pill pass">✅ Pass</span></td>
+                  <td class="text-center"><span class="score-pill pass">✅ Pass</span></td>
+                  <td class="text-center"><span class="score-pill fail">❌ Fail</span></td>
+                  <td class="text-center"><span class="score-pill pass">✅ Pass</span></td>
+                  <td class="text-center"><span class="score-pill fail">❌ Fail</span></td>
+                  <td class="text-center"><span class="score-pill total-mid">60% (3/5)</span></td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="model-cell">
+                      <span class="model-name">xAI Grok 4.20</span>
+                      <span class="model-vendor">xAI</span>
+                    </div>
+                  </td>
+                  <td class="text-center"><span class="score-pill pass">✅ Pass</span></td>
+                  <td class="text-center"><span class="score-pill pass">✅ Pass</span></td>
+                  <td class="text-center"><span class="score-pill fail">❌ Fail</span></td>
+                  <td class="text-center"><span class="score-pill pass">✅ Pass</span></td>
+                  <td class="text-center"><span class="score-pill fail">❌ Fail</span></td>
+                  <td class="text-center"><span class="score-pill total-mid">60% (3/5)</span></td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="model-cell">
+                      <span class="model-name">Qwen 3 235B A22B Instruct</span>
+                      <span class="model-vendor">Alibaba Cloud</span>
+                    </div>
+                  </td>
+                  <td class="text-center"><span class="score-pill pass">✅ Pass</span></td>
+                  <td class="text-center"><span class="score-pill pass">✅ Pass</span></td>
+                  <td class="text-center"><span class="score-pill fail">❌ Fail</span></td>
+                  <td class="text-center"><span class="score-pill pass">✅ Pass</span></td>
+                  <td class="text-center"><span class="score-pill fail">❌ Fail</span></td>
+                  <td class="text-center"><span class="score-pill total-mid">60% (3/5)</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Benchmark CTA Action Strip -->
+          <div class="benchmark-action-strip">
+            <div class="benchmark-strip-info">
+              <span class="strip-icon">🎯</span>
+              <div>
+                <strong>Explore &amp; Replicate on Kaggle</strong>
+                <p>Access the official Kaggle benchmark task, download the evaluation code harness, or inspect the dual-tissue dataset.</p>
+              </div>
+            </div>
+            <div class="benchmark-strip-buttons">
+              <a href="https://www.kaggle.com/benchmarks/tasks/gastondana/rr-10-transcriptomics-reasoning-benchmark/2" class="btn-benchmark-primary" target="_blank" rel="noopener noreferrer">
+                <span>Kaggle Benchmark Task</span>
+                <span aria-hidden="true">↗</span>
+              </a>
+              <a href="https://www.kaggle.com/code/gastondana/rr-10-transcriptomics-reasoning-benchmark-task" class="btn-benchmark-secondary" target="_blank" rel="noopener noreferrer">
+                <span>Code Harness</span>
+                <span aria-hidden="true">↗</span>
+              </a>
+              <a href="https://www.kaggle.com/datasets/gastondana/osd-563564-cerebellum-vs-hippocampus-rr-10/data" class="btn-benchmark-secondary" target="_blank" rel="noopener noreferrer">
+                <span>OSDR Dataset</span>
+                <span aria-hidden="true">↗</span>
+              </a>
             </div>
           </div>
         </div>
