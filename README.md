@@ -322,6 +322,8 @@ Inquiries, discussions, and collaborations across spaceflight biology, AI reason
 - **AWG Projects**: [https://awg.osdr.space/c/awg-projects/20](https://awg.osdr.space/c/awg-projects/20)
 - **Kaggle Profile**: `[Kaggle profile URL]`
 - **Google Scholar**: [https://scholar.google.com/citations?view_op=view_citation&hl=en&user=juOv0f0AAAAJ&citation_for_view=juOv0f0AAAAJ:d1gkVwhDpl0C](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=juOv0f0AAAAJ&citation_for_view=juOv0f0AAAAJ:d1gkVwhDpl0C)
+- **Executive Presentation (Google Slides)**: [https://docs.google.com/presentation/d/1ULCjimhcRYlGojjiCp9aLXnk8GEH-mGTVUfiIKSJX6c/edit?usp=sharing](https://docs.google.com/presentation/d/1ULCjimhcRYlGojjiCp9aLXnk8GEH-mGTVUfiIKSJX6c/edit?usp=sharing)
+- **Executive Presentation (PDF Archive)**: [assets/Orbiting_Minds_RR10_Presentation.pdf](assets/Orbiting_Minds_RR10_Presentation.pdf)
 - **Brain AWG Project Post**: Brain AWG project post — add direct URL after publication
 - **AI/ML AWG Project Post**: AI/ML AWG project post — add direct URL after publication
 
