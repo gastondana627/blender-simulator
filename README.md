@@ -87,7 +87,7 @@ The biological foundation of this project is based on the **NASA Rodent Research
 
 ### Project
 - [Source code — GitHub](https://github.com/gastondana627/blender-simulator)
-- Google Scholar — add your verified public profile URL
+- [Google Scholar Profile](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=juOv0f0AAAAJ&citation_for_view=juOv0f0AAAAJ:d1gkVwhDpl0C)
 - Brain AWG project post — add direct URL after publication
 - AI/ML AWG project post — add direct URL after publication
 
@@ -144,8 +144,8 @@ The **Media Companion** branch presents **Commander Pip: Zero-G Odyssey**, a sty
   - **Commander Pip**: Aerodynamic cream-furred silhouette, oversized translucent pink ears, electroplated gold bubble visor, 4-point aerospace-orange cross-harness, heavy-duty moon boots, dorsal life-support backpack (PLSS), and an articulated 5-segment tail with a T-wing attitude stabilizer thruster.
   - **Zero-G Habitat**: Cylindrical research habitat with an orbital centrifuge guidance rail, Earth observation porthole with atmospheric blue horizon glow, and floating nutrient spheres.
 - **Non-Scientific Status**: This is a stylized narrative piece and is **not a literal historical or scientific reconstruction**.
-- **Cinematic Reel Placeholder**:
-  > *Cinematic companion showcase: [Miris cinematic embed / media link — add URL when published]*
+- **Cinematic Sequence**:
+  > *Cinematic companion showcase:* [Commander-Pip-orbital-habitat-cinematic-sequence.mp4](assets/Commander-Pip-orbital-habitat-cinematic-sequence.mp4)
 
 ---
 
@@ -301,7 +301,7 @@ Please cite the original research teams and NASA Open Science Data Repository (O
   - Open Science Platform: [NASA GeneLab / Open Science for Life in Space](https://genelab.nasa.gov/)
   - Legacy GeneLab Records: `[Official GeneLab GLDS-568 record — add URL if applicable]`, `[Official GeneLab GLDS-569 record — add URL if applicable]`
 - **Author Profile**:
-  - `[Google Scholar profile — add URL]`
+  - [Google Scholar Profile](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=juOv0f0AAAAJ&citation_for_view=juOv0f0AAAAJ:d1gkVwhDpl0C)
 
 ---
 
@@ -316,7 +316,7 @@ Inquiries, discussions, and collaborations across spaceflight biology, AI reason
 - **AI/ML AWG GitHub**: [https://github.com/OpenScienceDataRepo/AI-ML_AWG](https://github.com/OpenScienceDataRepo/AI-ML_AWG)
 - **AWG Projects**: [https://awg.osdr.space/c/awg-projects/20](https://awg.osdr.space/c/awg-projects/20)
 - **Kaggle Profile**: `[Kaggle profile URL]`
-- **Google Scholar**: Google Scholar — add your verified public profile URL
+- **Google Scholar**: [https://scholar.google.com/citations?view_op=view_citation&hl=en&user=juOv0f0AAAAJ&citation_for_view=juOv0f0AAAAJ:d1gkVwhDpl0C](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=juOv0f0AAAAJ&citation_for_view=juOv0f0AAAAJ:d1gkVwhDpl0C)
 - **Brain AWG Project Post**: Brain AWG project post — add direct URL after publication
 - **AI/ML AWG Project Post**: AI/ML AWG project post — add direct URL after publication
 
@@ -343,7 +343,7 @@ Inquiries, discussions, and collaborations across spaceflight biology, AI reason
 
 ### Next Steps for Public Release
 - [ ] Choose and commit an open-source `LICENSE` file.
-- [ ] Add your verified public Google Scholar profile URL.
+- [x] Add your verified public Google Scholar profile URL.
 - [ ] Add direct URLs to the Brain AWG and AI/ML AWG project posts after publication.
-- [ ] Embed the finalized Miris cinematic video showcase in the Media Companion section.
+- [x] Embed the finalized Miris cinematic video showcase in the Media Companion section.
 - [ ] Publish the interactive WebGL viewer to GitHub Pages or dedicated project hosting.

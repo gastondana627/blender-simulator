@@ -12,13 +12,13 @@
  * Replace with public video URL or local relative path (e.g., 'assets/miris_pip_cinematic.mp4')
  * Leaving this empty will gracefully display the "Cinematic clip coming soon" state.
  */
-const VIDEO_SOURCE = ''; 
+const VIDEO_SOURCE = '../assets/Commander-Pip-orbital-habitat-cinematic-sequence.mp4'; 
 
 /**
  * 2. Verified Google Scholar Profile URL
  * Replace with your public Google Scholar link once active.
  */
-const GOOGLE_SCHOLAR_URL = ''; 
+const GOOGLE_SCHOLAR_URL = 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=juOv0f0AAAAJ&citation_for_view=juOv0f0AAAAJ:d1gkVwhDpl0C'; 
 
 /**
  * 3. NASA GeneLab Analysis Working Group (AWG) Direct Discussion URLs
