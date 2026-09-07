@@ -181,7 +181,8 @@ blender-simulator/
 │   ├── media_simulation.glb        # Media Companion interactive 3D asset (Commander Pip, ~688 KB)
 │   └── media_simulation.json       # Media scene telemetry and object count metadata
 ├── project-site/                   # Public-facing research-creative project landing page
-│   ├── orbiting-minds.html         # Main project page entry point
+│   ├── index.html                  # Main project page entry point
+│   ├── 404.html                    # Static 404 fallback page
 │   ├── app.js                      # Video component, citation copy, and interactive logic
 │   ├── style.css                   # Responsive space-bioscience editorial stylesheet
 │   └── assets/                     # Verified reference renders and WebGL captures
@@ -262,9 +263,13 @@ Use the navigation header to switch dynamically between **`[ 🔬 TECHNICAL BENC
 
 ### 6. Launch the Public Project Landing Page
 With the local server active on port 8080, open the editorial portfolio landing page:
-**[http://localhost:8080/project-site/orbiting-minds.html](http://localhost:8080/project-site/orbiting-minds.html)**
+**[http://localhost:8080/project-site/index.html](http://localhost:8080/project-site/index.html)**
 
 This page provides an editorial presentation of the research context, interactive 3D viewer launch panels, factual transcriptomic findings, data-to-3D transformation tables, Commander Pip cinematic media section, and the categorized Mission Console resource hub.
+
+### 7. GitHub Pages Deployment Configuration
+- **Expected Publishing Source**: `main` branch → `/project-site` (or `/ (root)` with root redirect to `/project-site/index.html`).
+- **Static Entry Point**: `project-site/index.html` (accompanied by `project-site/404.html` and root routing fallbacks).
 
 ---
 

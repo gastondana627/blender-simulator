@@ -12,7 +12,7 @@
  * Replace with public video URL or local relative path (e.g., 'assets/miris_pip_cinematic.mp4')
  * Leaving this empty will gracefully display the "Cinematic clip coming soon" state.
  */
-const VIDEO_SOURCE = '../assets/Commander-Pip-orbital-habitat-cinematic-sequence.mp4'; 
+const VIDEO_SOURCE = 'assets/Commander-Pip-orbital-habitat-cinematic-sequence.mp4'; 
 
 /**
  * 2. Verified Google Scholar Profile URL
