@@ -320,9 +320,9 @@ Inquiries, discussions, and collaborations across spaceflight biology, AI reason
 - **AI/ML AWG Topics**: [https://awg.osdr.space/c/awg-discussions/ai-ml/11](https://awg.osdr.space/c/awg-discussions/ai-ml/11)
 - **AI/ML AWG GitHub**: [https://github.com/OpenScienceDataRepo/AI-ML_AWG](https://github.com/OpenScienceDataRepo/AI-ML_AWG)
 - **AWG Projects**: [https://awg.osdr.space/c/awg-projects/20](https://awg.osdr.space/c/awg-projects/20)
-- **Kaggle Profile**: `[Kaggle profile URL]`
+- **Kaggle Profile**: [https://www.kaggle.com/gastondana](https://www.kaggle.com/gastondana)
 - **Google Scholar**: [https://scholar.google.com/citations?view_op=view_citation&hl=en&user=juOv0f0AAAAJ&citation_for_view=juOv0f0AAAAJ:d1gkVwhDpl0C](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=juOv0f0AAAAJ&citation_for_view=juOv0f0AAAAJ:d1gkVwhDpl0C)
-- **Executive Presentation (Google Slides)**: [https://docs.google.com/presentation/d/1ULCjimhcRYlGojjiCp9aLXnk8GEH-mGTVUfiIKSJX6c/edit?usp=sharing](https://docs.google.com/presentation/d/1ULCjimhcRYlGojjiCp9aLXnk8GEH-mGTVUfiIKSJX6c/edit?usp=sharing)
+- **Executive Presentation (Google Slides)**: [https://docs.google.com/presentation/d/1ULCjimhcRYlGojjiCp9aLXnk8GEH-mGTVUfiIKSJX6c/preview](https://docs.google.com/presentation/d/1ULCjimhcRYlGojjiCp9aLXnk8GEH-mGTVUfiIKSJX6c/preview)
 - **Executive Presentation (PDF Archive)**: [assets/Orbiting_Minds_RR10_Presentation.pdf](assets/Orbiting_Minds_RR10_Presentation.pdf)
 - **Brain AWG Project Post**: Brain AWG project post — add direct URL after publication
 - **AI/ML AWG Project Post**: AI/ML AWG project post — add direct URL after publication
@@ -343,14 +343,11 @@ Inquiries, discussions, and collaborations across spaceflight biology, AI reason
 - **Data Source**: NASA Open Science Data Repository (OSDR / GeneLab)
 - **3D Assets & Pipeline Code**: Procedurally authored in Blender 4.x and Three.js.
 - **Third-Party & NASA Attribution**: NASA, NASA OSDR, GeneLab, and mission program names are referenced strictly for factual identification and scientific attribution. This project is an independent computational research and visualization effort and is not affiliated with, endorsed by, or sponsored by NASA.
-
-> [!NOTE]
-> **TODO: Repository License**
-> A formal open-source license file (such as MIT or Apache 2.0) has not yet been committed to this repository. Review licensing terms before broad code reuse or commercial redistribution.
+- **License**: Released under the [MIT License](LICENSE).
 
 ### Next Steps for Public Release
-- [ ] Choose and commit an open-source `LICENSE` file.
+- [x] Choose and commit an open-source `LICENSE` file.
 - [x] Add your verified public Google Scholar profile URL.
 - [ ] Add direct URLs to the Brain AWG and AI/ML AWG project posts after publication.
 - [x] Embed the finalized Miris cinematic video showcase in the Media Companion section.
-- [ ] Publish the interactive WebGL viewer to GitHub Pages or dedicated project hosting.
+- [x] Publish the interactive WebGL viewer to production hosting.

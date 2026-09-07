@@ -338,7 +338,7 @@
     }
   ],
   "export": {
-    "glb_path": "/Users/gastondana/Downloads/blender-simulator/exports/simulation.glb",
+    "glb_path": "exports/simulation.glb",
     "glb_size_bytes": 1124376,
     "glb_size_kb": 1098.02
   },

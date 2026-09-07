@@ -22,7 +22,7 @@ if PROJECT_ROOT not in sys.path:
 
 from scripts.generate_media_scene import generate_media_scene
 
-ARTIFACT_DIR = "/Users/gastondana/.gemini/antigravity-ide/brain/0dd03328-0b74-4e77-81e3-63716dac9b25"
+ARTIFACT_DIR = os.environ.get("ARTIFACT_DIR", os.path.join(PROJECT_ROOT, "exports", "renders"))
 
 
 def setup_studio_environment():

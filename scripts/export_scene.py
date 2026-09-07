@@ -146,7 +146,7 @@ def gather_and_save_metadata(filepath, recipe=None, glb_path=None):
         "materials": sorted(list(materials_used)),
         "objects": object_summaries,
         "export": {
-            "glb_path": glb_path,
+            "glb_path": os.path.relpath(glb_path, PROJECT_ROOT) if glb_path.startswith(PROJECT_ROOT) else glb_path,
             "glb_size_bytes": glb_size_bytes,
             "glb_size_kb": round(glb_size_bytes / 1024.0, 2)
         },

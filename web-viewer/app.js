@@ -144,11 +144,11 @@ const PIPELINE_BRANCHES = {
     name: 'Technical Benchmark',
     glbUrl: '../exports/simulation.glb',
     metaUrl: '../exports/simulation.json',
-    datasetId: 'NASA-OSDR-RR10-B42',
-    mission: 'Rodent Research-10 (SpaceX CRS-19)',
-    ref: '04_rr10_neuro_adaptation.ipynb',
-    status: '4 Clusters | Stress 0.058 | ICP Active',
-    citation: 'NASA GeneLab / OSDR GLDS-421: "Spaceflight-Induced Murine Intracranial Remodeling & Neuroplasticity in Microgravity." (2024).',
+    datasetId: 'NASA-OSDR OSD-563 / OSD-564',
+    mission: 'Rodent Research-10 (SpaceX-21)',
+    ref: 'cerebellum-vs-hippocampus-rr-10-spaceflight-mice.ipynb',
+    status: 'Cerebellum PC1 25.6% | Hippocampus PC1 28.3% | VST r=1.000',
+    citation: 'NASA OSDR OSD-563 & OSD-564: Cerebellum and Hippocampus Transcriptomics from RR-10 Spaceflight Mice (SpaceX-21).',
     hotspots: [
       {
         id: 'cortex',

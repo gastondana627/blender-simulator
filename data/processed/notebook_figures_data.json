@@ -1,5 +1,5 @@
 {
-  "source_notebook": "04_rr10_neuro_adaptation.ipynb",
+  "source_notebook": "cerebellum-vs-hippocampus-rr-10-spaceflight-mice.ipynb",
   "mission": "NASA Rodent Research-10 (RR-10)",
   "figure_a_pca": {
     "title": "PCA of Gene Expression: FLT vs GC, by Tissue",
