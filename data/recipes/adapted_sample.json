@@ -1,0 +1,101 @@
+{
+  "name": "Bio-Digital Proxy: Bio-Digital Latent Projection",
+  "version": "1.0.0",
+  "seed": 88978,
+  "source_data": {
+    "run_id": "benchmark_bio_042",
+    "experiment_name": "Bio-Digital Latent Projection",
+    "primary_score": 0.942,
+    "loss": 0.058,
+    "volatility": 0.32,
+    "convergence_state": "optimal"
+  },
+  "generator": {
+    "type": "kinetic_gyroid",
+    "scale": 1.271,
+    "rings_count": 4,
+    "core_radius": 0.885,
+    "cage_radius": 2.33,
+    "subdivisions": 3,
+    "wireframe_thickness": 0.036,
+    "animation_frames": 150,
+    "breathing_amplitude": 0.24
+  },
+  "materials": {
+    "outer_cage": {
+      "base_color": [
+        0.06,
+        0.08,
+        0.12,
+        1.0
+      ],
+      "metallic": 0.95,
+      "roughness": 0.2,
+      "emission_color": [
+        0.0,
+        0.85,
+        1.0,
+        1.0
+      ],
+      "emission_strength": 1.8
+    },
+    "inner_core": {
+      "base_color": [
+        0.2,
+        0.02,
+        0.35,
+        1.0
+      ],
+      "metallic": 0.85,
+      "roughness": 0.12,
+      "emission_color": [
+        0.98,
+        0.15,
+        0.85,
+        1.0
+      ],
+      "emission_strength": 5.65
+    },
+    "orbital_rings": {
+      "base_color": [
+        0.82,
+        0.86,
+        0.92,
+        1.0
+      ],
+      "metallic": 0.98,
+      "roughness": 0.1,
+      "emission_color": [
+        0.0,
+        0.95,
+        0.85,
+        1.0
+      ],
+      "emission_strength": 1.0
+    }
+  },
+  "scene": {
+    "fps": 30,
+    "frame_start": 1,
+    "frame_end": 150,
+    "camera": {
+      "focal_length": 55.0,
+      "distance_multiplier": 2.7,
+      "elevation_angle": 25.0,
+      "azimuth_angle": 45.0
+    },
+    "lighting": {
+      "preset": "benchmark_optimal",
+      "key_intensity": 938.4,
+      "fill_intensity": 350.0,
+      "rim_intensity": 1376.8
+    }
+  },
+  "export": {
+    "glb_path": "exports/simulation.glb",
+    "metadata_path": "exports/simulation.json",
+    "export_animations": true,
+    "export_materials": true,
+    "apply_modifiers": true
+  }
+}

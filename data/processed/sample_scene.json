@@ -1,0 +1,31 @@
+{
+  "run_id": "rr10_flight_mouse_b42",
+  "experiment_name": "RR-10 Spaceflight Neuro-Adaptation",
+  "mission": "NASA Rodent Research-10 (RR-10)",
+  "flight_subject": "Mus musculus (C57BL/6J)",
+  "source": "NASA GeneLab / Spaceflight Biology Benchmark",
+  "timestamp": "2026-09-06T16:30:00Z",
+  "metrics": {
+    "primary_score": 0.942,
+    "adaptation_index": 0.942,
+    "microvascular_stress": 0.058,
+    "loss": 0.058,
+    "intracranial_volatility": 0.32,
+    "volatility": 0.32,
+    "transcriptomic_clusters": 4,
+    "cluster_count": 4,
+    "convergence_state": "flight_adapted",
+    "flight_duration_days": 60,
+    "total_epochs": 150
+  },
+  "attributes": {
+    "gravitational_environment": "microgravity_uG",
+    "tissue_focus": "cerebral_cortex_and_hippocampus",
+    "phenotype_markers": [
+      "cephalic_fluid_shift",
+      "neurovascular_remodeling",
+      "hippocampal_synaptic_plasticity"
+    ],
+    "notes": "Coherent neuro-adaptation to 60-day microgravity exposure with regulated intracranial pressure dynamics."
+  }
+}

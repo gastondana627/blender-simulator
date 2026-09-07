@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Antigravity ↔ Blender Simulation Viewer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <!-- Import map for Three.js ES modules -->
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.162.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.162.0/examples/jsm/"
+      }
+    }
+  </script>
+</head>
+<body>
+  <div id="app">
+    <!-- Header overlay -->
+    <header class="glass-panel header-bar">
+      <div class="brand">
+        <div class="brand-badge"></div>
+        <div class="brand-text">
+          <h1>ANTIGRAVITY SIMULATOR</h1>
+          <span class="subtitle">BLENDER PROCEDURAL EXECUTION ENGINE</span>
+        </div>
+      </div>
+      <div class="branch-selector">
+        <button class="branch-btn active" id="btn-branch-technical" data-branch="technical" title="NASA RR-10 Murine Neuro-Adaptation Technical Benchmark">
+          <span class="branch-icon">🔬</span> TECHNICAL BENCHMARK
+        </button>
+        <button class="branch-btn" id="btn-branch-media" data-branch="media" title="Astro-Mice Zero-G Odyssey Media Storytelling Companion">
+          <span class="branch-icon">🚀</span> MEDIA COMPANION
+        </button>
+      </div>
+      <div class="analytics-toggle-group">
+        <button class="analytics-toggle-btn" id="btn-toggle-analytics" title="Toggle Notebook Analytic Evidence (Figures A & B)">
+          <span class="btn-icon">📊</span> ANALYTIC EVIDENCE
+        </button>
+      </div>
+      <div class="view-mode-selector">
+        <button class="mode-btn active" data-mode="presentation" id="btn-mode-presentation" title="Clean 3D presentation view">
+          <span class="mode-icon">✦</span> PRESENTATION
+        </button>
+        <button class="mode-btn" data-mode="annotated" id="btn-mode-annotated" title="Interactive 3D anatomical and telemetry hotspots">
+          <span class="mode-icon">◎</span> ANNOTATED
+        </button>
+        <button class="mode-btn" data-mode="diagnostic" id="btn-mode-diagnostic" title="Wireframe topology and telemetry reference grid">
+          <span class="mode-icon">⛶</span> DIAGNOSTIC
+        </button>
+      </div>
+      <div class="header-status">
+        <span class="status-indicator live"></span>
+        <span id="pipeline-status">PIPELINE READY</span>
+      </div>
+    </header>
+
+    <!-- Collapsible Analytic Context Drawer (Figures A & B) -->
+    <aside id="analytics-drawer" class="glass-panel analytics-drawer hidden">
+      <div class="drawer-header">
+        <div class="drawer-title-group">
+          <span class="drawer-badge">KAGGLE BENCHMARK EVIDENCE</span>
+          <h2>Transcriptomic Analytics & QC</h2>
+        </div>
+        <button class="drawer-close" id="btn-close-analytics" aria-label="Close Analytics">×</button>
+      </div>
+      <div class="drawer-scroll">
+        <!-- Figure A: PCA Widget -->
+        <section class="analytic-widget-card" id="widget-pca">
+          <div class="widget-head">
+            <div class="widget-tag-row">
+              <span class="widget-tag pca">FIGURE A · PRIMARY ANALYTIC CONTEXT</span>
+              <span class="widget-dataset">OSD-563 / OSD-564</span>
+            </div>
+            <h3>PCA of Gene Expression: FLT vs GC, by Tissue</h3>
+            <p class="widget-caption">Principal Component Analysis of variance-stabilized gene counts separating spaceflight (FLT) from ground control (GC) murine samples.</p>
+          </div>
+          <div class="pca-tab-controls">
+            <button class="pca-tab-btn active" data-target="cerebellum" id="tab-pca-cerebellum">Cerebellum (OSD-563)</button>
+            <button class="pca-tab-btn" data-target="hippocampus" id="tab-pca-hippocampus">Hippocampus (OSD-564)</button>
+            <button class="pca-tab-btn" data-target="both" id="tab-pca-both">Dual Comparison</button>
+          </div>
+          <div class="pca-chart-viewport" id="pca-chart-viewport">
+            <!-- Dynamic SVG Scatter Plot rendered here -->
+          </div>
+          <div class="pca-chart-legend">
+            <div class="legend-item"><span class="legend-chip flt"></span> FLT = Spaceflight</div>
+            <div class="legend-item"><span class="legend-chip gc"></span> GC = Ground Control</div>
+            <div class="legend-note">✦ 3D background constellation motif synchronized to plotted sample coordinates</div>
+          </div>
+        </section>
+
+        <!-- Figure B: rRNA Removal QC Widget -->
+        <section class="analytic-widget-card" id="widget-qc">
+          <div class="widget-head">
+            <div class="widget-tag-row">
+              <span class="widget-tag qc">FIGURE B · DATA-PROCESSING QC CONTEXT</span>
+              <span class="widget-dataset">OSD-563</span>
+            </div>
+            <h3>Does rRNA Removal Change Cerebellum Expression?</h3>
+            <p class="widget-caption">Data-processing validation confirming that computational rRNA filtration preserves quantitative proportionality without altering biological relative expression.</p>
+          </div>
+          <div class="qc-panels-grid" id="qc-chart-viewport">
+            <!-- Dynamic SVG QC Plots rendered here -->
+          </div>
+          <div class="qc-notice-box">
+            <span class="qc-notice-icon">ℹ</span>
+            <span class="qc-notice-text">Correlation <strong>r = 1.000</strong> along <em>y = x</em> reference demonstrates technical proportionality preservation before downstream differential testing.</span>
+          </div>
+        </section>
+      </div>
+    </aside>
+
+    <!-- 3D Canvas Container -->
+    <div id="viewport-container">
+      <div id="loading-overlay" class="glass-panel">
+        <div class="spinner"></div>
+        <p id="loading-text">Loading Procedural Simulation...</p>
+      </div>
+
+      <!-- Interactive 3D Screen-Projected Annotation Layer -->
+      <div id="annotation-layer" class="annotation-layer hidden"></div>
+
+      <!-- Floating Glassmorphism Annotation Tooltip Card -->
+      <div id="annotation-tooltip" class="glass-panel annotation-tooltip hidden">
+        <div class="tooltip-header">
+          <span class="tooltip-tag" id="tooltip-tag">NEURAL STRUCTURE</span>
+          <button class="tooltip-close" id="tooltip-close" aria-label="Close tooltip">×</button>
+        </div>
+        <h3 id="tooltip-title">Bilateral Murine Cortex</h3>
+        <div class="tooltip-metric" id="tooltip-metric">Adaptation Index: 0.942 | ICP Volatility: 0.32</div>
+        <p id="tooltip-desc">Rodent smooth cerebral lobes divided by sagittal fissure.</p>
+        <div class="tooltip-footer">
+          <span class="tooltip-dataset" id="tooltip-dataset">NASA-OSDR-RR10-B42</span>
+          <span class="tooltip-hint">Click pin to focus view</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Inspector / Metadata Drawer -->
+    <aside class="glass-panel inspector-panel">
+      <div class="panel-section">
+        <h2>SCENE TELEMETRY</h2>
+        <div class="telemetry-grid">
+          <div class="metric-card">
+            <span class="metric-label">VERTICES</span>
+            <span class="metric-val" id="val-verts">--</span>
+          </div>
+          <div class="metric-card">
+            <span class="metric-label">FACES</span>
+            <span class="metric-val" id="val-faces">--</span>
+          </div>
+          <div class="metric-card">
+            <span class="metric-label">OBJECTS</span>
+            <span class="metric-val" id="val-objects">--</span>
+          </div>
+          <div class="metric-card">
+            <span class="metric-label">FPS</span>
+            <span class="metric-val" id="val-fps">60</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel-section">
+        <h2>SIMULATION TIMELINE</h2>
+        <div class="playback-controls">
+          <button id="btn-play" class="control-btn primary">PAUSE</button>
+          <button id="btn-reset" class="control-btn">RESET</button>
+          <div class="speed-selector">
+            <label for="speed-slider">Speed: <span id="speed-label">1.0x</span></label>
+            <input type="range" id="speed-slider" min="0.1" max="2.0" step="0.1" value="1.0">
+          </div>
+        </div>
+      </div>
+
+      <div class="panel-section">
+        <h2>VIEWPORT TOGGLES</h2>
+        <div class="toggle-group">
+          <label class="switch-label">
+            <span>Wireframe Mode</span>
+            <input type="checkbox" id="toggle-wireframe">
+          </label>
+          <label class="switch-label">
+            <span>Auto Orbit</span>
+            <input type="checkbox" id="toggle-orbit" checked>
+          </label>
+          <label class="switch-label">
+            <span>Ground Grid</span>
+            <input type="checkbox" id="toggle-grid" checked>
+          </label>
+        </div>
+      </div>
+
+      <div class="panel-section">
+        <h2>MISSION CONTEXT & CITATIONS</h2>
+        <div class="context-card">
+          <div class="context-row">
+            <span class="context-key">DATASET ID</span>
+            <span class="context-badge" id="ctx-dataset-id">NASA-OSDR-RR10-B42</span>
+          </div>
+          <div class="context-row">
+            <span class="context-key">MISSION</span>
+            <span class="context-text" id="ctx-mission-name">Rodent Research-10 (SpaceX CRS-19)</span>
+          </div>
+          <div class="context-row">
+            <span class="context-key">REFERENCE</span>
+            <span class="context-text mono" id="ctx-notebook-ref">04_rr10_neuro_adaptation.ipynb</span>
+          </div>
+          <div class="context-row">
+            <span class="context-key">STATUS</span>
+            <span class="context-text" id="ctx-findings-text">4 Clusters | Stress 0.058 | ICP Active</span>
+          </div>
+          <div class="citation-box">
+            <span class="citation-header">OFFICIAL CITATION</span>
+            <div class="citation-quote" id="citation-quote">NASA GeneLab / OSDR GLDS-421: "Spaceflight-Induced Murine Intracranial Remodeling & Neuroplasticity in Microgravity." (2024).</div>
+            <button class="citation-btn" id="btn-copy-citation">📋 Copy Citation</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel-section">
+        <h2>RECIPE METADATA</h2>
+        <div class="metadata-scroll">
+          <pre id="metadata-json">Loading metadata...</pre>
+        </div>
+      </div>
+
+      <div class="panel-footer">
+        <label for="glb-file-input" class="file-upload-btn">
+          📂 Load Local GLB File
+          <input type="file" id="glb-file-input" accept=".glb,.gltf" style="display:none">
+        </label>
+      </div>
+    </aside>
+  </div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>

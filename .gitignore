@@ -1,0 +1,23 @@
+# macOS
+.DS_Store
+**/.DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.env
+.venv/
+
+# Blender
+*.blend1
+*.blend2
+*.blend@
+*.crash.txt
+
+# Vendor builds and external source checkouts
+vendor/
+
+# Temporary caches
+.cache/
+tmp/

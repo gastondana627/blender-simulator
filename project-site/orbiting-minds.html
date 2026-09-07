@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Orbiting Minds: An RR-10 Data-to-3D Simulation Experience connecting NASA spaceflight mouse-brain transcriptomics, procedural Blender generation, and real-time WebGL visualization.">
+  <title>Orbiting Minds — An RR-10 Data-to-3D Simulation Experience</title>
+  
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧠</text></svg>">
+</head>
+<body>
+
+  <!-- Site Navigation Header -->
+  <header class="site-header" role="banner">
+    <div class="container nav-inner">
+      <a href="#hero" class="nav-brand" aria-label="Orbiting Minds Home">
+        <span class="nav-brand-dot" aria-hidden="true"></span>
+        <span>Orbiting Minds</span>
+        <span class="badge badge-terracotta">RR-10 Data-to-3D</span>
+      </a>
+
+      <button class="mobile-nav-toggle" aria-expanded="false" aria-label="Toggle navigation menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+      <nav role="navigation" aria-label="Primary Navigation">
+        <ul class="nav-menu">
+          <li><a href="#overview" class="nav-link">Overview</a></li>
+          <li><a href="#technical-benchmark" class="nav-link">Technical Benchmark</a></li>
+          <li><a href="#data-findings" class="nav-link">Data & Findings</a></li>
+          <li><a href="#visual-mappings" class="nav-link">Mappings</a></li>
+          <li><a href="#media-companion" class="nav-link">Commander Pip</a></li>
+          <li><a href="#resources" class="nav-link">Resource Hub</a></li>
+          <li><a href="#citation" class="nav-link">Citation</a></li>
+          <li>
+            <a href="../web-viewer/index.html" class="nav-cta-btn" target="_blank" rel="noopener noreferrer">
+              <span>Launch 3D Viewer</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main role="main">
+
+    <!-- 1. Hero Section -->
+    <section id="hero" class="hero-section">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div class="hero-tag-row">
+            <span class="badge badge-terracotta">Spaceflight Biology Proxy</span>
+            <span class="badge badge-cyan">Procedural Data-to-3D</span>
+            <span class="badge badge-gold">Blender 4.x → WebGL</span>
+          </div>
+
+          <h1 class="hero-title">Orbiting Minds</h1>
+          <p class="hero-subtitle">An RR-10 Data-to-3D Simulation Experience</p>
+
+          <p class="hero-summary">
+            A dual-mode project translating spaceflight mouse-brain transcriptomics into an interactive, data-synchronized neural proxy and a separate cinematic media companion.
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="#technical-benchmark" class="btn-primary">
+              <span>Explore Technical Benchmark</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+
+            <a href="#media-companion" class="btn-secondary">
+              <span>Meet Commander Pip</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+              </svg>
+            </a>
+          </div>
+
+          <div class="hero-provenance">
+            Informed by RR-10 context and OSD-563/OSD-564 cerebellum–hippocampus transcriptomic analyses.
+          </div>
+        </div>
+
+        <div class="hero-visual-card">
+          <img src="assets/technical_preview.png" alt="Rendered 3D Murine Neural Proxy in WebGL viewer with telemetry rings and background PCA constellation" class="hero-preview-img" width="800" height="500">
+          <div class="hero-visual-telemetry">
+            <div class="telemetry-item">
+              <span class="telemetry-label">Primary Target</span>
+              <span class="telemetry-value">Murine Neural Proxy</span>
+            </div>
+            <div class="telemetry-item">
+              <span class="telemetry-label">Source Datasets</span>
+              <span class="telemetry-value">OSD-563 & OSD-564</span>
+            </div>
+            <div class="telemetry-item">
+              <span class="telemetry-label">Condition Metric</span>
+              <span class="telemetry-value">Flight (FLT) vs. Control (GC)</span>
+            </div>
+            <div class="telemetry-item">
+              <span class="telemetry-label">Architecture</span>
+              <span class="telemetry-value">Procedural Blender → GLB</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Project Overview Section -->
+    <section id="overview" class="section">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-eyebrow">Dual-Mode Design</p>
+          <h2 class="section-title">One Scientific Foundation, Two Distinct Expressions</h2>
+          <p class="section-description">
+            Orbiting Minds connects quantitative space biology findings with real-time 3D visualization. The system maintains a strict conceptual and technical separation between analytical visual proxies and public storytelling.
+          </p>
+        </div>
+
+        <div class="overview-grid">
+          <!-- Technical Benchmark Card -->
+          <article class="mode-card mode-card-technical">
+            <div class="hero-tag-row">
+              <span class="badge badge-terracotta">Mode 01</span>
+              <span class="badge">Analytical & Empirical</span>
+            </div>
+            <h3 class="mode-card-title">Technical Benchmark Experience</h3>
+            <p class="mode-card-desc">
+              An interactive, data-synchronized murine neural proxy designed to explore spaceflight transcriptomic adaptation. Features dataset-linked analytic evidence, anatomical hotspot annotations, diagnostic wireframe inspection, and a graph-derived PCA background constellation.
+            </p>
+            <ul class="feature-list">
+              <li class="feature-item">
+                <span class="feature-bullet">›</span>
+                <span><strong>Murine proxy geometry</strong>: Lissencephalic bilateral cortex and olfactory bulbs.</span>
+              </li>
+              <li class="feature-item">
+                <span class="feature-bullet">›</span>
+                <span><strong>Three inspection modes</strong>: Presentation, Annotated, and Diagnostic topology.</span>
+              </li>
+              <li class="feature-item">
+                <span class="feature-bullet">›</span>
+                <span><strong>Evidence drawer</strong>: Literal vector PCA plots and rRNA-removal QC curves.</span>
+              </li>
+              <li class="feature-item">
+                <span class="feature-bullet">›</span>
+                <span><strong>Independent asset</strong>: Exported to <code>exports/simulation.glb</code> (~1.1 MB).</span>
+              </li>
+            </ul>
+          </article>
+
+          <!-- Media Companion Card -->
+          <article class="mode-card mode-card-media">
+            <div class="hero-tag-row">
+              <span class="badge badge-gold">Mode 02</span>
+              <span class="badge">Narrative & Cinematic</span>
+            </div>
+            <h3 class="mode-card-title">Media Companion: Commander Pip</h3>
+            <p class="mode-card-desc">
+              A stylized zero-G narrative experience following Commander Pip, an astronaut mouse in an orbital research habitat. Designed for public engagement and science communication without compromising the empirical integrity of the primary benchmark data.
+            </p>
+            <ul class="feature-list">
+              <li class="feature-item">
+                <span class="feature-bullet-gold">›</span>
+                <span><strong>Cinematic protagonist</strong>: Commander Pip in a tailored EVA space exploration suit.</span>
+              </li>
+              <li class="feature-item">
+                <span class="feature-bullet-gold">›</span>
+                <span><strong>Zero-G habitat staging</strong>: Centrifuge guidance track and Earth porthole horizon.</span>
+              </li>
+              <li class="feature-item">
+                <span class="feature-bullet-gold">›</span>
+                <span><strong>Cyclic animation loop</strong>: Weightless drift, attitude scanning, and tail stabilization.</span>
+              </li>
+              <li class="feature-item">
+                <span class="feature-bullet-gold">›</span>
+                <span><strong>Independent asset</strong>: Exported to <code>exports/media_simulation.glb</code> (~688 KB).</span>
+              </li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Technical Benchmark Section -->
+    <section id="technical-benchmark" class="section">
+      <div class="container">
+        <div class="tech-benchmark-grid">
+          <div class="tech-info-column">
+            <div class="section-header" style="margin-bottom: 2rem;">
+              <p class="section-eyebrow">Technical Simulation</p>
+              <h2 class="section-title">The Murine Neural Proxy</h2>
+              <p class="section-description">
+                The technical scene abstracts complex neuro-transcriptomic responses into an interactive 3D proxy, translating condition-specific variances into procedural visual grammar.
+              </p>
+            </div>
+
+            <div class="anatomy-list">
+              <div class="anatomy-item">
+                <h4 class="anatomy-title">Lissencephalic Bilateral Cortex</h4>
+                <p class="anatomy-desc">Smooth-surfaced left and right cerebral lobes separated by a distinct longitudinal fissure, honoring authentic rodent brain macro-morphology.</p>
+              </div>
+
+              <div class="anatomy-item">
+                <h4 class="anatomy-title">Rostral Olfactory Structures</h4>
+                <p class="anatomy-desc">Elongated paired olfactory bulbs anchoring the anterior rostral pole of the central proxy.</p>
+              </div>
+
+              <div class="anatomy-item">
+                <h4 class="anatomy-title">Hippocampal / Synaptic Core</h4>
+                <p class="anatomy-desc">Inset deep synaptic core exhibiting controlled subsurface scattering and emissive bioluminescent warmth, modulated by aggregate stress indicators.</p>
+              </div>
+
+              <div class="anatomy-item">
+                <h4 class="anatomy-title">Caudal Cerebellar Node</h4>
+                <p class="anatomy-desc">Posterior cerebellar structure featuring subtle transverse foliation folds reflecting vestibular adaptation focus.</p>
+              </div>
+
+              <div class="anatomy-item">
+                <h4 class="anatomy-title">Telemetry Tracks and Sensor Probes</h4>
+                <p class="anatomy-desc">Concentric orbital gimbal rings representing analytic data acquisition passes and multi-axis monitoring.</p>
+              </div>
+            </div>
+
+            <!-- Viewer Modes Showcase -->
+            <div class="modes-showcase">
+              <h4 style="font-size: 1rem; color: var(--text-primary);">Three Interactive Viewing Perspectives</h4>
+              <div class="modes-pills">
+                <div class="mode-pill-item">
+                  <p class="mode-pill-name">01. Presentation</p>
+                  <p class="mode-pill-desc">Clean, cinematic PBR lighting with soft contact shadows and auto-orbit.</p>
+                </div>
+                <div class="mode-pill-item">
+                  <p class="mode-pill-name">02. Annotated</p>
+                  <p class="mode-pill-desc">Interactive hover/click hotspots with derived-data summaries and accession IDs.</p>
+                </div>
+                <div class="mode-pill-item">
+                  <p class="mode-pill-name">03. Diagnostic</p>
+                  <p class="mode-pill-desc">Wireframe topology overlay for polygon density and geometry verification.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="interpretation-boundary-box">
+              <strong>Interpretation Boundary:</strong> The scene is a stylized, benchmark-informed visualization proxy; it does not represent a literal anatomical or physiological simulation.
+            </div>
+          </div>
+
+          <!-- Viewer Launch Sidebar Card -->
+          <div class="viewer-launch-card">
+            <div class="viewer-card-preview">
+              <img src="assets/annotated_preview.png" alt="Interactive Annotated View of Murine Neural Proxy with Hotspots" class="viewer-card-img" width="600" height="400">
+              <div class="viewer-card-overlay">
+                <span class="badge badge-cyan">Interactive WebGL Experience</span>
+              </div>
+            </div>
+
+            <div class="viewer-card-body">
+              <h3 style="font-size: 1.25rem;">Live WebGL Viewer</h3>
+              <p style="font-size: 0.9rem; color: var(--text-secondary);">
+                Explore the complete 3D simulation directly in your browser. Toggle annotation hotspots, examine wireframes, and open the vector analytic drawer.
+              </p>
+
+              <a href="../web-viewer/index.html" class="btn-primary" style="width: 100%;" target="_blank" rel="noopener noreferrer">
+                <span>Launch Interactive Viewer</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+              </a>
+
+              <div style="font-size: 0.78rem; color: var(--text-muted); font-family: var(--font-mono); text-align: center;">
+                Requires WebGL 2.0 · Runs locally without external dependencies
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Data and Findings Section -->
+    <section id="data-findings" class="section">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-eyebrow">Scientific Grounding</p>
+          <h2 class="section-title">Data Context and Empirical Findings</h2>
+          <p class="section-description">
+            Source data originates from the NASA Rodent Research-10 (RR-10) mission on the International Space Station, comparing spaceflight (FLT) against ground control (GC) samples.
+          </p>
+        </div>
+
+        <div class="data-findings-grid">
+          <div class="data-summary-box">
+            <h3 style="font-size: 1.35rem;">Cerebellum vs. Hippocampus Profiling</h3>
+            <p>
+              The original comparative transcriptomics analysis evaluated how distinct murine brain structures respond to the microgravity and radiation environment of low Earth orbit:
+            </p>
+
+            <ul class="feature-list">
+              <li class="feature-item">
+                <span class="feature-bullet">›</span>
+                <span><strong>OSD-563 (Cerebellum)</strong>: Investigates vestibular adaptation, sensorimotor integration, and regional microvascular gene expression.</span>
+              </li>
+              <li class="feature-item">
+                <span class="feature-bullet">›</span>
+                <span><strong>OSD-564 (Hippocampus)</strong>: Analyzes synaptic plasticity, neurogenesis indicators, and cognitive stress response under fluid shift.</span>
+              </li>
+              <li class="feature-item">
+                <span class="feature-bullet">›</span>
+                <span><strong>Related Identifiers</strong>: NASA GeneLab legacy records <strong>GLDS-568</strong> and <strong>GLDS-569</strong>.</span>
+              </li>
+            </ul>
+
+            <div class="stats-highlight-grid">
+              <div class="stat-card">
+                <span class="stat-dataset">OSD-563 Cerebellum</span>
+                <span class="stat-number">PC1: 25.6%</span>
+                <span class="stat-label">PC2: 18.5% Variance Explained</span>
+              </div>
+
+              <div class="stat-card">
+                <span class="stat-dataset">OSD-564 Hippocampus</span>
+                <span class="stat-number">PC1: 28.3%</span>
+                <span class="stat-label">PC2: 15.7% Variance Explained</span>
+              </div>
+
+              <div class="stat-card">
+                <span class="stat-dataset">QC Concordance</span>
+                <span class="stat-number">r = 1.000</span>
+                <span class="stat-label">rRNA Removal Per-Value Agreement</span>
+              </div>
+
+              <div class="stat-card">
+                <span class="stat-dataset">Shift Distribution</span>
+                <span class="stat-number">0.012 Peak</span>
+                <span class="stat-label">Truncation Spike at 0.355</span>
+              </div>
+            </div>
+
+            <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.5; margin-top: 0.5rem;">
+              <strong>Scientific Caution:</strong> These metrics characterize bioinformatics pipeline stability and mathematical variance separation. Causal biological conclusions require primary experimental validation beyond exploratory transcriptomics alone.
+            </p>
+          </div>
+
+          <!-- Visual Evidence Preview -->
+          <div class="data-preview-visual">
+            <img src="assets/analytics_preview.png" alt="Comparative PCA plots for Cerebellum and Hippocampus gene expression" class="data-preview-img" width="600" height="350">
+            <div class="data-preview-caption">
+              <strong>Integrated Analytic Evidence Drawer:</strong> In the technical viewer, these literal notebook figures serve as the authoritative evidence view. Meanwhile, the background 3D PCA constellation is a graph-derived background motif, not literal anatomical coordinates.
+              <div style="margin-top: 0.75rem;">
+                <a href="https://www.kaggle.com/code/gastondana/cerebellum-vs-hippocampus-rr-10-spaceflight-mice" target="_blank" rel="noopener noreferrer" style="color: var(--accent-terracotta); font-weight: 600; font-size: 0.85rem;">
+                  View Original Kaggle Notebook Findings →
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Data-to-3D Mapping Table Section -->
+    <section id="visual-mappings" class="section">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-eyebrow">Transformation Rules</p>
+          <h2 class="section-title">Data-to-3D Visual Mappings</h2>
+          <p class="section-description">
+            Explicit boundary rules establishing how quantitative transcriptomic values are translated into 3D scene parameters without misrepresenting biological reality.
+          </p>
+        </div>
+
+        <div class="table-wrapper">
+          <table class="mapping-table">
+            <thead>
+              <tr>
+                <th scope="col" style="width: 25%;">Source / Derived Input</th>
+                <th scope="col" style="width: 25%;">3D Visual Encoding</th>
+                <th scope="col" style="width: 50%;">Interpretation Boundary</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="mapping-source">Adaptation / Aggregate Score</td>
+                <td class="mapping-encoding">Core Scale (0.85x – 1.30x) & Emission Warmth</td>
+                <td class="mapping-boundary"><strong>Derived visualization control.</strong> Stylized abstraction of response magnitude; not a measurement of physical brain volume, edema, or perfusion.</td>
+              </tr>
+              <tr>
+                <td class="mapping-source">Volatility / Fluid Shift Indicator</td>
+                <td class="mapping-encoding">Cephalic Pulse Rate & Bilateral Asymmetry</td>
+                <td class="mapping-boundary"><strong>Derived visualization control.</strong> Stylized kinetic metaphor for fluid redistribution; not an intracranial pressure transducer recording.</td>
+              </tr>
+              <tr>
+                <td class="mapping-source">Cluster Dimensionality</td>
+                <td class="mapping-encoding">Orbital Telemetry Rings (2 – 4) & Probes</td>
+                <td class="mapping-boundary"><strong>Interface metaphor.</strong> Represents analytic dimensionality and cluster count; not physical instruments orbiting brain tissue.</td>
+              </tr>
+              <tr>
+                <td class="mapping-source">Sample Timeline Duration</td>
+                <td class="mapping-encoding">Timeline Loop Length (120 – 240 Frames)</td>
+                <td class="mapping-boundary"><strong>Standard temporal loop.</strong> Standardized playback duration for smooth WebGL rendering.</td>
+              </tr>
+              <tr>
+                <td class="mapping-source">Sample PCA Coordinates</td>
+                <td class="mapping-encoding">Background Constellation Spheres (FLT / GC)</td>
+                <td class="mapping-boundary"><strong>Graph-derived background motif.</strong> Depicts mathematical sample variance in 3D space; does not indicate physical coordinates in tissue.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Media Companion Section -->
+    <section id="media-companion" class="section">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-eyebrow">Creative Branch</p>
+          <h2 class="section-title">Commander Pip: Zero-G Odyssey</h2>
+          <p class="section-description">
+            A stylized, charismatic cinematic narrative that honors the legacy of spaceflight rodent research through character-driven storytelling.
+          </p>
+        </div>
+
+        <div class="media-companion-layout">
+          <!-- Video Component / Future Miris Placeholder -->
+          <div class="video-player-component" id="video-component">
+            <div class="video-poster-wrapper" id="video-poster-wrapper">
+              <img src="assets/pip_hero.png" alt="Commander Pip Astronaut Mouse in EVA suit inside Zero-G Habitat" class="video-poster-img" width="800" height="450">
+              
+              <div class="video-state-overlay" id="video-state-overlay">
+                <div class="video-top-meta">
+                  <span class="badge badge-gold" id="video-status-badge">Cinematic Clip Coming Soon</span>
+                  <span class="badge" style="background: rgba(0,0,0,0.6);">Miris Showcase</span>
+                </div>
+
+                <div class="video-center-indicator">
+                  <button class="play-icon-box" id="video-play-btn" aria-label="Play Commander Pip Cinematic Preview">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                      <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                    </svg>
+                  </button>
+                </div>
+
+                <div class="video-bottom-meta">
+                  <p class="video-clip-title">Commander Pip: Zero-G Odyssey</p>
+                  <p class="video-clip-sub">Stylized media companion inspired by RR-10 mission context</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Character Description & Details -->
+          <div class="media-details-column">
+            <h3 style="font-size: 1.4rem;">Character & Habitat Architecture</h3>
+            <p style="margin-top: 0.5rem;">
+              A polished, stylized astronaut-mouse narrative set inside a zero-G orbital research habitat. Commander Pip is modeled with real-time PBR shaders and web-optimized geometry:
+            </p>
+
+            <div class="character-spec-list">
+              <div class="char-spec-item">
+                <p class="char-spec-title">EVA Spacesuit</p>
+                <p class="char-spec-value">Tailored matte-white aerospace fabric with 4-point orange cross-harness.</p>
+              </div>
+              <div class="char-spec-item">
+                <p class="char-spec-title">Bubble Visor</p>
+                <p class="char-spec-value">Electroplated warm-gold reflective visor with curved highlight sheen.</p>
+              </div>
+              <div class="char-spec-item">
+                <p class="char-spec-title">Attitude Stabilizer</p>
+                <p class="char-spec-value">Articulated 5-segment tail featuring a signature T-wing micro-thruster.</p>
+              </div>
+              <div class="char-spec-item">
+                <p class="char-spec-title">Habitat Staging</p>
+                <p class="char-spec-value">Centrifuge guidance rail, floating nutrient orbs, and Earth-horizon glow.</p>
+              </div>
+            </div>
+
+            <div class="hero-cta-group" style="margin-top: 1rem;">
+              <a href="../web-viewer/index.html" class="btn-primary" target="_blank" rel="noopener noreferrer">
+                <span>Inspect Pip in 3D Viewer</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+              </a>
+            </div>
+
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 1.25rem;">
+              <em>This companion experience is inspired by mission context and is not a literal scientific reconstruction.</em>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. Resource Hub Section (Mission Console) -->
+    <section id="resources" class="section">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-eyebrow">Mission Console</p>
+          <h2 class="section-title">Data Sources & Project Resources</h2>
+          <p class="section-description">
+            Direct access to official NASA Open Science repositories, benchmark harnesses, comparative notebooks, and community working groups.
+          </p>
+        </div>
+
+        <div class="resource-console">
+          <!-- Category 1: NASA OSDR / RR-10 -->
+          <div class="resource-category">
+            <div class="category-header">
+              <span class="badge badge-cyan">Primary Accessions</span>
+              <h3 class="category-title">NASA OSDR / RR-10 Source Studies</h3>
+            </div>
+            <div class="resource-grid">
+              <a href="https://osdr.nasa.gov/bio/repo/data/payloads/RR-10" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <span class="resource-card-name">
+                  <span>RR-10 Payload Record</span>
+                  <span aria-hidden="true">↗</span>
+                </span>
+                <span class="resource-card-desc">Rodent Research 10 payload metadata & hardware specs</span>
+              </a>
+
+              <a href="https://osdr.nasa.gov/bio/repo/data/studies/OSD-563" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <span class="resource-card-name">
+                  <span>OSD-563 Accession</span>
+                  <span aria-hidden="true">↗</span>
+                </span>
+                <span class="resource-card-desc">Cerebellum transcriptomics from RR-10 spaceflight mice</span>
+              </a>
+
+              <a href="https://osdr.nasa.gov/bio/repo/data/studies/OSD-564" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <span class="resource-card-name">
+                  <span>OSD-564 Accession</span>
+                  <span aria-hidden="true">↗</span>
+                </span>
+                <span class="resource-card-desc">Hippocampus transcriptomics from RR-10 spaceflight mice</span>
+              </a>
+
+              <a href="https://osdr.nasa.gov/bio/repo/data/missions/SpaceX-21" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <span class="resource-card-name">
+                  <span>SpaceX-21 Mission</span>
+                  <span aria-hidden="true">↗</span>
+                </span>
+                <span class="resource-card-desc">Flight mission manifest and operational profile</span>
+              </a>
+
+              <a href="https://genelab.nasa.gov/" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <span class="resource-card-name">
+                  <span>NASA GeneLab</span>
+                  <span aria-hidden="true">↗</span>
+                </span>
+                <span class="resource-card-desc">Open science platform for life sciences in space</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Category 2: Kaggle Analysis & Benchmark -->
+          <div class="resource-category">
+            <div class="category-header">
+              <span class="badge badge-terracotta">Kaggle Benchmarking</span>
+              <h3 class="category-title">Kaggle Analysis & Benchmark Resources</h3>
+            </div>
+            <div class="resource-grid">
+              <a href="https://www.kaggle.com/benchmarks/tasks/gastondana/rr-10-transcriptomics-reasoning-benchmark/2" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <span class="resource-card-name">
+                  <span>Reasoning Benchmark (Task 2)</span>
+                  <span aria-hidden="true">↗</span>
+                </span>
+                <span class="resource-card-desc">Official benchmark evaluating reasoning on RR-10 data</span>
+              </a>
+
+              <a href="https://www.kaggle.com/code/gastondana/rr-10-transcriptomics-reasoning-benchmark-task" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <span class="resource-card-name">
+                  <span>Benchmark Code Harness</span>
+                  <span aria-hidden="true">↗</span>
+                </span>
+                <span class="resource-card-desc">Reference evaluation harness & metric scoring code</span>
+              </a>
+
+              <a href="https://www.kaggle.com/code/gastondana/cerebellum-vs-hippocampus-rr-10-spaceflight-mice" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <span class="resource-card-name">
+                  <span>Comparative Notebook</span>
+                  <span aria-hidden="true">↗</span>
+                </span>
+                <span class="resource-card-desc">Cerebellum vs. Hippocampus transcriptomic analysis</span>
+              </a>
+
+              <a href="https://www.kaggle.com/datasets/gastondana/osd-563564-cerebellum-vs-hippocampus-rr-10/data" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <span class="resource-card-name">
+                  <span>Normalized Dataset</span>
+                  <span aria-hidden="true">↗</span>
+                </span>
+                <span class="resource-card-desc">Variance-stabilized counts and sample metadata</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Category 3: Community Working Groups -->
+          <div class="resource-category">
+            <div class="category-header">
+              <span class="badge badge-gold">Community</span>
+              <h3 class="category-title">NASA OSDR Analysis Working Groups</h3>
+            </div>
+            <div class="resource-grid">
+              <a href="https://science.nasa.gov/citizen-science/osdr-awg/" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <span class="resource-card-name">
+                  <span>NASA OSDR AWG Overview</span>
+                  <span aria-hidden="true">↗</span>
+                </span>
+                <span class="resource-card-desc">Citizen science & scientific working groups</span>
+              </a>
+
+              <a href="https://awg.osdr.space/top" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <span class="resource-card-name">
+                  <span>OSDR AWG Forum</span>
+                  <span aria-hidden="true">↗</span>
+                </span>
+                <span class="resource-card-desc">Central community discussion board</span>
+              </a>
+
+              <a href="https://awg.osdr.space/c/awg-discussions/ai-ml/11" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <span class="resource-card-name">
+                  <span>AI/ML AWG Topics</span>
+                  <span aria-hidden="true">↗</span>
+                </span>
+                <span class="resource-card-desc">Discussions on artificial intelligence in space omics</span>
+              </a>
+
+              <a href="https://github.com/OpenScienceDataRepo/AI-ML_AWG" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <span class="resource-card-name">
+                  <span>AI/ML AWG GitHub</span>
+                  <span aria-hidden="true">↗</span>
+                </span>
+                <span class="resource-card-desc">Open source tools and shared benchmark code</span>
+              </a>
+
+              <a href="https://awg.osdr.space/c/awg-projects/20" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <span class="resource-card-name">
+                  <span>AWG Projects Category</span>
+                  <span aria-hidden="true">↗</span>
+                </span>
+                <span class="resource-card-desc">Community-led research projects and publications</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Category 4: Project Repository & Verified Placeholders -->
+          <div class="resource-category">
+            <div class="category-header">
+              <span class="badge">Project Artifacts</span>
+              <h3 class="category-title">Project Code & Direct Channels</h3>
+            </div>
+            <div class="resource-grid">
+              <a href="https://github.com/gastondana627/blender-simulator" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <span class="resource-card-name">
+                  <span>Source Code (GitHub)</span>
+                  <span aria-hidden="true">↗</span>
+                </span>
+                <span class="resource-card-desc">Full procedural pipeline, recipes, add-on, & WebGL viewer</span>
+              </a>
+
+              <div class="resource-card resource-card-placeholder" aria-label="Google Scholar Profile placeholder">
+                <span class="resource-card-name">
+                  <span>Google Scholar Profile</span>
+                  <span class="placeholder-tag">Add Verified URL</span>
+                </span>
+                <span class="resource-card-desc">Verified public profile will be linked after indexing</span>
+              </div>
+
+              <div class="resource-card resource-card-placeholder" id="placeholder-awg-brain" aria-label="Brain AWG Post placeholder">
+                <span class="resource-card-name">
+                  <span>Brain AWG Project Post</span>
+                  <span class="placeholder-tag">Direct URL Soon</span>
+                </span>
+                <span class="resource-card-desc">Direct thread URL will be posted after AWG review</span>
+              </div>
+
+              <div class="resource-card resource-card-placeholder" id="placeholder-awg-aiml" aria-label="AI/ML AWG Post placeholder">
+                <span class="resource-card-name">
+                  <span>AI/ML AWG Project Post</span>
+                  <span class="placeholder-tag">Direct URL Soon</span>
+                </span>
+                <span class="resource-card-desc">Direct thread URL will be posted after AWG review</span>
+              </div>
+
+              <div class="resource-card resource-card-placeholder" id="placeholder-live-site" aria-label="Live Project Deployment placeholder">
+                <span class="resource-card-name">
+                  <span>Live Project Deployment</span>
+                  <span class="placeholder-tag">Add After Deploy</span>
+                </span>
+                <span class="resource-card-desc">Production domain link will be configured upon launch</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. Citation and Attribution Section -->
+    <section id="citation" class="section">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-eyebrow">Scholarly Attribution</p>
+          <h2 class="section-title">Citation and Provenance</h2>
+          <p class="section-description">
+            If you utilize this pipeline, procedural generator, or visual proxy in academic research, benchmarks, or creative simulations, please cite as follows:
+          </p>
+        </div>
+
+        <div class="citation-box-container">
+          <div class="citation-code-block" id="citation-text" tabindex="0" role="region" aria-label="Citation Text">Gaston Dana. “Orbiting Minds: An RR-10 Data-to-3D Simulation Experience.” GitHub repository, 2026. https://github.com/gastondana627/blender-simulator.</div>
+
+          <div class="citation-action-row">
+            <button class="copy-citation-btn" id="copy-citation-btn" aria-label="Copy citation to clipboard">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+              <span>Copy Citation</span>
+            </button>
+
+            <span class="citation-confirm-msg" id="citation-confirm-msg" role="status" aria-live="polite">✓ Copied to clipboard!</span>
+          </div>
+
+          <div style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6; border-top: 1px solid var(--border-subtle); padding-top: 1.25rem;">
+            <strong>Primary Study Attribution:</strong> Please also cite the underlying NASA Open Science Data Repository studies (OSD-563, OSD-564) and the original research teams whose open-science contributions made this work possible. NASA and OSDR designations are cited strictly for source attribution; this project is an independent computational effort and is not an official NASA product.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. About the Creator Section -->
+    <section id="about" class="section">
+      <div class="container">
+        <div class="about-creator-card">
+          <div class="hero-tag-row">
+            <span class="badge badge-terracotta">Project Creator</span>
+            <span class="badge">Open Science Research</span>
+          </div>
+          <h3 class="creator-name">Gaston Dana</h3>
+          <p class="creator-bio">
+            Multimodal technologist and Kaggle researcher building AI-driven benchmarks, data visualization systems, and creative simulation workflows.
+          </p>
+
+          <div class="creator-actions">
+            <a href="https://github.com/gastondana627/blender-simulator" class="btn-secondary" target="_blank" rel="noopener noreferrer">
+              <span>GitHub Repository</span>
+              <span aria-hidden="true">↗</span>
+            </a>
+
+            <button class="btn-secondary scholar-placeholder" style="opacity: 0.7; cursor: not-allowed;" title="Verified public profile URL will be added soon" aria-disabled="true">
+              <span>Google Scholar (Pending)</span>
+            </button>
+
+            <a href="https://www.kaggle.com/code/gastondana/cerebellum-vs-hippocampus-rr-10-spaceflight-mice" class="btn-secondary" target="_blank" rel="noopener noreferrer">
+              <span>Kaggle Notebook</span>
+              <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. Limitations Section -->
+    <section id="limitations" class="section" style="border-bottom: none;">
+      <div class="container">
+        <div class="section-header" style="margin-bottom: 2.5rem;">
+          <p class="section-eyebrow">Scientific Boundaries</p>
+          <h2 class="section-title">Explicit Limitations</h2>
+          <p class="section-description">
+            Transparent interpretation boundaries to ensure clarity for researchers, reviewers, and the public.
+          </p>
+        </div>
+
+        <div class="limitations-grid">
+          <div class="limitation-item">
+            <h4 class="limitation-title">01. Visual Proxy, Not Clinical Model</h4>
+            <p class="limitation-desc">
+              The technical scene is an interactive benchmark-informed visualization proxy. It is not a validated biomedical simulator, anatomical reconstruction, or clinical diagnostic tool.
+            </p>
+          </div>
+
+          <div class="limitation-item">
+            <h4 class="limitation-title">02. Authority of Primary Literature</h4>
+            <p class="limitation-desc">
+              Visual parameters (such as scale factors, emission warmth, pulsation rates, and telemetry ring counts) are qualitative visual encodings. The original Kaggle notebooks, peer-reviewed publications, and NASA OSDR accessions remain the sole authoritative references.
+            </p>
+          </div>
+
+          <div class="limitation-item">
+            <h4 class="limitation-title">03. Narrative Fiction Boundaries</h4>
+            <p class="limitation-desc">
+              The Media Companion (Commander Pip: Zero-G Odyssey) is stylized narrative content created for public engagement and visual storytelling; it should not be interpreted as scientific evidence, historical flight reconstruction, or biological simulation.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 11. Site Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <p style="font-family: var(--font-display); font-weight: 700; font-size: 1.1rem; color: var(--text-primary); margin-bottom: 0.25rem;">
+            Orbiting Minds
+          </p>
+          <p style="font-size: 0.85rem; color: var(--text-secondary);">
+            An RR-10 Data-to-3D Simulation Experience · 2026
+          </p>
+        </div>
+
+        <ul class="footer-links">
+          <li><a href="https://github.com/gastondana627/blender-simulator" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+          <li><a href="https://www.kaggle.com/datasets/gastondana/osd-563564-cerebellum-vs-hippocampus-rr-10/data" target="_blank" rel="noopener noreferrer">Kaggle Dataset</a></li>
+          <li><a href="#citation">Citation</a></li>
+          <li><a href="#hero">Back to Top ↑</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-bottom">
+        <p>Created by Gaston Dana. NASA OSDR accessions cited for source attribution; not an official NASA product.</p>
+        <p style="font-family: var(--font-mono); font-size: 0.75rem;">Independent Research · Procedural Blender ↔ WebGL</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

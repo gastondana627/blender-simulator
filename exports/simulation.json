@@ -1,0 +1,488 @@
+{
+  "pipeline": "Antigravity-Blender Creative Simulator",
+  "generated_at": "2026-09-06T22:55:17.422618+00:00",
+  "blender_version": "4.1.1",
+  "recipe_name": "Murine Neural Proxy: RR-10 Spaceflight Neuro-Adaptation",
+  "seed": 38447,
+  "statistics": {
+    "total_objects": 47,
+    "total_vertices": 19032,
+    "total_faces": 19384,
+    "bounding_box": {
+      "min": [
+        -3.686,
+        -3.4794,
+        -4.0903
+      ],
+      "max": [
+        3.686,
+        3.4794,
+        4.0903
+      ],
+      "dimensions": [
+        7.372,
+        6.9588,
+        8.1806
+      ]
+    }
+  },
+  "animation": {
+    "frame_start": 1,
+    "frame_end": 150,
+    "fps": 30,
+    "total_frames": 150,
+    "duration_seconds": 5.0
+  },
+  "materials": [
+    "Mat_BioSensor_Optic",
+    "Mat_Flight_Telemetry_Hull",
+    "Mat_Habitat_Scaffold",
+    "Mat_Hippocampal_Core",
+    "Mat_Murine_Neural_Tissue",
+    "Mat_PCA_FLT",
+    "Mat_PCA_GC",
+    "Mat_Telemetry_Track"
+  ],
+  "objects": [
+    {
+      "name": "PCA_Node_OSD563_F1",
+      "vertices": 72,
+      "faces": 80,
+      "modifiers": []
+    },
+    {
+      "name": "PCA_Node_OSD563_F3",
+      "vertices": 72,
+      "faces": 80,
+      "modifiers": []
+    },
+    {
+      "name": "PCA_Node_OSD563_F5",
+      "vertices": 72,
+      "faces": 80,
+      "modifiers": []
+    },
+    {
+      "name": "PCA_Node_OSD563_F7",
+      "vertices": 72,
+      "faces": 80,
+      "modifiers": []
+    },
+    {
+      "name": "PCA_Node_OSD563_F9",
+      "vertices": 72,
+      "faces": 80,
+      "modifiers": []
+    },
+    {
+      "name": "PCA_Node_OSD563_G1",
+      "vertices": 72,
+      "faces": 80,
+      "modifiers": []
+    },
+    {
+      "name": "PCA_Node_OSD563_G3",
+      "vertices": 72,
+      "faces": 80,
+      "modifiers": []
+    },
+    {
+      "name": "PCA_Node_OSD563_G5",
+      "vertices": 72,
+      "faces": 80,
+      "modifiers": []
+    },
+    {
+      "name": "PCA_Node_OSD563_G7",
+      "vertices": 72,
+      "faces": 80,
+      "modifiers": []
+    },
+    {
+      "name": "PCA_Node_OSD563_G9",
+      "vertices": 72,
+      "faces": 80,
+      "modifiers": []
+    },
+    {
+      "name": "PCA_Node_OSD564_F1",
+      "vertices": 72,
+      "faces": 80,
+      "modifiers": []
+    },
+    {
+      "name": "PCA_Node_OSD564_F3",
+      "vertices": 72,
+      "faces": 80,
+      "modifiers": []
+    },
+    {
+      "name": "PCA_Node_OSD564_F5",
+      "vertices": 72,
+      "faces": 80,
+      "modifiers": []
+    },
+    {
+      "name": "PCA_Node_OSD564_F7",
+      "vertices": 72,
+      "faces": 80,
+      "modifiers": []
+    },
+    {
+      "name": "PCA_Node_OSD564_F9",
+      "vertices": 72,
+      "faces": 80,
+      "modifiers": []
+    },
+    {
+      "name": "PCA_Node_OSD564_G1",
+      "vertices": 72,
+      "faces": 80,
+      "modifiers": []
+    },
+    {
+      "name": "PCA_Node_OSD564_G3",
+      "vertices": 72,
+      "faces": 80,
+      "modifiers": []
+    },
+    {
+      "name": "PCA_Node_OSD564_G5",
+      "vertices": 72,
+      "faces": 80,
+      "modifiers": []
+    },
+    {
+      "name": "PCA_Node_OSD564_G7",
+      "vertices": 72,
+      "faces": 80,
+      "modifiers": []
+    },
+    {
+      "name": "PCA_Node_OSD564_G9",
+      "vertices": 72,
+      "faces": 80,
+      "modifiers": []
+    },
+    {
+      "name": "Murine_Cortex_Left",
+      "vertices": 6050,
+      "faces": 6048,
+      "modifiers": [
+        "Microvascular_Strain",
+        "Subsurf"
+      ]
+    },
+    {
+      "name": "Murine_Cortex_Right",
+      "vertices": 6050,
+      "faces": 6048,
+      "modifiers": [
+        "Microvascular_Strain",
+        "Subsurf"
+      ]
+    },
+    {
+      "name": "Murine_Olfactory_Left",
+      "vertices": 362,
+      "faces": 384,
+      "modifiers": []
+    },
+    {
+      "name": "Murine_Olfactory_Right",
+      "vertices": 362,
+      "faces": 384,
+      "modifiers": []
+    },
+    {
+      "name": "Murine_Cerebellar_Node",
+      "vertices": 610,
+      "faces": 640,
+      "modifiers": [
+        "Folia_Displace"
+      ]
+    },
+    {
+      "name": "Hippocampal_Synaptic_Core",
+      "vertices": 362,
+      "faces": 384,
+      "modifiers": []
+    },
+    {
+      "name": "Habitat_Telemetry_Track_1",
+      "vertices": 540,
+      "faces": 540,
+      "modifiers": []
+    },
+    {
+      "name": "BioTelemetry_Probe_1_A_Hull",
+      "vertices": 16,
+      "faces": 10,
+      "modifiers": []
+    },
+    {
+      "name": "BioTelemetry_Probe_1_A_Optic",
+      "vertices": 178,
+      "faces": 192,
+      "modifiers": []
+    },
+    {
+      "name": "BioTelemetry_Probe_1_B_Hull",
+      "vertices": 16,
+      "faces": 10,
+      "modifiers": []
+    },
+    {
+      "name": "BioTelemetry_Probe_1_B_Optic",
+      "vertices": 178,
+      "faces": 192,
+      "modifiers": []
+    },
+    {
+      "name": "Habitat_Telemetry_Track_2",
+      "vertices": 540,
+      "faces": 540,
+      "modifiers": []
+    },
+    {
+      "name": "BioTelemetry_Probe_2_A_Hull",
+      "vertices": 16,
+      "faces": 10,
+      "modifiers": []
+    },
+    {
+      "name": "BioTelemetry_Probe_2_A_Optic",
+      "vertices": 178,
+      "faces": 192,
+      "modifiers": []
+    },
+    {
+      "name": "BioTelemetry_Probe_2_B_Hull",
+      "vertices": 16,
+      "faces": 10,
+      "modifiers": []
+    },
+    {
+      "name": "BioTelemetry_Probe_2_B_Optic",
+      "vertices": 178,
+      "faces": 192,
+      "modifiers": []
+    },
+    {
+      "name": "Habitat_Telemetry_Track_3",
+      "vertices": 540,
+      "faces": 540,
+      "modifiers": []
+    },
+    {
+      "name": "BioTelemetry_Probe_3_A_Hull",
+      "vertices": 16,
+      "faces": 10,
+      "modifiers": []
+    },
+    {
+      "name": "BioTelemetry_Probe_3_A_Optic",
+      "vertices": 178,
+      "faces": 192,
+      "modifiers": []
+    },
+    {
+      "name": "BioTelemetry_Probe_3_B_Hull",
+      "vertices": 16,
+      "faces": 10,
+      "modifiers": []
+    },
+    {
+      "name": "BioTelemetry_Probe_3_B_Optic",
+      "vertices": 178,
+      "faces": 192,
+      "modifiers": []
+    },
+    {
+      "name": "Habitat_Telemetry_Track_4",
+      "vertices": 540,
+      "faces": 540,
+      "modifiers": []
+    },
+    {
+      "name": "BioTelemetry_Probe_4_A_Hull",
+      "vertices": 16,
+      "faces": 10,
+      "modifiers": []
+    },
+    {
+      "name": "BioTelemetry_Probe_4_A_Optic",
+      "vertices": 178,
+      "faces": 192,
+      "modifiers": []
+    },
+    {
+      "name": "BioTelemetry_Probe_4_B_Hull",
+      "vertices": 16,
+      "faces": 10,
+      "modifiers": []
+    },
+    {
+      "name": "BioTelemetry_Probe_4_B_Optic",
+      "vertices": 178,
+      "faces": 192,
+      "modifiers": []
+    },
+    {
+      "name": "Habitat_Radiation_Scaffold",
+      "vertices": 84,
+      "faces": 120,
+      "modifiers": [
+        "Habitat_Wire"
+      ]
+    }
+  ],
+  "export": {
+    "glb_path": "/Users/gastondana/Downloads/blender-simulator/exports/simulation.glb",
+    "glb_size_bytes": 1124376,
+    "glb_size_kb": 1098.02
+  },
+  "recipe_snapshot": {
+    "name": "Murine Neural Proxy: RR-10 Spaceflight Neuro-Adaptation",
+    "version": "3.0.0",
+    "mission_metadata": {
+      "mission": "NASA Rodent Research-10 (RR-10)",
+      "run_id": "rr10_flight_mouse_b42",
+      "flight_subject": "Mus musculus (C57BL/6J)",
+      "flight_duration_days": 60,
+      "adaptation_index": 0.942,
+      "microvascular_stress": 0.058,
+      "intracranial_volatility": 0.32,
+      "mission_regime": "flight_adapted"
+    },
+    "seed": 38447,
+    "generator": {
+      "type": "murine_neural_proxy",
+      "scale": 1.246,
+      "core_radius": 0.965,
+      "olfactory_scale": 0.473,
+      "cerebellar_scale": 0.612,
+      "cage_radius": 3.077,
+      "asymmetry": 1.064,
+      "capillary_depth": 0.093,
+      "capillary_frequency": 0.328,
+      "rings_count": 4,
+      "pods_per_ring": 2,
+      "wireframe_thickness": 0.012,
+      "animation_frames": 150,
+      "breathing_amplitude": 0.218
+    },
+    "materials": {
+      "murine_clay": {
+        "base_color": [
+          0.46,
+          0.32,
+          0.28,
+          1.0
+        ],
+        "metallic": 0.01,
+        "roughness": 0.55,
+        "subsurface_weight": 0.35,
+        "emission_color": [
+          0.88,
+          0.26,
+          0.14,
+          1.0
+        ],
+        "emission_strength": 5.63
+      },
+      "telemetry_hull": {
+        "base_color": [
+          0.11,
+          0.13,
+          0.17,
+          1.0
+        ],
+        "metallic": 0.94,
+        "roughness": 0.18,
+        "emission_color": [
+          0.0,
+          0.85,
+          1.0,
+          1.0
+        ],
+        "emission_strength": 0.5
+      },
+      "sensor_optic": {
+        "base_color": [
+          0.01,
+          0.05,
+          0.12,
+          1.0
+        ],
+        "metallic": 0.2,
+        "roughness": 0.1,
+        "emission_color": [
+          0.0,
+          0.95,
+          1.0,
+          1.0
+        ],
+        "emission_strength": 6.5
+      },
+      "orbital_tracks": {
+        "base_color": [
+          0.78,
+          0.82,
+          0.88,
+          1.0
+        ],
+        "metallic": 0.98,
+        "roughness": 0.12,
+        "emission_color": [
+          0.0,
+          0.9,
+          0.85,
+          1.0
+        ],
+        "emission_strength": 0.5
+      },
+      "telemetry_cage": {
+        "base_color": [
+          0.1,
+          0.12,
+          0.16,
+          1.0
+        ],
+        "metallic": 0.92,
+        "roughness": 0.3,
+        "emission_color": [
+          0.0,
+          0.8,
+          1.0,
+          1.0
+        ],
+        "emission_strength": 0.25
+      }
+    },
+    "scene": {
+      "fps": 30,
+      "frame_start": 1,
+      "frame_end": 150,
+      "camera": {
+        "focal_length": 55.0,
+        "distance_multiplier": 2.7,
+        "elevation_angle": 24.0,
+        "azimuth_angle": 42.0
+      },
+      "lighting": {
+        "preset": "rr10_flight_adapted",
+        "key_intensity": 1055.5,
+        "fill_intensity": 380.0,
+        "rim_intensity": 1573.9
+      }
+    },
+    "export": {
+      "glb_path": "exports/simulation.glb",
+      "metadata_path": "exports/simulation.json",
+      "export_animations": true,
+      "export_materials": true,
+      "apply_modifiers": true
+    }
+  }
+}

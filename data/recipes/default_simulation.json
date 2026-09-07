@@ -1,0 +1,64 @@
+{
+  "name": "Kinetic Gyroid Lattice Core",
+  "version": "1.0.0",
+  "seed": 42,
+  "generator": {
+    "type": "kinetic_gyroid",
+    "scale": 1.0,
+    "rings_count": 3,
+    "core_radius": 0.8,
+    "cage_radius": 2.2,
+    "subdivisions": 3,
+    "wireframe_thickness": 0.04,
+    "animation_frames": 120,
+    "rotation_speed": 1.0,
+    "breathing_amplitude": 0.15
+  },
+  "materials": {
+    "outer_cage": {
+      "base_color": [0.08, 0.09, 0.12, 1.0],
+      "metallic": 0.95,
+      "roughness": 0.22,
+      "emission_color": [0.1, 0.7, 1.0, 1.0],
+      "emission_strength": 1.5
+    },
+    "inner_core": {
+      "base_color": [0.15, 0.02, 0.25, 1.0],
+      "metallic": 0.8,
+      "roughness": 0.15,
+      "emission_color": [0.95, 0.2, 0.8, 1.0],
+      "emission_strength": 4.0
+    },
+    "orbital_rings": {
+      "base_color": [0.75, 0.78, 0.82, 1.0],
+      "metallic": 0.98,
+      "roughness": 0.12,
+      "emission_color": [0.0, 0.9, 0.8, 1.0],
+      "emission_strength": 0.8
+    }
+  },
+  "scene": {
+    "fps": 30,
+    "frame_start": 1,
+    "frame_end": 120,
+    "camera": {
+      "focal_length": 55.0,
+      "distance_multiplier": 2.6,
+      "elevation_angle": 25.0,
+      "azimuth_angle": 45.0
+    },
+    "lighting": {
+      "preset": "studio_cyberpunk",
+      "key_intensity": 800.0,
+      "fill_intensity": 350.0,
+      "rim_intensity": 1200.0
+    }
+  },
+  "export": {
+    "glb_path": "exports/simulation.glb",
+    "metadata_path": "exports/simulation.json",
+    "export_animations": true,
+    "export_materials": true,
+    "apply_modifiers": true
+  }
+}

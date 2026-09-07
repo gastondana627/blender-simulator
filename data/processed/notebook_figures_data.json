@@ -1,0 +1,109 @@
+{
+  "source_notebook": "04_rr10_neuro_adaptation.ipynb",
+  "mission": "NASA Rodent Research-10 (RR-10)",
+  "figure_a_pca": {
+    "title": "PCA of Gene Expression: FLT vs GC, by Tissue",
+    "description": "Principal Component Analysis of variance-stabilized gene expression counts separating spaceflight (FLT) from ground control (GC) murine samples across two brain regions.",
+    "condition_colors": {
+      "FLT": "#e04b4b",
+      "GC": "#3b82f6"
+    },
+    "tissues": {
+      "cerebellum": {
+        "dataset_id": "OSD-563",
+        "tissue_name": "Cerebellum",
+        "pc1_variance_pct": 25.6,
+        "pc2_variance_pct": 18.5,
+        "pc1_range": [-120, 190],
+        "pc2_range": [-125, 145],
+        "samples": [
+          {"id": "F1", "condition": "FLT", "pc1": 177.0, "pc2": -111.0},
+          {"id": "F3", "condition": "FLT", "pc1": 12.0, "pc2": 35.0},
+          {"id": "F5", "condition": "FLT", "pc1": 42.0, "pc2": 130.0},
+          {"id": "F7", "condition": "FLT", "pc1": -76.0, "pc2": -57.0},
+          {"id": "F9", "condition": "FLT", "pc1": -63.0, "pc2": -25.0},
+          {"id": "G1", "condition": "GC", "pc1": 73.0, "pc2": 6.0},
+          {"id": "G3", "condition": "GC", "pc1": -108.0, "pc2": -79.0},
+          {"id": "G5", "condition": "GC", "pc1": -48.0, "pc2": 11.0},
+          {"id": "G7", "condition": "GC", "pc1": -17.0, "pc2": 49.0},
+          {"id": "G9", "condition": "GC", "pc1": 2.0, "pc2": 42.0}
+        ]
+      },
+      "hippocampus": {
+        "dataset_id": "OSD-564",
+        "tissue_name": "Hippocampus",
+        "pc1_variance_pct": 28.3,
+        "pc2_variance_pct": 15.7,
+        "pc1_range": [-135, 130],
+        "pc2_range": [-120, 155],
+        "samples": [
+          {"id": "F1", "condition": "FLT", "pc1": -119.0, "pc2": -38.0},
+          {"id": "F3", "condition": "FLT", "pc1": -62.0, "pc2": 6.0},
+          {"id": "F5", "condition": "FLT", "pc1": -16.0, "pc2": 144.0},
+          {"id": "F7", "condition": "FLT", "pc1": -39.0, "pc2": -29.0},
+          {"id": "F9", "condition": "FLT", "pc1": -68.0, "pc2": 3.0},
+          {"id": "G1", "condition": "GC", "pc1": 73.0, "pc2": 22.0},
+          {"id": "G3", "condition": "GC", "pc1": 117.0, "pc2": -110.0},
+          {"id": "G5", "condition": "GC", "pc1": 108.0, "pc2": 23.0},
+          {"id": "G7", "condition": "GC", "pc1": 87.0, "pc2": 26.0},
+          {"id": "G9", "condition": "GC", "pc1": -85.0, "pc2": -46.0}
+        ]
+      }
+    }
+  },
+  "figure_b_qc": {
+    "title": "Section 7: Does rRNA Removal Change Cerebellum Expression Values?",
+    "subtitle": "Data-Processing Quality-Control Context (Not a biological outcome)",
+    "dataset_id": "OSD-563",
+    "tissue": "Cerebellum",
+    "agreement_panel": {
+      "correlation_r": 1.000,
+      "reference_line": "y = x",
+      "vst_range_included": [5.0, 24.5],
+      "vst_range_removed": [5.0, 24.5],
+      "points": [
+        [5.0, 5.0], [7.5, 7.5], [10.0, 10.0], [12.5, 12.5],
+        [15.0, 15.0], [17.5, 17.5], [20.0, 20.0], [22.5, 22.5], [24.5, 24.5]
+      ]
+    },
+    "shift_distribution_panel": {
+      "x_label": "Difference (rRNA-removed minus rRNA-included)",
+      "y_label": "Frequency (gene x sample values)",
+      "difference_range": [0.0, 0.36],
+      "max_frequency": 18000,
+      "bins": [
+        {"x": 0.005, "freq": 14100},
+        {"x": 0.012, "freq": 17150},
+        {"x": 0.018, "freq": 14600},
+        {"x": 0.025, "freq": 11500},
+        {"x": 0.032, "freq": 9300},
+        {"x": 0.039, "freq": 7950},
+        {"x": 0.046, "freq": 6700},
+        {"x": 0.053, "freq": 5600},
+        {"x": 0.060, "freq": 4600},
+        {"x": 0.068, "freq": 3950},
+        {"x": 0.076, "freq": 3200},
+        {"x": 0.085, "freq": 2600},
+        {"x": 0.095, "freq": 2200},
+        {"x": 0.108, "freq": 1750},
+        {"x": 0.122, "freq": 1450},
+        {"x": 0.138, "freq": 1400},
+        {"x": 0.155, "freq": 1380},
+        {"x": 0.172, "freq": 1420},
+        {"x": 0.190, "freq": 1500},
+        {"x": 0.208, "freq": 1650},
+        {"x": 0.225, "freq": 1850},
+        {"x": 0.242, "freq": 2100},
+        {"x": 0.258, "freq": 2450},
+        {"x": 0.272, "freq": 2650},
+        {"x": 0.285, "freq": 3100},
+        {"x": 0.298, "freq": 3350},
+        {"x": 0.308, "freq": 4200},
+        {"x": 0.318, "freq": 3450},
+        {"x": 0.328, "freq": 2400},
+        {"x": 0.338, "freq": 320},
+        {"x": 0.355, "freq": 16000}
+      ]
+    }
+  }
+}

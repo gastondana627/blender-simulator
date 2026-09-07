@@ -1,0 +1,757 @@
+{
+  "pipeline": "Antigravity-Blender Creative Simulator",
+  "generated_at": "2026-09-07T00:42:52.758653+00:00",
+  "blender_version": "4.1.1",
+  "recipe_name": "Astro-Mice Zero-G Odyssey: Commander Pip",
+  "seed": 101,
+  "statistics": {
+    "total_objects": 100,
+    "total_vertices": 11670,
+    "total_faces": 11506,
+    "bounding_box": {
+      "min": [
+        -2.7982,
+        -2.5644,
+        -1.7669
+      ],
+      "max": [
+        2.7982,
+        2.5644,
+        2.48
+      ],
+      "dimensions": [
+        5.5963,
+        5.1288,
+        4.2469
+      ]
+    }
+  },
+  "animation": {
+    "frame_start": 1,
+    "frame_end": 150,
+    "fps": 30,
+    "total_frames": 150,
+    "duration_seconds": 5.0
+  },
+  "materials": [
+    "Mat_BioSensor_Optic",
+    "Mat_Boot_Sole",
+    "Mat_EVA_Suit",
+    "Mat_Earth_Porthole",
+    "Mat_Gold_Visor",
+    "Mat_Habitat_Wall",
+    "Mat_Ion_Plume",
+    "Mat_Metal_Hardware",
+    "Mat_Mission_Patch",
+    "Mat_Mouse_Eye",
+    "Mat_Mouse_Fur",
+    "Mat_Mouse_Tissue",
+    "Mat_Nutrient_Core",
+    "Mat_Suit_Harness",
+    "Mat_Whisker",
+    "Mat_ZeroG_Bubble"
+  ],
+  "objects": [
+    {
+      "name": "Commander_Pip_Torso",
+      "vertices": 534,
+      "faces": 560,
+      "modifiers": []
+    },
+    {
+      "name": "Commander_Pip_Neck_Collar",
+      "vertices": 48,
+      "faces": 26,
+      "modifiers": []
+    },
+    {
+      "name": "Commander_Pip_Neck_Collar_Trim",
+      "vertices": 192,
+      "faces": 192,
+      "modifiers": []
+    },
+    {
+      "name": "Commander_Pip_Harness_Buckle",
+      "vertices": 32,
+      "faces": 18,
+      "modifiers": []
+    },
+    {
+      "name": "Commander_Pip_Buckle_Optic",
+      "vertices": 86,
+      "faces": 96,
+      "modifiers": []
+    },
+    {
+      "name": "Commander_Pip_Harness_Strap_Top_Left",
+      "vertices": 24,
+      "faces": 14,
+      "modifiers": []
+    },
+    {
+      "name": "Commander_Pip_Harness_Strap_Bot_Left",
+      "vertices": 24,
+      "faces": 14,
+      "modifiers": []
+    },
+    {
+      "name": "Commander_Pip_Harness_Strap_Top_Right",
+      "vertices": 24,
+      "faces": 14,
+      "modifiers": []
+    },
+    {
+      "name": "Commander_Pip_Harness_Strap_Bot_Right",
+      "vertices": 24,
+      "faces": 14,
+      "modifiers": []
+    },
+    {
+      "name": "Commander_Pip_Waist_Belt",
+      "vertices": 280,
+      "faces": 280,
+      "modifiers": []
+    },
+    {
+      "name": "Commander_Pip_Mission_Patch",
+      "vertices": 36,
+      "faces": 20,
+      "modifiers": []
+    },
+    {
+      "name": "Commander_Pip_Head_Cranium",
+      "vertices": 410,
+      "faces": 432,
+      "modifiers": []
+    },
+    {
+      "name": "Commander_Pip_Muzzle",
+      "vertices": 262,
+      "faces": 280,
+      "modifiers": []
+    },
+    {
+      "name": "Commander_Pip_Nose_Tip",
+      "vertices": 128,
+      "faces": 140,
+      "modifiers": []
+    },
+    {
+      "name": "Commander_Pip_Eye_Left",
+      "vertices": 178,
+      "faces": 192,
+      "modifiers": []
+    },
+    {
+      "name": "Commander_Pip_Eye_Glint_Left",
+      "vertices": 42,
+      "faces": 48,
+      "modifiers": []
+    },
+    {
+      "name": "Commander_Pip_Eye_Right",
+      "vertices": 178,
+      "faces": 192,
+      "modifiers": []
+    },
+    {
+      "name": "Commander_Pip_Eye_Glint_Right",
+      "vertices": 42,
+      "faces": 48,
+      "modifiers": []
+    },
+    {
+      "name": "Commander_Pip_Whisker_Left_1",
+      "vertices": 16,
+      "faces": 10,
+      "modifiers": []
+    },
+    {
+      "name": "Commander_Pip_Whisker_Left_2",
+      "vertices": 16,
+      "faces": 10,
+      "modifiers": []
+    },
+    {
+      "name": "Commander_Pip_Whisker_Left_3",
+      "vertices": 16,
+      "faces": 10,
+      "modifiers": []
+    },
+    {
+      "name": "Commander_Pip_Whisker_Right_1",
+      "vertices": 16,
+      "faces": 10,
+      "modifiers": []
+    },
+    {
+      "name": "Commander_Pip_Whisker_Right_2",
+      "vertices": 16,
+      "faces": 10,
+      "modifiers": []
+    },
+    {
+      "name": "Commander_Pip_Whisker_Right_3",
+      "vertices": 16,
+      "faces": 10,
+      "modifiers": []
+    },
+    {
+      "name": "Commander_Pip_Ear_Left",
+      "vertices": 262,
+      "faces": 280,
+      "modifiers": []
+    },
+    {
+      "name": "Commander_Pip_EarInner_Left",
+      "vertices": 146,
+      "faces": 160,
+      "modifiers": []
+    },
+    {
+      "name": "Commander_Pip_Ear_Right",
+      "vertices": 262,
+      "faces": 280,
+      "modifiers": []
+    },
+    {
+      "name": "Commander_Pip_EarInner_Right",
+      "vertices": 146,
+      "faces": 160,
+      "modifiers": []
+    },
+    {
+      "name": "Commander_Pip_Helmet_Dome",
+      "vertices": 534,
+      "faces": 560,
+      "modifiers": []
+    },
+    {
+      "name": "Commander_Pip_Helmet_Bezel",
+      "vertices": 320,
+      "faces": 320,
+      "modifiers": []
+    },
+    {
+      "name": "Commander_Pip_Visor",
+      "vertices": 738,
+      "faces": 768,
+      "modifiers": []
+    },
+    {
+      "name": "Commander_Pip_Helmet_Pivot_Left",
+      "vertices": 36,
+      "faces": 20,
+      "modifiers": []
+    },
+    {
+      "name": "Commander_Pip_Helmet_Pivot_Right",
+      "vertices": 36,
+      "faces": 20,
+      "modifiers": []
+    },
+    {
+      "name": "Commander_Pip_Shoulder_Bellow_Left",
+      "vertices": 144,
+      "faces": 144,
+      "modifiers": []
+    },
+    {
+      "name": "Commander_Pip_UpperArm_Left",
+      "vertices": 32,
+      "faces": 18,
+      "modifiers": []
+    },
+    {
+      "name": "Commander_Pip_Forearm_Left",
+      "vertices": 32,
+      "faces": 18,
+      "modifiers": []
+    },
+    {
+      "name": "Commander_Pip_Wrist_Ring_Left",
+      "vertices": 128,
+      "faces": 128,
+      "modifiers": []
+    },
+    {
+      "name": "Commander_Pip_Glove_Palm_Left",
+      "vertices": 178,
+      "faces": 192,
+      "modifiers": []
+    },
+    {
+      "name": "Commander_Pip_Glove_Thumb_Left",
+      "vertices": 20,
+      "faces": 12,
+      "modifiers": []
+    },
+    {
+      "name": "Commander_Pip_Glove_Fingers_Left",
+      "vertices": 128,
+      "faces": 140,
+      "modifiers": []
+    },
+    {
+      "name": "Commander_Pip_Shoulder_Bellow_Right",
+      "vertices": 144,
+      "faces": 144,
+      "modifiers": []
+    },
+    {
+      "name": "Commander_Pip_UpperArm_Right",
+      "vertices": 32,
+      "faces": 18,
+      "modifiers": []
+    },
+    {
+      "name": "Commander_Pip_Forearm_Right",
+      "vertices": 32,
+      "faces": 18,
+      "modifiers": []
+    },
+    {
+      "name": "Commander_Pip_Wrist_Ring_Right",
+      "vertices": 128,
+      "faces": 128,
+      "modifiers": []
+    },
+    {
+      "name": "Commander_Pip_Glove_Palm_Right",
+      "vertices": 178,
+      "faces": 192,
+      "modifiers": []
+    },
+    {
+      "name": "Commander_Pip_Glove_Thumb_Right",
+      "vertices": 20,
+      "faces": 12,
+      "modifiers": []
+    },
+    {
+      "name": "Commander_Pip_Glove_Fingers_Right",
+      "vertices": 128,
+      "faces": 140,
+      "modifiers": []
+    },
+    {
+      "name": "Commander_Pip_Thigh_Left",
+      "vertices": 32,
+      "faces": 18,
+      "modifiers": []
+    },
+    {
+      "name": "Commander_Pip_KneePad_Left",
+      "vertices": 128,
+      "faces": 140,
+      "modifiers": []
+    },
+    {
+      "name": "Commander_Pip_KneeRim_Left",
+      "vertices": 128,
+      "faces": 128,
+      "modifiers": []
+    },
+    {
+      "name": "Commander_Pip_Calf_Left",
+      "vertices": 32,
+      "faces": 18,
+      "modifiers": []
+    },
+    {
+      "name": "Commander_Pip_Ankle_Band_Left",
+      "vertices": 144,
+      "faces": 144,
+      "modifiers": []
+    },
+    {
+      "name": "Commander_Pip_Boot_Upper_Left",
+      "vertices": 36,
+      "faces": 20,
+      "modifiers": []
+    },
+    {
+      "name": "Commander_Pip_Boot_Toe_Left",
+      "vertices": 128,
+      "faces": 140,
+      "modifiers": []
+    },
+    {
+      "name": "Commander_Pip_Boot_Sole_Left",
+      "vertices": 36,
+      "faces": 20,
+      "modifiers": []
+    },
+    {
+      "name": "Commander_Pip_Boot_HeelClamp_Left",
+      "vertices": 28,
+      "faces": 16,
+      "modifiers": []
+    },
+    {
+      "name": "Commander_Pip_Thigh_Right",
+      "vertices": 32,
+      "faces": 18,
+      "modifiers": []
+    },
+    {
+      "name": "Commander_Pip_KneePad_Right",
+      "vertices": 128,
+      "faces": 140,
+      "modifiers": []
+    },
+    {
+      "name": "Commander_Pip_KneeRim_Right",
+      "vertices": 128,
+      "faces": 128,
+      "modifiers": []
+    },
+    {
+      "name": "Commander_Pip_Calf_Right",
+      "vertices": 32,
+      "faces": 18,
+      "modifiers": []
+    },
+    {
+      "name": "Commander_Pip_Ankle_Band_Right",
+      "vertices": 144,
+      "faces": 144,
+      "modifiers": []
+    },
+    {
+      "name": "Commander_Pip_Boot_Upper_Right",
+      "vertices": 36,
+      "faces": 20,
+      "modifiers": []
+    },
+    {
+      "name": "Commander_Pip_Boot_Toe_Right",
+      "vertices": 128,
+      "faces": 140,
+      "modifiers": []
+    },
+    {
+      "name": "Commander_Pip_Boot_Sole_Right",
+      "vertices": 36,
+      "faces": 20,
+      "modifiers": []
+    },
+    {
+      "name": "Commander_Pip_Boot_HeelClamp_Right",
+      "vertices": 28,
+      "faces": 16,
+      "modifiers": []
+    },
+    {
+      "name": "Commander_Pip_PLSS_Housing",
+      "vertices": 40,
+      "faces": 22,
+      "modifiers": []
+    },
+    {
+      "name": "Commander_Pip_PLSS_Panel",
+      "vertices": 32,
+      "faces": 18,
+      "modifiers": []
+    },
+    {
+      "name": "Commander_Pip_PLSS_Stripe",
+      "vertices": 160,
+      "faces": 160,
+      "modifiers": []
+    },
+    {
+      "name": "Commander_Pip_PLSS_Canister_Left",
+      "vertices": 28,
+      "faces": 16,
+      "modifiers": []
+    },
+    {
+      "name": "Commander_Pip_PLSS_Valve_Left",
+      "vertices": 86,
+      "faces": 96,
+      "modifiers": []
+    },
+    {
+      "name": "Commander_Pip_PLSS_Canister_Right",
+      "vertices": 28,
+      "faces": 16,
+      "modifiers": []
+    },
+    {
+      "name": "Commander_Pip_PLSS_Valve_Right",
+      "vertices": 86,
+      "faces": 96,
+      "modifiers": []
+    },
+    {
+      "name": "Commander_Pip_PLSS_Thruster_Left",
+      "vertices": 28,
+      "faces": 16,
+      "modifiers": []
+    },
+    {
+      "name": "Commander_Pip_PLSS_Thruster_Right",
+      "vertices": 28,
+      "faces": 16,
+      "modifiers": []
+    },
+    {
+      "name": "Commander_Pip_Tail_Grommet",
+      "vertices": 128,
+      "faces": 128,
+      "modifiers": []
+    },
+    {
+      "name": "Commander_Pip_Tail_Seg_1",
+      "vertices": 28,
+      "faces": 16,
+      "modifiers": []
+    },
+    {
+      "name": "Commander_Pip_Tail_Seg_2",
+      "vertices": 28,
+      "faces": 16,
+      "modifiers": []
+    },
+    {
+      "name": "Commander_Pip_Tail_Seg_3",
+      "vertices": 28,
+      "faces": 16,
+      "modifiers": []
+    },
+    {
+      "name": "Commander_Pip_Tail_Seg_4",
+      "vertices": 28,
+      "faces": 16,
+      "modifiers": []
+    },
+    {
+      "name": "Commander_Pip_Tail_Seg_5",
+      "vertices": 28,
+      "faces": 16,
+      "modifiers": []
+    },
+    {
+      "name": "Commander_Pip_Tail_Joint_1",
+      "vertices": 86,
+      "faces": 96,
+      "modifiers": []
+    },
+    {
+      "name": "Commander_Pip_Tail_Joint_2",
+      "vertices": 86,
+      "faces": 96,
+      "modifiers": []
+    },
+    {
+      "name": "Commander_Pip_Tail_Joint_3",
+      "vertices": 86,
+      "faces": 96,
+      "modifiers": []
+    },
+    {
+      "name": "Commander_Pip_Tail_Joint_4",
+      "vertices": 86,
+      "faces": 96,
+      "modifiers": []
+    },
+    {
+      "name": "Commander_Pip_Tail_Joint_5",
+      "vertices": 86,
+      "faces": 96,
+      "modifiers": []
+    },
+    {
+      "name": "Commander_Pip_Tail_Joint_6",
+      "vertices": 86,
+      "faces": 96,
+      "modifiers": []
+    },
+    {
+      "name": "Commander_Pip_Tail_T_Collar",
+      "vertices": 28,
+      "faces": 16,
+      "modifiers": []
+    },
+    {
+      "name": "Commander_Pip_Tail_T_Wing",
+      "vertices": 28,
+      "faces": 16,
+      "modifiers": []
+    },
+    {
+      "name": "Commander_Pip_Tail_T_Wingtip_Left",
+      "vertices": 24,
+      "faces": 14,
+      "modifiers": []
+    },
+    {
+      "name": "Commander_Pip_Tail_T_Wingtip_Right",
+      "vertices": 24,
+      "faces": 14,
+      "modifiers": []
+    },
+    {
+      "name": "Commander_Pip_Tail_T_Nozzle_Left",
+      "vertices": 24,
+      "faces": 14,
+      "modifiers": []
+    },
+    {
+      "name": "Commander_Pip_Tail_Ion_Plume_Left",
+      "vertices": 20,
+      "faces": 12,
+      "modifiers": []
+    },
+    {
+      "name": "Commander_Pip_Tail_T_Nozzle_Right",
+      "vertices": 24,
+      "faces": 14,
+      "modifiers": []
+    },
+    {
+      "name": "Commander_Pip_Tail_Ion_Plume_Right",
+      "vertices": 20,
+      "faces": 12,
+      "modifiers": []
+    },
+    {
+      "name": "ZeroG_Nutrient_Sphere",
+      "vertices": 362,
+      "faces": 384,
+      "modifiers": []
+    },
+    {
+      "name": "ZeroG_Nutrient_Nucleus",
+      "vertices": 178,
+      "faces": 192,
+      "modifiers": []
+    },
+    {
+      "name": "ZeroG_Hydration_Droplet",
+      "vertices": 178,
+      "faces": 192,
+      "modifiers": []
+    },
+    {
+      "name": "Habitat_Porthole_Frame",
+      "vertices": 768,
+      "faces": 768,
+      "modifiers": []
+    },
+    {
+      "name": "Habitat_Earth_Horizon",
+      "vertices": 96,
+      "faces": 50,
+      "modifiers": []
+    },
+    {
+      "name": "Habitat_Centrifuge_Rail",
+      "vertices": 768,
+      "faces": 768,
+      "modifiers": []
+    }
+  ],
+  "export": {
+    "glb_path": "/Users/gastondana/Downloads/blender-simulator/exports/media_simulation.glb",
+    "glb_size_bytes": 704648,
+    "glb_size_kb": 688.13
+  },
+  "recipe_snapshot": {
+    "name": "Astro-Mice Zero-G Odyssey: Commander Pip",
+    "branch": "media_companion",
+    "mission": "NASA RR-10 Spaceflight Companion",
+    "version": "1.0.0",
+    "seed": 101,
+    "character": {
+      "name": "Commander Pip",
+      "scale": 1.0,
+      "suit_style": "eva_orbit_white",
+      "suit_base_color": [
+        0.93,
+        0.93,
+        0.95,
+        1.0
+      ],
+      "harness_accent_color": [
+        0.88,
+        0.28,
+        0.04,
+        1.0
+      ],
+      "fur_color": [
+        0.93,
+        0.9,
+        0.84,
+        1.0
+      ],
+      "ear_tissue_color": [
+        0.95,
+        0.65,
+        0.62,
+        1.0
+      ],
+      "visor_style": "gold_reflective",
+      "visor_base_color": [
+        1.0,
+        0.78,
+        0.26,
+        1.0
+      ],
+      "ear_subsurface_weight": 0.55,
+      "tail_thruster_active": true,
+      "mission_patch": "RR10_Astro_Mice"
+    },
+    "environment": {
+      "module_type": "pressurized_centrifuge_habitat",
+      "porthole_enabled": true,
+      "floating_droplet": true,
+      "habitat_scaffold": true
+    },
+    "animation": {
+      "timeline_frames": 150,
+      "fps": 30,
+      "zero_g_float_amplitude": 0.14,
+      "zero_g_bob_speed": 1.0,
+      "head_turn_angle_deg": 12.0,
+      "tail_wave_amplitude": 0.22
+    },
+    "scene": {
+      "camera": {
+        "focal_length": 50.0,
+        "distance_multiplier": 2.5,
+        "elevation_angle": 18.0,
+        "azimuth_angle": 32.0
+      },
+      "lighting": {
+        "preset": "orbital_sunrise",
+        "key_color": [
+          1.0,
+          0.96,
+          0.9
+        ],
+        "key_intensity": 900.0,
+        "fill_color": [
+          0.25,
+          0.55,
+          0.95
+        ],
+        "fill_intensity": 420.0,
+        "rim_color": [
+          1.0,
+          0.85,
+          0.6
+        ],
+        "rim_intensity": 1400.0
+      }
+    },
+    "export": {
+      "glb_path": "exports/media_simulation.glb",
+      "metadata_path": "exports/media_simulation.json",
+      "export_animations": true,
+      "export_materials": true,
+      "apply_modifiers": true
+    }
+  }
+}
