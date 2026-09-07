@@ -443,30 +443,30 @@
         </div>
 
         <div class="media-companion-layout">
-          <!-- Video Component / Future Miris Placeholder -->
+          <!-- Commander Pip Cinematic Orbital Habitat Sequence -->
           <div class="video-player-component" id="video-component">
             <div class="video-poster-wrapper" id="video-poster-wrapper">
-              <img src="assets/pip_hero.png" alt="Commander Pip Astronaut Mouse in EVA suit inside Zero-G Habitat" class="video-poster-img" width="800" height="450">
-              
-              <div class="video-state-overlay" id="video-state-overlay">
-                <div class="video-top-meta">
-                  <span class="badge badge-gold" id="video-status-badge">Cinematic Clip Coming Soon</span>
-                  <span class="badge" style="background: rgba(0,0,0,0.6);">Miris Showcase</span>
-                </div>
-
-                <div class="video-center-indicator">
-                  <button class="play-icon-box" id="video-play-btn" aria-label="Play Commander Pip Cinematic Preview">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                      <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                    </svg>
-                  </button>
-                </div>
-
-                <div class="video-bottom-meta">
-                  <p class="video-clip-title">Commander Pip: Zero-G Odyssey</p>
-                  <p class="video-clip-sub">Stylized media companion inspired by RR-10 mission context</p>
-                </div>
+              <video
+                id="commander-pip-video"
+                class="cinematic-video-element"
+                controls
+                playsinline
+                loop
+                preload="metadata"
+                poster="assets/pip_hero.png"
+                aria-label="Commander Pip Orbital Habitat Cinematic Sequence"
+              >
+                <source src="assets/Commander-Pip-orbital-habitat-cinematic-sequence.mp4" type="video/mp4">
+                <source src="../assets/Commander-Pip-orbital-habitat-cinematic-sequence.mp4" type="video/mp4">
+                Your browser does not support HTML5 video.
+              </video>
+            </div>
+            <div class="video-caption-bar">
+              <div>
+                <p class="video-clip-title">Commander Pip: Zero-G Orbital Habitat</p>
+                <p class="video-clip-sub">Cinematic 3D sequence modeled in Blender with real-time PBR shaders</p>
               </div>
+              <span class="badge badge-gold">Cinematic HD</span>
             </div>
           </div>
 
@@ -497,7 +497,7 @@
             </div>
 
             <div class="hero-cta-group" style="margin-top: 1rem;">
-              <a href="../web-viewer/index.html" class="btn-primary" target="_blank" rel="noopener noreferrer">
+              <a href="https://orbiting-minds.vercel.app/web-viewer/index.html" class="btn-primary" id="inspectPipBtn" target="_blank" rel="noopener noreferrer">
                 <span>Inspect Pip in 3D Viewer</span>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                   <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>

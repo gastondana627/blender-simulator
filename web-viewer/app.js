@@ -336,9 +336,27 @@ function init() {
   window.addEventListener('resize', onWindowResize);
   setupUIHandlers();
 
-  // Initial Load
-  loadSimulationModel('../exports/simulation.glb');
-  loadSimulationMetadata('../exports/simulation.json');
+  // Initial Load (support branch intent from URL query, hash, or sessionStorage)
+  let initialBranch = 'technical';
+  try {
+    const urlParams = new URLSearchParams(window.location.search);
+    const paramBranch = urlParams.get('branch');
+    const hashBranch = window.location.hash.toLowerCase().includes('media') || window.location.hash.toLowerCase().includes('pip');
+    const storedBranch = sessionStorage.getItem('preferred_branch');
+    if (paramBranch === 'media' || hashBranch || storedBranch === 'media') {
+      initialBranch = 'media';
+      sessionStorage.removeItem('preferred_branch');
+    }
+  } catch (e) {
+    // Fallback gracefully
+  }
+
+  if (initialBranch === 'media') {
+    switchBranch('media');
+  } else {
+    loadSimulationModel('../exports/simulation.glb');
+    loadSimulationMetadata('../exports/simulation.json');
+  }
 
   animate();
 }

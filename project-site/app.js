@@ -70,59 +70,27 @@ function initMobileNavigation() {
 }
 
 /**
- * Miris Video Player Placeholder / Active Video Player
+ * Commander Pip Video Player & 3D Viewer Branch Handlers
  */
 function initVideoPlayerComponent() {
-  const videoWrapper = document.getElementById('video-poster-wrapper');
-  const playButton = document.getElementById('video-play-btn');
-  const stateOverlay = document.getElementById('video-state-overlay');
-  const videoBadge = document.getElementById('video-status-badge');
+  const videoEl = document.getElementById('commander-pip-video');
+  if (videoEl) {
+    // Native video is embedded and active
+    videoEl.addEventListener('play', () => {
+      // Optional tracking or telemetry
+    });
+  }
 
-  if (!videoWrapper) return;
-
-  if (VIDEO_SOURCE && VIDEO_SOURCE.trim() !== '') {
-    // A video source has been provided: instantiate real video player
-    if (videoBadge) {
-      videoBadge.textContent = 'Cinematic Preview';
-      videoBadge.classList.remove('badge-gold');
-      videoBadge.classList.add('badge-cyan');
-    }
-
-    const videoEl = document.createElement('video');
-    videoEl.className = 'active-video-element';
-    videoEl.src = VIDEO_SOURCE;
-    videoEl.autoplay = false;
-    videoEl.loop = true;
-    videoEl.muted = true;
-    videoEl.playsInline = true;
-    videoEl.controls = true;
-    videoEl.setAttribute('aria-label', 'Commander Pip Zero-G Odyssey Cinematic Video');
-
-    videoWrapper.appendChild(videoEl);
-
-    if (playButton) {
-      playButton.addEventListener('click', () => {
-        if (stateOverlay) stateOverlay.style.display = 'none';
-        videoEl.style.display = 'block';
-        videoEl.play();
-      });
-    }
-  } else {
-    // No video source: keep functional placeholder state
-    if (playButton) {
-      playButton.addEventListener('click', (e) => {
-        e.preventDefault();
-        // Friendly notice when video source is pending
-        const titleEl = document.querySelector('.video-clip-title');
-        if (titleEl) {
-          const original = titleEl.textContent;
-          titleEl.textContent = 'Cinematic Reel in Production...';
-          setTimeout(() => {
-            titleEl.textContent = original;
-          }, 2400);
-        }
-      });
-    }
+  // Inspect Pip in 3D Viewer button handler
+  const inspectPipBtn = document.getElementById('inspectPipBtn');
+  if (inspectPipBtn) {
+    inspectPipBtn.addEventListener('click', () => {
+      try {
+        sessionStorage.setItem('preferred_branch', 'media');
+      } catch (e) {
+        // Safe fallback if session storage is disabled
+      }
+    });
   }
 }
 
