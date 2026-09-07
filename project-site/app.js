@@ -31,7 +31,7 @@ const AWG_AIML_POST_URL = '';
  * 4. Live Production Project Deployment URL
  * Replace with GitHub Pages or custom domain URL once hosted.
  */
-const LIVE_PROJECT_PAGE_URL = ''; 
+const LIVE_PROJECT_PAGE_URL = 'https://orbiting-minds.vercel.app/'; 
 
 
 // ==========================================================================
