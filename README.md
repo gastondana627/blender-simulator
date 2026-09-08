@@ -86,6 +86,9 @@ The biological foundation of this project is based on the **NASA Rodent Research
 - [AWG Projects](https://awg.osdr.space/c/awg-projects/20)
 
 ### Project
+- [Live 3D Simulation & Project Site](https://orbiting-minds.vercel.app/)
+- [Video Walkthrough (YouTube)](https://youtu.be/nmOXcB6kAaQ)
+- [14-Slide Executive Deck](https://docs.google.com/presentation/d/1ULCjimhcRYlGojjiCp9aLXnk8GEH-mGTVUfiIKSJX6c/edit?usp=sharing)
 - [Source code — GitHub](https://github.com/gastondana627/blender-simulator)
 - [Google Scholar Profile](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=juOv0f0AAAAJ&citation_for_view=juOv0f0AAAAJ:d1gkVwhDpl0C)
 - Brain AWG project post — add direct URL after publication
