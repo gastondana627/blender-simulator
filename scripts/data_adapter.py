@@ -6,6 +6,7 @@ Murine Neuro-Adaptation Proxy.
 """
 
 import argparse
+import hashlib
 import json
 import os
 import sys
@@ -276,7 +277,7 @@ def adapt_benchmark_to_recipe(benchmark_data):
             "intracranial_volatility": volatility,
             "mission_regime": state
         },
-        "seed": abs(hash(run_id)) % 100000,
+        "seed": int(hashlib.sha256(str(run_id).encode("utf-8")).hexdigest()[:8], 16) % 100000,
         "generator": {
             "type": "murine_neural_proxy",
             "scale": scale,
@@ -295,6 +296,7 @@ def adapt_benchmark_to_recipe(benchmark_data):
         },
         "materials": {
             "murine_clay": murine_mat,
+            "hippocampal_core": palette["hippocampal_core"],
             "telemetry_hull": palette["telemetry_hull"],
             "sensor_optic": palette["sensor_optic"],
             "orbital_tracks": palette["orbital_tracks"],

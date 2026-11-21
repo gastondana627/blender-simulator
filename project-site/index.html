@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Orbiting Minds — NASA RR-10 Spaceflight Biology Benchmark &amp; 3D Neural Proxy</title>
   <meta name="description" content="Orbiting Minds: An RR-10 Data-to-3D Simulation Experience connecting NASA spaceflight mouse-brain transcriptomics, procedural Blender generation, and real-time WebGL visualization.">
   <!-- Social / Open Graph & Twitter Cards for AWG & Academic Sharing -->
   <meta property="og:type" content="website">
@@ -105,7 +106,7 @@
         </div>
 
         <div class="hero-visual-card">
-          <img src="assets/technical_preview.png" alt="Rendered 3D Murine Neural Proxy in WebGL viewer with telemetry rings and background PCA constellation" class="hero-preview-img" width="800" height="500">
+          <img src="assets/technical_preview.png" alt="Rendered 3D Murine Neural Proxy in WebGL viewer with telemetry rings and background PCA constellation" class="hero-preview-img" width="800" height="500" fetchpriority="high">
           <div class="hero-visual-telemetry">
             <div class="telemetry-item">
               <span class="telemetry-label">Primary Target</span>
@@ -589,6 +590,178 @@
             </div>
           </div>
         </div>
+
+        <!-- RR-10 v1.1 Full Corpus Scale-Up Callout Card (5,630 Items) -->
+        <div class="v11-scaleup-card" id="rr10-v1-1-scaleup-card">
+          <div class="v11-scaleup-header">
+            <div>
+              <div class="hero-tag-row" style="margin-bottom: 0.5rem;">
+                <span class="badge badge-cyan">v1.1 Full OSDR Scale-Up</span>
+                <span class="badge badge-terracotta">5,630 Items · 2,815 Pairs</span>
+                <span class="badge badge-gold">Local ↔ Private Kaggle Parity</span>
+              </div>
+              <h3 class="benchmark-table-title">v1.1 Full Corpus Scale-Up (5,630 Items Across 34 OSD Studies)</h3>
+              <p class="benchmark-table-sub">
+                Bridges our original 5-task RR-10 reasoning pilot (OSD-563 / OSD-564) into OMROSLAB's frozen v1.1 directional fragility corpus: 2,815 multi-study discordant fragility traps paired 1:1 with 2,815 concordant controls across 11 <code>organism::tissue</code> contexts and 11,711 verified provenance rows.
+              </p>
+            </div>
+            <div class="v11-sha-pill-box">
+              <span class="v11-sha-pill-label">Canonical SHA-256 (Verified)</span>
+              <button type="button" class="v11-sha-copy-btn" id="site-copy-v11-sha" data-sha="92915008e0431549ff0f7572f8436cf3bd8c3f416050f9dd127423080114785c">
+                <code id="site-v11-sha-short">92915008...14785c</code>
+                <span id="site-v11-sha-status">Copy</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="v11-kpi-strip" id="site-v11-kpi-strip">
+            <div class="v11-kpi-item">
+              <span class="v11-kpi-label">Corpus Scale</span>
+              <span class="v11-kpi-val">5,630 Items</span>
+              <span class="v11-kpi-sub">2,815 Traps · 2,815 Controls</span>
+            </div>
+            <div class="v11-kpi-item">
+              <span class="v11-kpi-label">OSDR Breadth</span>
+              <span class="v11-kpi-val">34 Studies</span>
+              <span class="v11-kpi-sub">11 Contexts · 11,711 Provenance Rows</span>
+            </div>
+            <div class="v11-kpi-item">
+              <span class="v11-kpi-label">PDR Denominator Audit</span>
+              <span class="v11-kpi-val">2,815 Verified</span>
+              <span class="v11-kpi-sub">Gold 1.0 · Indet 0.0 · 1407/2815 Proof</span>
+            </div>
+            <div class="v11-kpi-item">
+              <span class="v11-kpi-label">Privacy Boundary</span>
+              <span class="v11-kpi-val">Public-Safe Only</span>
+              <span class="v11-kpi-sub">Aggregates &amp; Guardrail Contract</span>
+            </div>
+          </div>
+
+          <div tabindex="0" role="region" aria-labelledby="v11-site-table-caption" class="v11-responsive-table-wrapper">
+            <table class="benchmark-table v11-site-table" id="site-v11-scoreboard-table">
+              <caption id="v11-site-table-caption" class="sr-only">RR-10 v1.1 Neutral Closed-Book Scoreboard and Baselines</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Model / Baseline</th>
+                  <th scope="col">Protocol</th>
+                  <th scope="col" class="text-center">Items (Pairs)</th>
+                  <th scope="col" class="text-center">PDR</th>
+                  <th scope="col" class="text-center">Trap Acc</th>
+                  <th scope="col" class="text-center">Trap Overclaim</th>
+                  <th scope="col" class="text-center">Ctrl Acc</th>
+                  <th scope="col" class="text-center">Ctrl Abstention</th>
+                </tr>
+              </thead>
+              <tbody id="site-v11-scoreboard-tbody">
+                <tr>
+                  <th scope="row">Loading RR-10 v1.1 public summary...</th>
+                  <td colspan="7">Fetching <code>../data/processed/rr10_v1_1_public_summary.json</code></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="v11-notes-grid">
+            <div class="v11-note-card" id="site-v11-ablation-card">
+              <h4>Caution-Coached Ablation (440 Items)</h4>
+              <p id="site-v11-ablation-text">Loading prompt-sensitivity ablation results...</p>
+            </div>
+            <div class="v11-note-card" id="site-v11-roadmap-card">
+              <h4>Planned v1.2 Diagnostic Roadmap</h4>
+              <p id="site-v11-roadmap-text">Incorporating <strong>@Mym04Tak14</strong>'s scale-invariant natural-log viscoelastic trajectory diagnostic (<code>ln[S(t)/S_0]</code>) for low-replicate (<code>n=5</code>) directional instability.</p>
+            </div>
+          </div>
+
+          <!-- Per-Model Summary Breakdown (Dynamically Rendered from Public Summary JSON) -->
+          <div class="v11-model-summary-block" id="site-v11-model-summary-block">
+            <div class="v11-subsection-head">
+              <h4>Per-Model Diagnostic Summary (All 6 Runs)</h4>
+              <p>Plain-language breakdown of calibration trade-offs, primary failure modes, and strongest vs. highest-risk tissue contexts.</p>
+            </div>
+            <div class="v11-model-cards-grid" id="site-v11-model-cards">
+              <div class="v11-model-card">Loading per-model summary cards...</div>
+            </div>
+          </div>
+
+          <!-- Before vs. After Visual Gallery (2 Publication-Grade Figures) -->
+          <div class="v11-visual-gallery-block" id="site-v11-visual-gallery">
+            <div class="v11-subsection-head">
+              <h4>Before vs. After Visual Evidence (RR-10 v1.1)</h4>
+              <p>High-DPI figures generated directly from <code>data/processed/rr10_v1_1_public_summary.json</code> (zero raw protected rows).</p>
+            </div>
+            <div class="v11-figures-grid">
+              <figure class="v11-figure-card">
+                <a href="assets/figures/rr10_v1_1_before_after_calibration.png" target="_blank" rel="noopener noreferrer" class="v11-figure-link" aria-label="Open full-resolution Before vs After Calibration figure">
+                  <img
+                    src="assets/figures/rr10_v1_1_before_after_calibration.png"
+                    alt="Before vs. After chart comparing neutral closed-book 5,630-item model calibration against prompt-only caution ablation and grounded OSDR retrieval"
+                    class="v11-figure-img"
+                    width="1600"
+                    height="900"
+                    loading="lazy"
+                  >
+                </a>
+                <figcaption class="v11-figure-caption">
+                  <div class="v11-figure-title-row">
+                    <strong>Figure 1: Before vs. After - Model Calibration &amp; Caution Trap</strong>
+                    <span class="v11-figure-actions">
+                      <a href="assets/figures/rr10_v1_1_before_after_calibration.png" target="_blank" rel="noopener noreferrer">PNG ↗</a>
+                      <a href="assets/figures/rr10_v1_1_before_after_calibration.svg" target="_blank" rel="noopener noreferrer">SVG ↗</a>
+                    </span>
+                  </div>
+                  <p>Raw neutral closed-book runs (5,630 items) peak at 10.44% PDR alongside ~44% trap overclaiming, while prompt-only caution drops trap overclaiming to 1.36% at the cost of collapsing PDR to 0.00%.</p>
+                </figcaption>
+              </figure>
+
+              <figure class="v11-figure-card">
+                <a href="assets/figures/rr10_v1_1_corpus_and_11_contexts.png" target="_blank" rel="noopener noreferrer" class="v11-figure-link" aria-label="Open full-resolution v1.1 Corpus Funnel and 11-Context Fragility figure">
+                  <img
+                    src="assets/figures/rr10_v1_1_corpus_and_11_contexts.png"
+                    alt="v1.1 corpus filter funnel from 21,454 raw items to 5,630 canonical items and 11 organism::tissue context fragility breakdown"
+                    class="v11-figure-img"
+                    width="1600"
+                    height="900"
+                    loading="lazy"
+                  >
+                </a>
+                <figcaption class="v11-figure-caption">
+                  <div class="v11-figure-title-row">
+                    <strong>Figure 2: v1.1 Corpus Filter Funnel &amp; 11-Context Fragility</strong>
+                    <span class="v11-figure-actions">
+                      <a href="assets/figures/rr10_v1_1_corpus_and_11_contexts.png" target="_blank" rel="noopener noreferrer">PNG ↗</a>
+                      <a href="assets/figures/rr10_v1_1_corpus_and_11_contexts.svg" target="_blank" rel="noopener noreferrer">SVG ↗</a>
+                    </span>
+                  </div>
+                  <p>Traces OMROSLAB's confound filtering (21,454 -&gt; 5,630 canonical items across 34 OSD studies) and spotlights the 78.68% Trap Overclaim spike in <code>arabidopsis_thaliana::seedlings</code> vs. 28.83% / 31.11% in <code>homo_sapiens::cells</code>.</p>
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+
+          <div class="benchmark-action-strip" style="margin-top: 1.25rem;">
+            <div class="benchmark-strip-info">
+              <span class="strip-icon">🛡️</span>
+              <div>
+                <strong>Inspect v1.1 Analytics &amp; Runtime Guardrail Bridge</strong>
+                <p>Explore the 11-context breakdown in the 3D Viewer's Analytic Evidence Drawer, download the guardrail JSON contract, or open OSDR ChatBot v1.0.0.</p>
+              </div>
+            </div>
+            <div class="benchmark-strip-buttons">
+              <a href="../web-viewer/index.html" class="btn-benchmark-primary" target="_blank" rel="noopener noreferrer">
+                <span>Open 3D Viewer HUD</span>
+                <span aria-hidden="true">↗</span>
+              </a>
+              <a href="../data/processed/rr10_guardrail_contract.json" download="rr10_guardrail_contract.json" class="btn-benchmark-secondary">
+                <span>Guardrail Contract JSON</span>
+                <span aria-hidden="true">⬇</span>
+              </a>
+              <a href="https://osdr-chatbot-kappa.vercel.app" class="btn-benchmark-secondary" target="_blank" rel="noopener noreferrer">
+                <span>OSDR ChatBot v1.0.0</span>
+                <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -710,7 +883,7 @@
             </div>
 
             <div class="hero-cta-group" style="margin-top: 1rem;">
-              <a href="https://orbiting-minds.vercel.app/web-viewer/index.html" class="btn-primary" id="inspectPipBtn" target="_blank" rel="noopener noreferrer">
+              <a href="../web-viewer/index.html?branch=media" class="btn-primary" id="inspectPipBtn" target="_blank" rel="noopener noreferrer">
                 <span>Inspect Pip in 3D Viewer</span>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                   <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
@@ -946,21 +1119,29 @@
                 <span class="resource-card-desc">1080p walkthrough tour of research, benchmark, & 3D viewer</span>
               </a>
 
-              <div class="resource-card resource-card-placeholder" id="placeholder-awg-brain" aria-label="Brain AWG Post placeholder">
+              <a href="https://awg.osdr.space/t/can-frontier-llms-accurately-interpret-spaceflight-biology-rr-10-benchmark-interactive-3d-viewer/4569" class="resource-card" id="placeholder-awg-brain" target="_blank" rel="noopener noreferrer">
                 <span class="resource-card-name">
                   <span>Brain AWG Project Post</span>
-                  <span class="placeholder-tag">Direct URL Soon</span>
+                  <span aria-hidden="true">↗</span>
                 </span>
-                <span class="resource-card-desc">Direct thread URL will be posted after AWG review</span>
-              </div>
+                <span class="resource-card-desc">Live NASA OSDR AWG Discourse thread (#4569, tagged brainawg &amp; aiml)</span>
+              </a>
 
-              <div class="resource-card resource-card-placeholder" id="placeholder-awg-aiml" aria-label="AI/ML AWG Post placeholder">
+              <a href="https://awg.osdr.space/t/can-frontier-llms-accurately-interpret-spaceflight-biology-rr-10-benchmark-interactive-3d-viewer/4569" class="resource-card" id="placeholder-awg-aiml" target="_blank" rel="noopener noreferrer">
                 <span class="resource-card-name">
                   <span>AI/ML AWG Project Post</span>
-                  <span class="placeholder-tag">Direct URL Soon</span>
+                  <span aria-hidden="true">↗</span>
                 </span>
-                <span class="resource-card-desc">Direct thread URL will be posted after AWG review</span>
-              </div>
+                <span class="resource-card-desc">Live RR-10 v1.1 collaboration &amp; frontier LLM audit thread on OSDR AWG</span>
+              </a>
+
+              <a href="https://osdr-chatbot-kappa.vercel.app" class="resource-card" id="resource-osdr-chatbot" target="_blank" rel="noopener noreferrer">
+                <span class="resource-card-name">
+                  <span>OSDR ChatBot v1.0.0</span>
+                  <span aria-hidden="true">↗</span>
+                </span>
+                <span class="resource-card-desc">Companion space-biology assistant consuming the RR-10 v1.1 guardrail contract</span>
+              </a>
 
               <a href="https://orbiting-minds.vercel.app/" class="resource-card" id="placeholder-live-site" target="_blank" rel="noopener noreferrer">
                 <span class="resource-card-name">

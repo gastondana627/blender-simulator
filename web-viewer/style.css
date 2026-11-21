@@ -1027,3 +1027,295 @@ body, html {
   pointer-events: none;
 }
 
+/* ==========================================================================
+   Accessible Drawer Tabs & RR-10 v1.1 Corpus Panel
+   ========================================================================== */
+.drawer-tablist {
+  display: flex;
+  overflow-x: auto;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.25);
+  padding: 0 14px;
+  scrollbar-width: none;
+}
+
+.drawer-tablist::-webkit-scrollbar {
+  display: none;
+}
+
+.drawer-tab-btn {
+  flex: none;
+  position: relative;
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.4px;
+  padding: 10px 12px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color 0.16s ease;
+}
+
+.drawer-tab-btn:hover {
+  color: #e2e8f0;
+}
+
+.drawer-tab-btn[aria-selected="true"] {
+  color: var(--accent-cyan);
+}
+
+/* Shape underline via border-block-end so Forced Colors mode preserves selected state */
+.drawer-tab-btn[aria-selected="true"]::after {
+  content: "";
+  position: absolute;
+  inset: auto 8px 0;
+  border-block-end: 2px solid var(--accent-cyan);
+}
+
+/* No padding/border/margin on hidden=until-found panel itself; styles live on inner wrapper */
+.drawer-scroll {
+  gap: 0;
+}
+
+.drawer-panel-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.widget-tag.v11 {
+  color: #34d399;
+  background: rgba(52, 211, 153, 0.14);
+}
+
+.v11-sha-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 7px 10px;
+  border-radius: 7px;
+  background: rgba(0, 0, 0, 0.42);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.v11-sha-label {
+  font-family: var(--font-mono);
+  font-size: 8.5px;
+  letter-spacing: 0.8px;
+  color: #94a3b8;
+}
+
+.v11-sha-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid rgba(0, 242, 254, 0.3);
+  background: rgba(0, 242, 254, 0.08);
+  color: #e0f2fe;
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  padding: 3px 8px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.v11-sha-btn:hover {
+  background: rgba(0, 242, 254, 0.18);
+  border-color: rgba(0, 242, 254, 0.6);
+}
+
+.v11-sha-copy-tag {
+  font-size: 8px;
+  color: var(--accent-cyan);
+  font-weight: 600;
+}
+
+.v11-action-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.v11-action-btn {
+  flex: 1;
+  min-width: 150px;
+  text-align: center;
+  text-decoration: none;
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  font-weight: 600;
+  padding: 7px 10px;
+  border-radius: 7px;
+  transition: all 0.16s ease;
+}
+
+.v11-action-btn.primary {
+  background: rgba(0, 242, 254, 0.16);
+  border: 1px solid rgba(0, 242, 254, 0.45);
+  color: #e0f2fe;
+}
+
+.v11-action-btn.primary:hover {
+  background: rgba(0, 242, 254, 0.28);
+}
+
+.v11-action-btn.secondary {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: #cbd5e1;
+}
+
+.v11-action-btn.secondary:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+
+/* 11-Context Horizontal Bars */
+.v11-contexts-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.v11-ctx-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 74px;
+  align-items: center;
+  gap: 8px;
+}
+
+.v11-ctx-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+
+.v11-ctx-name {
+  font-family: var(--font-mono);
+  font-size: 8.5px;
+  color: #cbd5e1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.v11-ctx-track {
+  height: 6px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+}
+
+.v11-ctx-fill {
+  height: 100%;
+  border-radius: 3px;
+  background: linear-gradient(90deg, #0ea5e9, #34d399);
+}
+
+.v11-ctx-val {
+  font-family: var(--font-mono);
+  font-size: 8.5px;
+  color: #94a3b8;
+  text-align: right;
+  white-space: nowrap;
+}
+
+/* Responsive Scoreboard Table inside Drawer */
+.v11-table-wrapper {
+  overflow: auto;
+  max-inline-size: 100%;
+  container-type: inline-size;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.v11-score-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-family: var(--font-mono);
+  font-size: 9px;
+}
+
+.v11-score-table thead {
+  position: sticky;
+  inset-block-start: 0;
+  z-index: 1;
+  background: #0d1320;
+}
+
+.v11-score-table th,
+.v11-score-table td {
+  padding: 6px 6px;
+  text-align: right;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  white-space: nowrap;
+}
+
+.v11-score-table th:first-child,
+.v11-score-table td:first-child {
+  text-align: left;
+}
+
+.v11-score-table tbody th {
+  position: sticky;
+  inset-inline-start: 0;
+  background: #0b101b;
+  color: #f1f5f9;
+  font-weight: 500;
+  text-align: left;
+  max-width: 148px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.v11-score-table th {
+  color: #94a3b8;
+  font-weight: 600;
+}
+
+.v11-score-table td {
+  color: #cbd5e1;
+}
+
+.v11-row-baseline th {
+  color: #34d399;
+}
+
+.v11-pill-pdr {
+  color: #38bdf8;
+  font-weight: 600;
+}
+
+.v11-pill-warn {
+  color: #fb923c;
+  font-weight: 600;
+}
+
+.v11-ablation-note,
+.v11-roadmap-note {
+  font-size: 9.5px;
+  line-height: 1.45;
+  padding: 8px 10px;
+  border-radius: 6px;
+}
+
+.v11-ablation-note {
+  background: rgba(245, 158, 11, 0.08);
+  border-left: 2px solid #f59e0b;
+  color: #fde68a;
+}
+
+.v11-roadmap-note {
+  background: rgba(56, 189, 248, 0.08);
+  border-left: 2px solid #38bdf8;
+  color: #bae6fd;
+}
+
+

@@ -1,0 +1,122 @@
+{
+  "schema_version": "1.1.0",
+  "contract_id": "rr10-v1.1-directional-epistemic-guardrail",
+  "updated_utc": "2026-11-21T19:58:07.176155+00:00",
+  "compatible_consumers": [
+    {
+      "name": "OSDR ChatBot v1.0.0",
+      "url": "https://osdr-chatbot-kappa.vercel.app",
+      "role": "Runtime epistemic caution & multi-study contradiction guardrail"
+    },
+    {
+      "name": "Orbiting Minds 3D Viewer",
+      "url": "https://orbiting-minds.vercel.app/",
+      "role": "Public interactive WebGL & Analytic Evidence interface"
+    }
+  ],
+  "provenance": {
+    "benchmark_version": "v1.1",
+    "canonical_sha256": "92915008e0431549ff0f7572f8436cf3bd8c3f416050f9dd127423080114785c",
+    "source_discussion": "https://awg.osdr.space/t/can-frontier-llms-accurately-interpret-spaceflight-biology-rr-10-benchmark-interactive-3d-viewer/4569",
+    "public_redistribution_policy": "Aggregated metadata & epistemic guardrails only; raw item rows remain privately quarantined pending licensing sign-off."
+  },
+  "corpus_scope": {
+    "total_items": 5630,
+    "matched_pairs": 2815,
+    "n_contexts": 11,
+    "n_osd_datasets": 34,
+    "provenance_rows": 11711,
+    "osd_study_ids": [
+      "OSD-1",
+      "OSD-4",
+      "OSD-25",
+      "OSD-37",
+      "OSD-47",
+      "OSD-48",
+      "OSD-168",
+      "OSD-173",
+      "OSD-217",
+      "OSD-242",
+      "OSD-244",
+      "OSD-245",
+      "OSD-253",
+      "OSD-270",
+      "OSD-278",
+      "OSD-321",
+      "OSD-323",
+      "OSD-379",
+      "OSD-421",
+      "OSD-427",
+      "OSD-462",
+      "OSD-463",
+      "OSD-513",
+      "OSD-515",
+      "OSD-546",
+      "OSD-588",
+      "OSD-599",
+      "OSD-612",
+      "OSD-613",
+      "OSD-635",
+      "OSD-863",
+      "OSD-867",
+      "OSD-871",
+      "OSD-937"
+    ],
+    "context_keys": [
+      "mus_musculus::heart",
+      "drosophila_melanogaster::whole_organism",
+      "mus_musculus::left_lobe_of_the_liver",
+      "homo_sapiens::cells_cultured",
+      "mus_musculus::left_cerebral_hemisphere",
+      "mus_musculus::thymus",
+      "mus_musculus::left_kidney",
+      "arabidopsis_thaliana::leaf_root",
+      "arabidopsis_thaliana::seedlings",
+      "mus_musculus::liver",
+      "homo_sapiens::cells"
+    ]
+  },
+  "metric_definitions": {
+    "paired_directional_robustness": "Fraction of matched (trap, control) pairs (denominator = 2,815 on full v1.1) where BOTH predictions are simultaneously correct.",
+    "trap_accuracy": "Fraction of multi-study discordant fragility traps correctly abstained as 'indeterminate'.",
+    "trap_overclaim_rate": "Fraction of fragility traps where the model falsely claims 'upregulated' or 'downregulated'.",
+    "control_accuracy": "Fraction of multi-study concordant controls assigned the verified directional sign.",
+    "control_abstention_rate": "Fraction of concordant controls abstained as 'indeterminate' (tracks blanket abstention collapse)."
+  },
+  "epistemic_caution_rules": [
+    {
+      "id": "EC-01",
+      "rule": "Never assert a single organism::tissue directional gene change from a single spaceflight study when multiple clean NASA OSDR studies exist for that context without checking cross-study sign concordance.",
+      "severity": "critical"
+    },
+    {
+      "id": "EC-02",
+      "rule": "Return 'indeterminate' (not determinable / contradictory evidence) whenever FDR q < 0.05 contrasts across independent clean OSD studies disagree in sign.",
+      "severity": "critical"
+    },
+    {
+      "id": "EC-03",
+      "rule": "Verify contrast orientation ((Space Flight)v(Ground Control) vs inverted (GC)v(SF)) and exclude confounded compound-factor contrasts (e.g., 1G centrifugation or unequal durations) before directional synthesis.",
+      "severity": "high"
+    },
+    {
+      "id": "EC-04",
+      "rule": "Avoid blanket abstention: distinguish genuine cross-study discordance from missing tool retrieval by querying verified OSD differential expression tables when available.",
+      "severity": "high"
+    },
+    {
+      "id": "EC-05",
+      "rule": "Do not extrapolate short-duration LEO murine/model-organism transcriptomic changes directly to multi-year human deep-space pathology without explicit epistemic boundaries.",
+      "severity": "critical"
+    },
+    {
+      "id": "EC-06",
+      "rule": "Never fabricate NASA OSDR accession numbers (OSD-###), log2FC values, or adjusted p-values (q-values).",
+      "severity": "critical"
+    }
+  ],
+  "planned_v1_2_diagnostic": {
+    "credit": "@Mym04Tak14",
+    "framework": "Scale-invariant natural-log viscoelastic trajectory diagnostic (ln[S(t)/S_0]) for low-replicate (n=5) directional instability."
+  }
+}

@@ -59,59 +59,146 @@
       </div>
     </header>
 
-    <!-- Collapsible Analytic Context Drawer (Figures A & B) -->
+    <!-- Collapsible Analytic Context Drawer (Figures A & B + RR-10 v1.1 Corpus) -->
     <aside id="analytics-drawer" class="glass-panel analytics-drawer hidden">
       <div class="drawer-header">
         <div class="drawer-title-group">
           <span class="drawer-badge">KAGGLE BENCHMARK EVIDENCE</span>
-          <h2>Transcriptomic Analytics & QC</h2>
+          <h2>Transcriptomic Analytics &amp; v1.1 Corpus</h2>
         </div>
-        <button class="drawer-close" id="btn-close-analytics" aria-label="Close Analytics">×</button>
+        <button type="button" class="drawer-close" id="btn-close-analytics" aria-label="Close Analytics">×</button>
+      </div>
+      <!-- Accessible Drawer Tablist -->
+      <div class="drawer-tablist" role="tablist" focusgroup="tablist nomemory" aria-label="Analytic Evidence Views">
+        <button type="button" role="tab" class="drawer-tab-btn" id="drawer-tab-figures" aria-selected="true" focusgroupstart>
+          Notebook Figures (A &amp; B)
+        </button>
+        <button type="button" role="tab" class="drawer-tab-btn" id="drawer-tab-v1-1" aria-selected="false">
+          v1.1 Corpus (5,630)
+        </button>
       </div>
       <div class="drawer-scroll">
-        <!-- Figure A: PCA Widget -->
-        <section class="analytic-widget-card" id="widget-pca">
-          <div class="widget-head">
-            <div class="widget-tag-row">
-              <span class="widget-tag pca">FIGURE A · PRIMARY ANALYTIC CONTEXT</span>
-              <span class="widget-dataset">OSD-563 / OSD-564</span>
-            </div>
-            <h3>PCA of Gene Expression: FLT vs GC, by Tissue</h3>
-            <p class="widget-caption">Principal Component Analysis of variance-stabilized gene counts separating spaceflight (FLT) from ground control (GC) murine samples.</p>
-          </div>
-          <div class="pca-tab-controls">
-            <button class="pca-tab-btn active" data-target="cerebellum" id="tab-pca-cerebellum">Cerebellum (OSD-563)</button>
-            <button class="pca-tab-btn" data-target="hippocampus" id="tab-pca-hippocampus">Hippocampus (OSD-564)</button>
-            <button class="pca-tab-btn" data-target="both" id="tab-pca-both">Dual Comparison</button>
-          </div>
-          <div class="pca-chart-viewport" id="pca-chart-viewport">
-            <!-- Dynamic SVG Scatter Plot rendered here -->
-          </div>
-          <div class="pca-chart-legend">
-            <div class="legend-item"><span class="legend-chip flt"></span> FLT = Spaceflight</div>
-            <div class="legend-item"><span class="legend-chip gc"></span> GC = Ground Control</div>
-            <div class="legend-note">✦ 3D background constellation motif synchronized to plotted sample coordinates</div>
-          </div>
-        </section>
+        <!-- Tab Panel 1: Preserved Notebook Figures A & B -->
+        <div id="drawer-panel-figures" class="drawer-tabpanel" role="tabpanel" aria-labelledby="drawer-tab-figures" tabindex="0">
+          <div class="drawer-panel-inner">
+            <!-- Figure A: PCA Widget -->
+            <section class="analytic-widget-card" id="widget-pca">
+              <div class="widget-head">
+                <div class="widget-tag-row">
+                  <span class="widget-tag pca">FIGURE A · PRIMARY ANALYTIC CONTEXT</span>
+                  <span class="widget-dataset">OSD-563 / OSD-564</span>
+                </div>
+                <h3>PCA of Gene Expression: FLT vs GC, by Tissue</h3>
+                <p class="widget-caption">Principal Component Analysis of variance-stabilized gene counts separating spaceflight (FLT) from ground control (GC) murine samples.</p>
+              </div>
+              <div class="pca-tab-controls">
+                <button type="button" class="pca-tab-btn active" data-target="cerebellum" id="tab-pca-cerebellum">Cerebellum (OSD-563)</button>
+                <button type="button" class="pca-tab-btn" data-target="hippocampus" id="tab-pca-hippocampus">Hippocampus (OSD-564)</button>
+                <button type="button" class="pca-tab-btn" data-target="both" id="tab-pca-both">Dual Comparison</button>
+              </div>
+              <div class="pca-chart-viewport" id="pca-chart-viewport">
+                <!-- Dynamic SVG Scatter Plot rendered here -->
+              </div>
+              <div class="pca-chart-legend">
+                <div class="legend-item"><span class="legend-chip flt"></span> FLT = Spaceflight</div>
+                <div class="legend-item"><span class="legend-chip gc"></span> GC = Ground Control</div>
+                <div class="legend-note">✦ 3D background constellation motif synchronized to plotted sample coordinates</div>
+              </div>
+            </section>
 
-        <!-- Figure B: rRNA Removal QC Widget -->
-        <section class="analytic-widget-card" id="widget-qc">
-          <div class="widget-head">
-            <div class="widget-tag-row">
-              <span class="widget-tag qc">FIGURE B · DATA-PROCESSING QC CONTEXT</span>
-              <span class="widget-dataset">OSD-563</span>
-            </div>
-            <h3>Does rRNA Removal Change Cerebellum Expression?</h3>
-            <p class="widget-caption">Data-processing validation confirming that computational rRNA filtration preserves quantitative proportionality without altering biological relative expression.</p>
+            <!-- Figure B: rRNA Removal QC Widget -->
+            <section class="analytic-widget-card" id="widget-qc">
+              <div class="widget-head">
+                <div class="widget-tag-row">
+                  <span class="widget-tag qc">FIGURE B · DATA-PROCESSING QC CONTEXT</span>
+                  <span class="widget-dataset">OSD-563</span>
+                </div>
+                <h3>Does rRNA Removal Change Cerebellum Expression?</h3>
+                <p class="widget-caption">Data-processing validation confirming that computational rRNA filtration preserves quantitative proportionality without altering biological relative expression.</p>
+              </div>
+              <div class="qc-panels-grid" id="qc-chart-viewport">
+                <!-- Dynamic SVG QC Plots rendered here -->
+              </div>
+              <div class="qc-notice-box">
+                <span class="qc-notice-icon">ℹ</span>
+                <span class="qc-notice-text">Correlation <strong>r = 1.000</strong> along <em>y = x</em> reference demonstrates technical proportionality preservation before downstream differential testing.</span>
+              </div>
+            </section>
           </div>
-          <div class="qc-panels-grid" id="qc-chart-viewport">
-            <!-- Dynamic SVG QC Plots rendered here -->
+        </div>
+
+        <!-- Tab Panel 2: Public-Safe RR-10 v1.1 Corpus (5,630 Items) -->
+        <div id="drawer-panel-v1-1" class="drawer-tabpanel" role="tabpanel" aria-labelledby="drawer-tab-v1-1" hidden="until-found">
+          <div class="drawer-panel-inner" id="v1-1-panel-content">
+            <section class="analytic-widget-card" id="widget-v1-1-summary">
+              <div class="widget-head">
+                <div class="widget-tag-row">
+                  <span class="widget-tag v11">RR-10 v1.1 · PUBLIC-SAFE AGGREGATE</span>
+                  <span class="widget-dataset" id="v11-parity-badge">LOCAL ↔ KAGGLE VERIFIED</span>
+                </div>
+                <h3 id="v11-verified-banner">v1.1 Verified · 5,630 Items · 2,815 Pairs · 34 OSD Studies</h3>
+                <p class="widget-caption">Aggregated directional fragility metrics from OMROSLAB's frozen v1.1 OSDR contract (11,711 provenance rows across 11 organism::tissue contexts). Zero raw protected item rows exposed.</p>
+              </div>
+              <div class="v11-sha-row">
+                <span class="v11-sha-label">CANONICAL SHA-256</span>
+                <button type="button" class="v11-sha-btn" id="btn-copy-v11-sha" data-sha="92915008e0431549ff0f7572f8436cf3bd8c3f416050f9dd127423080114785c" title="Click to copy full canonical SHA-256">
+                  <span id="v11-sha-display">92915008...14785c</span>
+                  <span class="v11-sha-copy-tag" id="v11-sha-copy-tag">COPY</span>
+                </button>
+              </div>
+              <div class="v11-action-row">
+                <a href="../data/processed/rr10_guardrail_contract.json" download="rr10_guardrail_contract.json" class="v11-action-btn primary" id="btn-export-guardrail-contract">
+                  ⬇ Export Guardrail Contract JSON
+                </a>
+                <a href="https://osdr-chatbot-kappa.vercel.app" target="_blank" rel="noopener noreferrer" class="v11-action-btn secondary">
+                  OSDR ChatBot v1.0.0 ↗
+                </a>
+              </div>
+            </section>
+
+            <section class="analytic-widget-card" id="widget-v1-1-contexts">
+              <div class="widget-head">
+                <div class="widget-tag-row">
+                  <span class="widget-tag pca">11 ORGANISM::TISSUE CONTEXTS</span>
+                  <span class="widget-dataset">2,815 MATCHED PAIRS</span>
+                </div>
+                <h3>Corpus Pair Distribution Across OSDR Contexts</h3>
+              </div>
+              <div id="v11-contexts-bars" class="v11-contexts-bars">
+                <!-- Populated dynamically from rr10_v1_1_public_summary.json -->
+              </div>
+            </section>
+
+            <section class="analytic-widget-card" id="widget-v1-1-scoreboard">
+              <div class="widget-head">
+                <div class="widget-tag-row">
+                  <span class="widget-tag qc">PDR VS. TRAP OVERCLAIM SCOREBOARD</span>
+                  <span class="widget-dataset">DENOMINATOR = 2,815</span>
+                </div>
+                <h3>Baselines &amp; Frontier Models (Neutral Closed-Book)</h3>
+              </div>
+              <div tabindex="0" role="region" aria-label="RR-10 v1.1 PDR and Trap Overclaim Scoreboard" class="v11-table-wrapper">
+                <table class="v11-score-table" id="v11-scoreboard-table">
+                  <thead>
+                    <tr>
+                      <th scope="col">Model / Baseline</th>
+                      <th scope="col">N</th>
+                      <th scope="col">PDR</th>
+                      <th scope="col">Trap Over</th>
+                      <th scope="col">Ctrl Acc</th>
+                      <th scope="col">Ctrl Abst</th>
+                    </tr>
+                  </thead>
+                  <tbody id="v11-scoreboard-tbody">
+                    <tr><td colspan="6">Loading v1.1 scoreboard...</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="v11-ablation-note" id="v11-ablation-note"></div>
+              <div class="v11-roadmap-note" id="v11-roadmap-note"></div>
+            </section>
           </div>
-          <div class="qc-notice-box">
-            <span class="qc-notice-icon">ℹ</span>
-            <span class="qc-notice-text">Correlation <strong>r = 1.000</strong> along <em>y = x</em> reference demonstrates technical proportionality preservation before downstream differential testing.</span>
-          </div>
-        </section>
+        </div>
       </div>
     </aside>
 

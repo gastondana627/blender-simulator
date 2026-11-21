@@ -40,7 +40,7 @@ const ctxNotebookRef = document.getElementById('ctx-notebook-ref');
 const ctxFindingsText = document.getElementById('ctx-findings-text');
 const citationQuote = document.getElementById('citation-quote');
 
-// Analytics Drawer Elements (Notebook Figures A & B)
+// Analytics Drawer Elements (Notebook Figures A & B + RR-10 v1.1 Corpus)
 const btnToggleAnalytics = document.getElementById('btn-toggle-analytics');
 const analyticsDrawer = document.getElementById('analytics-drawer');
 const btnCloseAnalytics = document.getElementById('btn-close-analytics');
@@ -49,6 +49,19 @@ const qcChartViewport = document.getElementById('qc-chart-viewport');
 const tabPcaCerebellum = document.getElementById('tab-pca-cerebellum');
 const tabPcaHippocampus = document.getElementById('tab-pca-hippocampus');
 const tabPcaBoth = document.getElementById('tab-pca-both');
+const drawerTabFigures = document.getElementById('drawer-tab-figures');
+const drawerTabV11 = document.getElementById('drawer-tab-v1-1');
+const drawerPanelFigures = document.getElementById('drawer-panel-figures');
+const drawerPanelV11 = document.getElementById('drawer-panel-v1-1');
+const btnCopyV11Sha = document.getElementById('btn-copy-v11-sha');
+const v11ShaDisplay = document.getElementById('v11-sha-display');
+const v11ShaCopyTag = document.getElementById('v11-sha-copy-tag');
+const v11VerifiedBanner = document.getElementById('v11-verified-banner');
+const v11ContextsBars = document.getElementById('v11-contexts-bars');
+const v11ScoreboardTbody = document.getElementById('v11-scoreboard-tbody');
+const v11AblationNote = document.getElementById('v11-ablation-note');
+const v11RoadmapNote = document.getElementById('v11-roadmap-note');
+let v11SummaryLoaded = false;
 
 // Kaggle Notebook Benchmark Figures Dataset (Exact Authentic Values)
 const NOTEBOOK_ANALYTICS_DATA = {
@@ -701,6 +714,188 @@ function renderQcPanels(width = 420) {
   qcChartViewport.innerHTML = svg1 + svg2;
 }
 
+function selectDrawerTab(targetKey, shouldFocus = false) {
+  const pairs = [
+    { key: 'figures', tab: drawerTabFigures, panel: drawerPanelFigures },
+    { key: 'v1-1', tab: drawerTabV11, panel: drawerPanelV11 },
+  ];
+  pairs.forEach(({ key, tab, panel }) => {
+    const isActive = key === targetKey;
+    if (tab) {
+      tab.setAttribute('aria-selected', isActive ? 'true' : 'false');
+      tab.toggleAttribute('focusgroupstart', isActive);
+      tab.tabIndex = isActive ? 0 : -1;
+      if (isActive) {
+        tab.scrollIntoView({ block: 'nearest', inline: 'nearest', container: 'nearest' });
+        if (shouldFocus) tab.focus();
+      }
+    }
+    if (panel) {
+      if (isActive) {
+        panel.removeAttribute('hidden');
+        panel.setAttribute('tabindex', '0');
+      } else {
+        panel.hidden = 'until-found';
+        panel.removeAttribute('tabindex');
+      }
+    }
+  });
+
+  if (targetKey === 'v1-1' && !v11SummaryLoaded) {
+    loadV11PublicSummary();
+  }
+}
+
+function fmtPct(val) {
+  if (typeof val !== 'number' || Number.isNaN(val)) return '--';
+  return `${(val * 100).toFixed(1)}%`;
+}
+
+function escapeHtml(str) {
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+function loadV11PublicSummary() {
+  fetch('../data/processed/rr10_v1_1_public_summary.json')
+    .then((res) => {
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      return res.json();
+    })
+    .then((data) => {
+      v11SummaryLoaded = true;
+      renderV11PublicSummary(data);
+    })
+    .catch((err) => {
+      console.warn('Could not fetch RR-10 v1.1 public summary:', err);
+      if (v11ScoreboardTbody) {
+        v11ScoreboardTbody.innerHTML =
+          '<tr><td colspan="6">Serve repository via HTTP to load v1.1 public summary JSON.</td></tr>';
+      }
+    });
+}
+
+function renderV11PublicSummary(data) {
+  const corpus = data.corpus || {};
+  const sha = data.canonical_sha256 || '';
+  if (v11VerifiedBanner) {
+    v11VerifiedBanner.textContent = `v1.1 Verified · ${(corpus.total_items || 5630).toLocaleString()} Items · ${(corpus.matched_pairs || 2815).toLocaleString()} Pairs · ${corpus.n_osd_datasets || 34} OSD Studies`;
+  }
+  if (btnCopyV11Sha && sha) {
+    btnCopyV11Sha.dataset.sha = sha;
+    if (v11ShaDisplay) {
+      v11ShaDisplay.textContent = `${sha.slice(0, 8)}...${sha.slice(-6)}`;
+    }
+  }
+
+  // 11-context horizontal bar breakdown (largest first for scannability)
+  if (v11ContextsBars && Array.isArray(data.contexts)) {
+    const sortedCtx = [...data.contexts].sort((a, b) => b.pairs - a.pairs);
+    const maxPairs = Math.max(...sortedCtx.map((c) => c.pairs), 1);
+    v11ContextsBars.innerHTML = sortedCtx
+      .map((c) => {
+        const pct = Math.max(2, (c.pairs / maxPairs) * 100);
+        return `
+          <div class="v11-ctx-row">
+            <div class="v11-ctx-meta">
+              <span class="v11-ctx-name" title="${escapeHtml(c.context)}">${escapeHtml(c.context)}</span>
+              <div class="v11-ctx-track"><div class="v11-ctx-fill" style="width:${pct.toFixed(1)}%"></div></div>
+            </div>
+            <span class="v11-ctx-val">${c.pairs.toLocaleString()} pr · ${c.items.toLocaleString()}</span>
+          </div>`;
+      })
+      .join('');
+  }
+
+  // Scoreboard rows: Baselines + Full 5,630 Neutral + Stratified 440 Neutral
+  if (v11ScoreboardTbody) {
+    const rows = [];
+    const baselines = (data.verification && data.verification.baselines) || {};
+    if (baselines.gold_oracle_5630) {
+      const b = baselines.gold_oracle_5630;
+      rows.push({
+        label: 'Gold Oracle (5,630)',
+        n: b.n_items,
+        pdr: b.pdr,
+        trapOver: b.trap_overclaim_rate,
+        ctrlAcc: b.control_accuracy,
+        ctrlAbst: b.control_abstention_rate,
+        cls: 'v11-row-baseline',
+      });
+    }
+    if (baselines.all_indeterminate_5630) {
+      const b = baselines.all_indeterminate_5630;
+      rows.push({
+        label: 'All-Indeterminate',
+        n: b.n_items,
+        pdr: b.pdr,
+        trapOver: b.trap_overclaim_rate,
+        ctrlAcc: b.control_accuracy,
+        ctrlAbst: b.control_abstention_rate,
+        cls: 'v11-row-baseline',
+      });
+    }
+    const sb = data.scoreboard || {};
+    (sb.full_5630_neutral_runs || []).forEach((run) => {
+      rows.push({
+        label: run.model.replace(/^google\/|^openai\//, ''),
+        n: run.n_items,
+        pdr: run.metrics.pdr,
+        trapOver: run.metrics.trap_overclaim_rate,
+        ctrlAcc: run.metrics.control_accuracy,
+        ctrlAbst: run.metrics.control_abstention_rate,
+        cls: '',
+      });
+    });
+    (sb.stratified_440_neutral_runs || []).forEach((run) => {
+      rows.push({
+        label: `${run.model.replace(/^google\/|^openai\//, '')} (440)`,
+        n: run.n_items,
+        pdr: run.metrics.pdr,
+        trapOver: run.metrics.trap_overclaim_rate,
+        ctrlAcc: run.metrics.control_accuracy,
+        ctrlAbst: run.metrics.control_abstention_rate,
+        cls: '',
+      });
+    });
+
+    v11ScoreboardTbody.innerHTML = rows
+      .map(
+        (r) => `
+      <tr class="${r.cls}">
+        <th scope="row" title="${escapeHtml(r.label)}">${escapeHtml(r.label)}</th>
+        <td>${r.n.toLocaleString()}</td>
+        <td class="v11-pill-pdr">${fmtPct(r.pdr)}</td>
+        <td class="${r.trapOver > 0.25 ? 'v11-pill-warn' : ''}">${fmtPct(r.trapOver)}</td>
+        <td>${fmtPct(r.ctrlAcc)}</td>
+        <td>${fmtPct(r.ctrlAbst)}</td>
+      </tr>`
+      )
+      .join('');
+  }
+
+  // Caution-Coached Ablation (440 items) note
+  if (v11AblationNote && data.scoreboard && data.scoreboard.caution_coached_ablation_440) {
+    const ab = data.scoreboard.caution_coached_ablation_440;
+    const summaryBits = (ab.runs || [])
+      .map(
+        (r) =>
+          `<strong>${escapeHtml(r.model.replace(/^openai\//, ''))}</strong>: PDR ${fmtPct(r.metrics.pdr)}, TrapOver ${fmtPct(r.metrics.trap_overclaim_rate)}, CtrlAbst ${fmtPct(r.metrics.control_abstention_rate)}`
+      )
+      .join(' · ');
+    v11AblationNote.innerHTML = `<strong>Caution-Coached Ablation (440 items):</strong> ${escapeHtml(ab.note)}<br>${summaryBits}`;
+  }
+
+  // Planned v1.2 Viscoelastic Diagnostic Roadmap note
+  if (v11RoadmapNote && data.roadmap_v1_2) {
+    const rm = data.roadmap_v1_2;
+    v11RoadmapNote.innerHTML = `<strong>Planned v1.2 Diagnostic (${escapeHtml(rm.credit)}):</strong> ${escapeHtml(rm.title)} (<code>${escapeHtml(rm.formula)}</code>) — ${escapeHtml(rm.rationale)}`;
+  }
+}
+
 function toggleAnalyticsDrawer(forceOpen) {
   if (!analyticsDrawer || !btnToggleAnalytics) return;
   const isHidden = analyticsDrawer.classList.contains('hidden');
@@ -712,6 +907,9 @@ function toggleAnalyticsDrawer(forceOpen) {
   if (shouldOpen) {
     updatePcaDisplay('cerebellum');
     renderQcPanels();
+    if (!v11SummaryLoaded) {
+      loadV11PublicSummary();
+    }
   }
 }
 
@@ -1015,6 +1213,53 @@ function setupUIHandlers() {
   }
   if (tabPcaBoth) {
     tabPcaBoth.addEventListener('click', () => updatePcaDisplay('both'));
+  }
+
+  // Accessible Drawer Tablist Listeners (Figures A/B vs RR-10 v1.1 Corpus)
+  const drawerTabs = [
+    { key: 'figures', el: drawerTabFigures, panel: drawerPanelFigures },
+    { key: 'v1-1', el: drawerTabV11, panel: drawerPanelV11 },
+  ];
+  drawerTabs.forEach(({ key, el, panel }, idx) => {
+    if (el) {
+      el.addEventListener('click', () => selectDrawerTab(key, false));
+      el.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+          e.preventDefault();
+          const nextIdx = (idx + (e.key === 'ArrowRight' ? 1 : -1) + drawerTabs.length) % drawerTabs.length;
+          selectDrawerTab(drawerTabs[nextIdx].key, true);
+        } else if (e.key === 'Home') {
+          e.preventDefault();
+          selectDrawerTab(drawerTabs[0].key, true);
+        } else if (e.key === 'End') {
+          e.preventDefault();
+          selectDrawerTab(drawerTabs[drawerTabs.length - 1].key, true);
+        }
+      });
+    }
+    if (panel) {
+      panel.addEventListener('beforematch', () => selectDrawerTab(key, false));
+    }
+  });
+
+  if (btnCopyV11Sha) {
+    btnCopyV11Sha.addEventListener('click', () => {
+      const fullSha = btnCopyV11Sha.dataset.sha || '';
+      if (!fullSha) return;
+      navigator.clipboard
+        .writeText(fullSha)
+        .then(() => {
+          if (v11ShaCopyTag) {
+            v11ShaCopyTag.textContent = 'COPIED ✓';
+            setTimeout(() => {
+              v11ShaCopyTag.textContent = 'COPY';
+            }, 2000);
+          }
+        })
+        .catch(() => {
+          if (v11ShaCopyTag) v11ShaCopyTag.textContent = 'SHA READY';
+        });
+    });
   }
 
   // 3-Way Mode Switcher Listeners

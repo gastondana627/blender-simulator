@@ -91,8 +91,9 @@ The biological foundation of this project is based on the **NASA Rodent Research
 - [14-Slide Executive Deck](https://docs.google.com/presentation/d/1ULCjimhcRYlGojjiCp9aLXnk8GEH-mGTVUfiIKSJX6c/edit?usp=sharing)
 - [Source code — GitHub](https://github.com/gastondana627/blender-simulator)
 - [Google Scholar Profile](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=juOv0f0AAAAJ&citation_for_view=juOv0f0AAAAJ:d1gkVwhDpl0C)
-- Brain AWG project post — add direct URL after publication
-- AI/ML AWG project post — add direct URL after publication
+- [Brain AWG Project Post — NASA OSDR AWG Discourse](https://awg.osdr.space/t/can-frontier-llms-accurately-interpret-spaceflight-biology-rr-10-benchmark-interactive-3d-viewer/4569)
+- [AI/ML AWG Project Post — NASA OSDR AWG Discourse](https://awg.osdr.space/t/can-frontier-llms-accurately-interpret-spaceflight-biology-rr-10-benchmark-interactive-3d-viewer/4569)
+- [OSDR ChatBot v1.0.0 — Companion Guardrail Interface](https://osdr-chatbot-kappa.vercel.app)
 
 ---
 
@@ -327,8 +328,9 @@ Inquiries, discussions, and collaborations across spaceflight biology, AI reason
 - **Google Scholar**: [https://scholar.google.com/citations?view_op=view_citation&hl=en&user=juOv0f0AAAAJ&citation_for_view=juOv0f0AAAAJ:d1gkVwhDpl0C](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=juOv0f0AAAAJ&citation_for_view=juOv0f0AAAAJ:d1gkVwhDpl0C)
 - **Executive Presentation (Google Slides)**: [https://docs.google.com/presentation/d/1ULCjimhcRYlGojjiCp9aLXnk8GEH-mGTVUfiIKSJX6c/preview](https://docs.google.com/presentation/d/1ULCjimhcRYlGojjiCp9aLXnk8GEH-mGTVUfiIKSJX6c/preview)
 - **Executive Presentation (PDF Archive)**: [assets/Orbiting_Minds_RR10_Presentation.pdf](assets/Orbiting_Minds_RR10_Presentation.pdf)
-- **Brain AWG Project Post**: Brain AWG project post — add direct URL after publication
-- **AI/ML AWG Project Post**: AI/ML AWG project post — add direct URL after publication
+- **Brain AWG Project Post**: [NASA OSDR AWG Discourse Thread #4569](https://awg.osdr.space/t/can-frontier-llms-accurately-interpret-spaceflight-biology-rr-10-benchmark-interactive-3d-viewer/4569)
+- **AI/ML AWG Project Post**: [NASA OSDR AWG Discourse Thread #4569](https://awg.osdr.space/t/can-frontier-llms-accurately-interpret-spaceflight-biology-rr-10-benchmark-interactive-3d-viewer/4569)
+- **OSDR ChatBot v1.0.0**: [https://osdr-chatbot-kappa.vercel.app](https://osdr-chatbot-kappa.vercel.app)
 
 ---
 
@@ -351,6 +353,6 @@ Inquiries, discussions, and collaborations across spaceflight biology, AI reason
 ### Next Steps for Public Release
 - [x] Choose and commit an open-source `LICENSE` file.
 - [x] Add your verified public Google Scholar profile URL.
-- [ ] Add direct URLs to the Brain AWG and AI/ML AWG project posts after publication.
+- [x] Add direct URLs to the Brain AWG and AI/ML AWG project posts after publication.
 - [x] Embed the finalized Miris cinematic video showcase in the Media Companion section.
 - [x] Publish the interactive WebGL viewer to production hosting.

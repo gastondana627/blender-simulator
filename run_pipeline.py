@@ -36,6 +36,8 @@ def find_blender_binary():
 
     # 2. Local vendor build directory (when custom compile succeeds)
     vendor_patterns = [
+        os.path.join(PROJECT_ROOT, "vendor", "build_*", "bin", "Blender.app", "Contents", "MacOS", "Blender"),
+        os.path.join(PROJECT_ROOT, "vendor", "build_*", "bin", "blender"),
         os.path.join(PROJECT_ROOT, "vendor", "blender", "build_*", "bin", "Blender.app", "Contents", "MacOS", "Blender"),
         os.path.join(PROJECT_ROOT, "vendor", "blender", "build_*", "bin", "blender"),
         os.path.join(PROJECT_ROOT, "vendor", "blender", "bin", "blender"),

@@ -1,0 +1,1035 @@
+{
+  "schema_version": "1.1.0",
+  "benchmark_version": "v1.1",
+  "benchmark_name": "RR-10 Evidence-Aware Directional Interpretation \u2014 Full OSDR Corpus",
+  "generated_utc": "2026-11-21T19:58:07.175993+00:00",
+  "status": "public-safe aggregate summary (zero raw items or gene-level provenance rows; raw corpus remains privately quarantined pending OSDR/OMROSLAB redistribution sign-off)",
+  "canonical_sha256": "92915008e0431549ff0f7572f8436cf3bd8c3f416050f9dd127423080114785c",
+  "source_thread": "https://awg.osdr.space/t/can-frontier-llms-accurately-interpret-spaceflight-biology-rr-10-benchmark-interactive-3d-viewer/4569",
+  "companion_links": {
+    "orbiting_minds_viewer": "https://orbiting-minds.vercel.app/",
+    "osdr_chatbot": "https://osdr-chatbot-kappa.vercel.app",
+    "guardrail_contract_path": "data/processed/rr10_guardrail_contract.json"
+  },
+  "corpus": {
+    "total_items": 5630,
+    "fragility_traps": 2815,
+    "concordant_controls": 2815,
+    "matched_pairs": 2815,
+    "expected_label_counts": {
+      "indeterminate": 2815,
+      "upregulated": 1459,
+      "downregulated": 1356
+    },
+    "n_contexts": 11,
+    "n_osd_datasets": 34,
+    "osd_datasets": [
+      "OSD-1",
+      "OSD-4",
+      "OSD-25",
+      "OSD-37",
+      "OSD-47",
+      "OSD-48",
+      "OSD-168",
+      "OSD-173",
+      "OSD-217",
+      "OSD-242",
+      "OSD-244",
+      "OSD-245",
+      "OSD-253",
+      "OSD-270",
+      "OSD-278",
+      "OSD-321",
+      "OSD-323",
+      "OSD-379",
+      "OSD-421",
+      "OSD-427",
+      "OSD-462",
+      "OSD-463",
+      "OSD-513",
+      "OSD-515",
+      "OSD-546",
+      "OSD-588",
+      "OSD-599",
+      "OSD-612",
+      "OSD-613",
+      "OSD-635",
+      "OSD-863",
+      "OSD-867",
+      "OSD-871",
+      "OSD-937"
+    ],
+    "provenance_rows": 11711,
+    "datasets_swept": 244,
+    "datasets_clean_used": 95
+  },
+  "contexts": [
+    {
+      "context": "mus_musculus::heart",
+      "organism": "mus_musculus",
+      "tissue": "heart",
+      "items": 2,
+      "traps": 1,
+      "controls": 1,
+      "pairs": 1
+    },
+    {
+      "context": "drosophila_melanogaster::whole_organism",
+      "organism": "drosophila_melanogaster",
+      "tissue": "whole_organism",
+      "items": 10,
+      "traps": 5,
+      "controls": 5,
+      "pairs": 5
+    },
+    {
+      "context": "mus_musculus::left_lobe_of_the_liver",
+      "organism": "mus_musculus",
+      "tissue": "left_lobe_of_the_liver",
+      "items": 26,
+      "traps": 13,
+      "controls": 13,
+      "pairs": 13
+    },
+    {
+      "context": "homo_sapiens::cells_cultured",
+      "organism": "homo_sapiens",
+      "tissue": "cells_cultured",
+      "items": 52,
+      "traps": 26,
+      "controls": 26,
+      "pairs": 26
+    },
+    {
+      "context": "mus_musculus::left_cerebral_hemisphere",
+      "organism": "mus_musculus",
+      "tissue": "left_cerebral_hemisphere",
+      "items": 68,
+      "traps": 34,
+      "controls": 34,
+      "pairs": 34
+    },
+    {
+      "context": "mus_musculus::thymus",
+      "organism": "mus_musculus",
+      "tissue": "thymus",
+      "items": 262,
+      "traps": 131,
+      "controls": 131,
+      "pairs": 131
+    },
+    {
+      "context": "mus_musculus::left_kidney",
+      "organism": "mus_musculus",
+      "tissue": "left_kidney",
+      "items": 382,
+      "traps": 191,
+      "controls": 191,
+      "pairs": 191
+    },
+    {
+      "context": "arabidopsis_thaliana::leaf_root",
+      "organism": "arabidopsis_thaliana",
+      "tissue": "leaf_root",
+      "items": 412,
+      "traps": 206,
+      "controls": 206,
+      "pairs": 206
+    },
+    {
+      "context": "arabidopsis_thaliana::seedlings",
+      "organism": "arabidopsis_thaliana",
+      "tissue": "seedlings",
+      "items": 760,
+      "traps": 380,
+      "controls": 380,
+      "pairs": 380
+    },
+    {
+      "context": "mus_musculus::liver",
+      "organism": "mus_musculus",
+      "tissue": "liver",
+      "items": 1644,
+      "traps": 822,
+      "controls": 822,
+      "pairs": 822
+    },
+    {
+      "context": "homo_sapiens::cells",
+      "organism": "homo_sapiens",
+      "tissue": "cells",
+      "items": 2012,
+      "traps": 1006,
+      "controls": 1006,
+      "pairs": 1006
+    }
+  ],
+  "verification": {
+    "validator_pass": "5,630 / 5,630 PASS (0 errors)",
+    "pdr_denominator_audit": {
+      "passed": true,
+      "expected_denominator": 2815,
+      "hardcoded_100_removed": true,
+      "partial_pair_proof": {
+        "pairs_correct": 1407,
+        "pairs_total": 2815,
+        "observed_pdr": 0.499822380107,
+        "expected_pdr": 0.499822380107
+      }
+    },
+    "private_kaggle_parity": {
+      "passed": true,
+      "dataset_privacy": "private",
+      "kernel_privacy": "private (internet disabled)",
+      "bit_for_bit_files_verified": 5
+    },
+    "baselines": {
+      "gold_oracle_5630": {
+        "n_items": 5630,
+        "n_pairs": 2815,
+        "pdr": 1.0,
+        "trap_accuracy": 1.0,
+        "trap_overclaim_rate": 0.0,
+        "control_accuracy": 1.0,
+        "control_abstention_rate": 0.0,
+        "accuracy_total": 1.0
+      },
+      "all_indeterminate_5630": {
+        "n_items": 5630,
+        "n_pairs": 2815,
+        "pdr": 0.0,
+        "trap_accuracy": 1.0,
+        "trap_overclaim_rate": 0.0,
+        "control_accuracy": 0.0,
+        "control_abstention_rate": 1.0,
+        "accuracy_total": 0.5
+      }
+    }
+  },
+  "scoreboard": {
+    "primary_protocol": "Neutral Zero-Nudge Closed-Book (bare OMROSLAB question + strict 3-label JSON enum, temperature=0)",
+    "full_5630_neutral_runs": [
+      {
+        "model": "openai/gpt-oss-120b",
+        "provider": "Kaggle Model Proxy",
+        "mode": "full",
+        "prompt_mode": "neutral-closed-book",
+        "protocol_label": "Full 5,630 Neutral Closed-Book",
+        "n_items": 5630,
+        "n_pairs": 2815,
+        "metrics": {
+          "pdr": 0.1044,
+          "pair_complete_rate": 1.0,
+          "accuracy_total": 0.3796,
+          "trap_accuracy": 0.5577,
+          "trap_overclaim_rate": 0.4423,
+          "control_accuracy": 0.2014,
+          "control_abstention_rate": 0.5655,
+          "overall_abstention_rate": 0.5616,
+          "coverage": 1.0,
+          "macro_f1": 0.3173,
+          "invalid_or_missing": 0
+        },
+        "prediction_counts": {
+          "downregulated": 1065,
+          "indeterminate": 3162,
+          "upregulated": 1403
+        },
+        "telemetry": {
+          "parse_rate": 1.0,
+          "avg_latency_ms": 1092.6,
+          "p50_latency_ms": 949.2,
+          "wall_seconds": 923.3,
+          "api_errors": 0
+        },
+        "per_context": {
+          "mus_musculus::heart": {
+            "n_items": 2,
+            "n_pairs": 1,
+            "pdr": 0.0,
+            "trap_accuracy": 0.0,
+            "trap_overclaim_rate": 1.0,
+            "control_accuracy": 0.0,
+            "control_abstention_rate": 0.0
+          },
+          "drosophila_melanogaster::whole_organism": {
+            "n_items": 10,
+            "n_pairs": 5,
+            "pdr": 0.4,
+            "trap_accuracy": 1.0,
+            "trap_overclaim_rate": 0.0,
+            "control_accuracy": 0.4,
+            "control_abstention_rate": 0.4
+          },
+          "mus_musculus::left_lobe_of_the_liver": {
+            "n_items": 26,
+            "n_pairs": 13,
+            "pdr": 0.0,
+            "trap_accuracy": 0.2308,
+            "trap_overclaim_rate": 0.7692,
+            "control_accuracy": 0.0769,
+            "control_abstention_rate": 0.6154
+          },
+          "homo_sapiens::cells_cultured": {
+            "n_items": 52,
+            "n_pairs": 26,
+            "pdr": 0.0769,
+            "trap_accuracy": 0.3462,
+            "trap_overclaim_rate": 0.6538,
+            "control_accuracy": 0.2308,
+            "control_abstention_rate": 0.2692
+          },
+          "mus_musculus::left_cerebral_hemisphere": {
+            "n_items": 68,
+            "n_pairs": 34,
+            "pdr": 0.1176,
+            "trap_accuracy": 0.5588,
+            "trap_overclaim_rate": 0.4412,
+            "control_accuracy": 0.1765,
+            "control_abstention_rate": 0.6765
+          },
+          "mus_musculus::thymus": {
+            "n_items": 262,
+            "n_pairs": 131,
+            "pdr": 0.084,
+            "trap_accuracy": 0.5496,
+            "trap_overclaim_rate": 0.4504,
+            "control_accuracy": 0.1985,
+            "control_abstention_rate": 0.6183
+          },
+          "mus_musculus::left_kidney": {
+            "n_items": 382,
+            "n_pairs": 191,
+            "pdr": 0.0785,
+            "trap_accuracy": 0.7016,
+            "trap_overclaim_rate": 0.2984,
+            "control_accuracy": 0.1257,
+            "control_abstention_rate": 0.6545
+          },
+          "arabidopsis_thaliana::leaf_root": {
+            "n_items": 412,
+            "n_pairs": 206,
+            "pdr": 0.1311,
+            "trap_accuracy": 0.5583,
+            "trap_overclaim_rate": 0.4417,
+            "control_accuracy": 0.2039,
+            "control_abstention_rate": 0.5194
+          },
+          "arabidopsis_thaliana::seedlings": {
+            "n_items": 760,
+            "n_pairs": 380,
+            "pdr": 0.0763,
+            "trap_accuracy": 0.2132,
+            "trap_overclaim_rate": 0.7868,
+            "control_accuracy": 0.35,
+            "control_abstention_rate": 0.2737
+          },
+          "mus_musculus::liver": {
+            "n_items": 1644,
+            "n_pairs": 822,
+            "pdr": 0.1363,
+            "trap_accuracy": 0.5061,
+            "trap_overclaim_rate": 0.4939,
+            "control_accuracy": 0.2457,
+            "control_abstention_rate": 0.5353
+          },
+          "homo_sapiens::cells": {
+            "n_items": 2012,
+            "n_pairs": 1006,
+            "pdr": 0.0915,
+            "trap_accuracy": 0.7117,
+            "trap_overclaim_rate": 0.2883,
+            "control_accuracy": 0.1243,
+            "control_abstention_rate": 0.6909
+          }
+        }
+      },
+      {
+        "model": "google/gemini-3.5-flash-lite",
+        "provider": "Kaggle Model Proxy",
+        "mode": "full",
+        "prompt_mode": "neutral-closed-book",
+        "protocol_label": "Full 5,630 Neutral Closed-Book",
+        "n_items": 5630,
+        "n_pairs": 2815,
+        "metrics": {
+          "pdr": 0.1027,
+          "pair_complete_rate": 1.0,
+          "accuracy_total": 0.3812,
+          "trap_accuracy": 0.5535,
+          "trap_overclaim_rate": 0.4465,
+          "control_accuracy": 0.2089,
+          "control_abstention_rate": 0.5535,
+          "overall_abstention_rate": 0.5535,
+          "coverage": 1.0,
+          "macro_f1": 0.3186,
+          "invalid_or_missing": 0
+        },
+        "prediction_counts": {
+          "downregulated": 1670,
+          "indeterminate": 3116,
+          "upregulated": 844
+        },
+        "telemetry": {
+          "parse_rate": 1.0,
+          "avg_latency_ms": 642.9,
+          "p50_latency_ms": 634.7,
+          "wall_seconds": 260.5,
+          "api_errors": 0
+        },
+        "per_context": {
+          "mus_musculus::heart": {
+            "n_items": 2,
+            "n_pairs": 1,
+            "pdr": 0.0,
+            "trap_accuracy": 0.0,
+            "trap_overclaim_rate": 1.0,
+            "control_accuracy": 0.0,
+            "control_abstention_rate": 0.0
+          },
+          "drosophila_melanogaster::whole_organism": {
+            "n_items": 10,
+            "n_pairs": 5,
+            "pdr": 0.4,
+            "trap_accuracy": 0.6,
+            "trap_overclaim_rate": 0.4,
+            "control_accuracy": 0.6,
+            "control_abstention_rate": 0.0
+          },
+          "mus_musculus::left_lobe_of_the_liver": {
+            "n_items": 26,
+            "n_pairs": 13,
+            "pdr": 0.0,
+            "trap_accuracy": 0.2308,
+            "trap_overclaim_rate": 0.7692,
+            "control_accuracy": 0.2308,
+            "control_abstention_rate": 0.6154
+          },
+          "homo_sapiens::cells_cultured": {
+            "n_items": 52,
+            "n_pairs": 26,
+            "pdr": 0.0769,
+            "trap_accuracy": 0.4231,
+            "trap_overclaim_rate": 0.5769,
+            "control_accuracy": 0.2692,
+            "control_abstention_rate": 0.5769
+          },
+          "mus_musculus::left_cerebral_hemisphere": {
+            "n_items": 68,
+            "n_pairs": 34,
+            "pdr": 0.0294,
+            "trap_accuracy": 0.8824,
+            "trap_overclaim_rate": 0.1176,
+            "control_accuracy": 0.0294,
+            "control_abstention_rate": 0.8824
+          },
+          "mus_musculus::thymus": {
+            "n_items": 262,
+            "n_pairs": 131,
+            "pdr": 0.145,
+            "trap_accuracy": 0.5802,
+            "trap_overclaim_rate": 0.4198,
+            "control_accuracy": 0.229,
+            "control_abstention_rate": 0.6107
+          },
+          "mus_musculus::left_kidney": {
+            "n_items": 382,
+            "n_pairs": 191,
+            "pdr": 0.0942,
+            "trap_accuracy": 0.712,
+            "trap_overclaim_rate": 0.288,
+            "control_accuracy": 0.1204,
+            "control_abstention_rate": 0.5969
+          },
+          "arabidopsis_thaliana::leaf_root": {
+            "n_items": 412,
+            "n_pairs": 206,
+            "pdr": 0.1505,
+            "trap_accuracy": 0.4563,
+            "trap_overclaim_rate": 0.5437,
+            "control_accuracy": 0.3107,
+            "control_abstention_rate": 0.4223
+          },
+          "arabidopsis_thaliana::seedlings": {
+            "n_items": 760,
+            "n_pairs": 380,
+            "pdr": 0.0632,
+            "trap_accuracy": 0.2132,
+            "trap_overclaim_rate": 0.7868,
+            "control_accuracy": 0.3632,
+            "control_abstention_rate": 0.2553
+          },
+          "mus_musculus::liver": {
+            "n_items": 1644,
+            "n_pairs": 822,
+            "pdr": 0.1131,
+            "trap_accuracy": 0.5243,
+            "trap_overclaim_rate": 0.4757,
+            "control_accuracy": 0.2056,
+            "control_abstention_rate": 0.545
+          },
+          "homo_sapiens::cells": {
+            "n_items": 2012,
+            "n_pairs": 1006,
+            "pdr": 0.0984,
+            "trap_accuracy": 0.6889,
+            "trap_overclaim_rate": 0.3111,
+            "control_accuracy": 0.1491,
+            "control_abstention_rate": 0.675
+          }
+        }
+      },
+      {
+        "model": "openai/gpt-5.4-nano-2026-03-17",
+        "provider": "Kaggle Model Proxy",
+        "mode": "full",
+        "prompt_mode": "neutral-closed-book",
+        "protocol_label": "Full 5,630 Neutral Closed-Book",
+        "n_items": 5630,
+        "n_pairs": 2815,
+        "metrics": {
+          "pdr": 0.0053,
+          "pair_complete_rate": 1.0,
+          "accuracy_total": 0.4986,
+          "trap_accuracy": 0.9918,
+          "trap_overclaim_rate": 0.0082,
+          "control_accuracy": 0.0053,
+          "control_abstention_rate": 0.9886,
+          "overall_abstention_rate": 0.9902,
+          "coverage": 1.0,
+          "macro_f1": 0.2285,
+          "invalid_or_missing": 0
+        },
+        "prediction_counts": {
+          "indeterminate": 5575,
+          "upregulated": 53,
+          "downregulated": 2
+        },
+        "telemetry": {
+          "parse_rate": 1.0,
+          "avg_latency_ms": 851.7,
+          "p50_latency_ms": 829.6,
+          "wall_seconds": 343.0,
+          "api_errors": 0
+        },
+        "per_context": {
+          "mus_musculus::heart": {
+            "n_items": 2,
+            "n_pairs": 1,
+            "pdr": 0.0,
+            "trap_accuracy": 1.0,
+            "trap_overclaim_rate": 0.0,
+            "control_accuracy": 0.0,
+            "control_abstention_rate": 1.0
+          },
+          "drosophila_melanogaster::whole_organism": {
+            "n_items": 10,
+            "n_pairs": 5,
+            "pdr": 0.0,
+            "trap_accuracy": 1.0,
+            "trap_overclaim_rate": 0.0,
+            "control_accuracy": 0.0,
+            "control_abstention_rate": 1.0
+          },
+          "mus_musculus::left_lobe_of_the_liver": {
+            "n_items": 26,
+            "n_pairs": 13,
+            "pdr": 0.0,
+            "trap_accuracy": 1.0,
+            "trap_overclaim_rate": 0.0,
+            "control_accuracy": 0.0,
+            "control_abstention_rate": 1.0
+          },
+          "homo_sapiens::cells_cultured": {
+            "n_items": 52,
+            "n_pairs": 26,
+            "pdr": 0.0,
+            "trap_accuracy": 1.0,
+            "trap_overclaim_rate": 0.0,
+            "control_accuracy": 0.0,
+            "control_abstention_rate": 1.0
+          },
+          "mus_musculus::left_cerebral_hemisphere": {
+            "n_items": 68,
+            "n_pairs": 34,
+            "pdr": 0.0,
+            "trap_accuracy": 1.0,
+            "trap_overclaim_rate": 0.0,
+            "control_accuracy": 0.0,
+            "control_abstention_rate": 1.0
+          },
+          "mus_musculus::thymus": {
+            "n_items": 262,
+            "n_pairs": 131,
+            "pdr": 0.0,
+            "trap_accuracy": 0.9924,
+            "trap_overclaim_rate": 0.0076,
+            "control_accuracy": 0.0,
+            "control_abstention_rate": 1.0
+          },
+          "mus_musculus::left_kidney": {
+            "n_items": 382,
+            "n_pairs": 191,
+            "pdr": 0.0,
+            "trap_accuracy": 1.0,
+            "trap_overclaim_rate": 0.0,
+            "control_accuracy": 0.0,
+            "control_abstention_rate": 1.0
+          },
+          "arabidopsis_thaliana::leaf_root": {
+            "n_items": 412,
+            "n_pairs": 206,
+            "pdr": 0.0,
+            "trap_accuracy": 1.0,
+            "trap_overclaim_rate": 0.0,
+            "control_accuracy": 0.0,
+            "control_abstention_rate": 1.0
+          },
+          "arabidopsis_thaliana::seedlings": {
+            "n_items": 760,
+            "n_pairs": 380,
+            "pdr": 0.0026,
+            "trap_accuracy": 0.9605,
+            "trap_overclaim_rate": 0.0395,
+            "control_accuracy": 0.0026,
+            "control_abstention_rate": 0.9974
+          },
+          "mus_musculus::liver": {
+            "n_items": 1644,
+            "n_pairs": 822,
+            "pdr": 0.0097,
+            "trap_accuracy": 0.9976,
+            "trap_overclaim_rate": 0.0024,
+            "control_accuracy": 0.0097,
+            "control_abstention_rate": 0.9805
+          },
+          "homo_sapiens::cells": {
+            "n_items": 2012,
+            "n_pairs": 1006,
+            "pdr": 0.006,
+            "trap_accuracy": 0.995,
+            "trap_overclaim_rate": 0.005,
+            "control_accuracy": 0.006,
+            "control_abstention_rate": 0.9851
+          }
+        }
+      }
+    ],
+    "stratified_440_neutral_runs": [
+      {
+        "model": "google/gemini-3-flash-preview",
+        "provider": "Kaggle Model Proxy",
+        "mode": "stratified-pilot",
+        "prompt_mode": "neutral-closed-book",
+        "protocol_label": "Stratified 440 Neutral Pilot",
+        "n_items": 440,
+        "n_pairs": 220,
+        "metrics": {
+          "pdr": 0.0,
+          "pair_complete_rate": 0.9909,
+          "accuracy_total": 0.2409,
+          "trap_accuracy": 0.0,
+          "trap_overclaim_rate": 0.9955,
+          "control_accuracy": 0.4818,
+          "control_abstention_rate": 0.0,
+          "overall_abstention_rate": 0.0,
+          "coverage": 0.9955,
+          "macro_f1": 0.1932,
+          "invalid_or_missing": 2
+        },
+        "prediction_counts": {
+          "downregulated": 342,
+          "upregulated": 96,
+          "None": 2
+        },
+        "telemetry": {
+          "parse_rate": 0.9955,
+          "avg_latency_ms": 3246.1,
+          "p50_latency_ms": 3247.7,
+          "wall_seconds": 120.1,
+          "api_errors": 0
+        },
+        "per_context": {
+          "mus_musculus::heart": {
+            "n_items": 2,
+            "n_pairs": 1,
+            "pdr": 0.0,
+            "trap_accuracy": 0.0,
+            "trap_overclaim_rate": 1.0,
+            "control_accuracy": 0.0,
+            "control_abstention_rate": 0.0
+          },
+          "drosophila_melanogaster::whole_organism": {
+            "n_items": 10,
+            "n_pairs": 5,
+            "pdr": 0.0,
+            "trap_accuracy": 0.0,
+            "trap_overclaim_rate": 1.0,
+            "control_accuracy": 0.8,
+            "control_abstention_rate": 0.0
+          },
+          "mus_musculus::left_lobe_of_the_liver": {
+            "n_items": 26,
+            "n_pairs": 13,
+            "pdr": 0.0,
+            "trap_accuracy": 0.0,
+            "trap_overclaim_rate": 1.0,
+            "control_accuracy": 0.3846,
+            "control_abstention_rate": 0.0
+          },
+          "arabidopsis_thaliana::seedlings": {
+            "n_items": 50,
+            "n_pairs": 25,
+            "pdr": 0.0,
+            "trap_accuracy": 0.0,
+            "trap_overclaim_rate": 1.0,
+            "control_accuracy": 0.36,
+            "control_abstention_rate": 0.0
+          },
+          "homo_sapiens::cells": {
+            "n_items": 50,
+            "n_pairs": 25,
+            "pdr": 0.0,
+            "trap_accuracy": 0.0,
+            "trap_overclaim_rate": 1.0,
+            "control_accuracy": 0.4,
+            "control_abstention_rate": 0.0
+          },
+          "homo_sapiens::cells_cultured": {
+            "n_items": 50,
+            "n_pairs": 25,
+            "pdr": 0.0,
+            "trap_accuracy": 0.0,
+            "trap_overclaim_rate": 1.0,
+            "control_accuracy": 0.52,
+            "control_abstention_rate": 0.0
+          },
+          "mus_musculus::left_cerebral_hemisphere": {
+            "n_items": 50,
+            "n_pairs": 25,
+            "pdr": 0.0,
+            "trap_accuracy": 0.0,
+            "trap_overclaim_rate": 1.0,
+            "control_accuracy": 0.6,
+            "control_abstention_rate": 0.0
+          },
+          "mus_musculus::left_kidney": {
+            "n_items": 50,
+            "n_pairs": 25,
+            "pdr": 0.0,
+            "trap_accuracy": 0.0,
+            "trap_overclaim_rate": 1.0,
+            "control_accuracy": 0.24,
+            "control_abstention_rate": 0.0
+          },
+          "mus_musculus::liver": {
+            "n_items": 50,
+            "n_pairs": 25,
+            "pdr": 0.0,
+            "trap_accuracy": 0.0,
+            "trap_overclaim_rate": 1.0,
+            "control_accuracy": 0.4,
+            "control_abstention_rate": 0.0
+          },
+          "mus_musculus::thymus": {
+            "n_items": 50,
+            "n_pairs": 25,
+            "pdr": 0.0,
+            "trap_accuracy": 0.0,
+            "trap_overclaim_rate": 0.96,
+            "control_accuracy": 0.8,
+            "control_abstention_rate": 0.0
+          },
+          "arabidopsis_thaliana::leaf_root": {
+            "n_items": 52,
+            "n_pairs": 26,
+            "pdr": 0.0,
+            "trap_accuracy": 0.0,
+            "trap_overclaim_rate": 1.0,
+            "control_accuracy": 0.5385,
+            "control_abstention_rate": 0.0
+          }
+        }
+      }
+    ],
+    "caution_coached_ablation_440": {
+      "note": "Explicit epistemic-caution prompt ablation on 440 stratified items (220 matched pairs across 11 contexts). Caution coaching reduced Gemini 3.5 Flash-Lite trap overclaiming dramatically while collapsing control accuracy and PDR to 0.0% \u2014 and all 3 directional claims it still emitted were false overclaims on fragility traps.",
+      "runs": [
+        {
+          "model": "openai/gpt-5.4-nano-2026-03-17",
+          "provider": "Kaggle Model Proxy",
+          "mode": "stratified-pilot",
+          "prompt_mode": "closed-book",
+          "protocol_label": "Caution-Coached Ablation (440 items)",
+          "n_items": 440,
+          "n_pairs": 220,
+          "metrics": {
+            "pdr": 0.0,
+            "pair_complete_rate": 1.0,
+            "accuracy_total": 0.5,
+            "trap_accuracy": 1.0,
+            "trap_overclaim_rate": 0.0,
+            "control_accuracy": 0.0,
+            "control_abstention_rate": 1.0,
+            "overall_abstention_rate": 1.0,
+            "coverage": 1.0,
+            "macro_f1": 0.2222,
+            "invalid_or_missing": 0
+          },
+          "prediction_counts": {
+            "indeterminate": 440
+          },
+          "telemetry": {
+            "parse_rate": 1.0,
+            "avg_latency_ms": 1071.0,
+            "p50_latency_ms": 1037.2,
+            "wall_seconds": 47.7,
+            "api_errors": 0
+          },
+          "per_context": {
+            "mus_musculus::heart": {
+              "n_items": 2,
+              "n_pairs": 1,
+              "pdr": 0.0,
+              "trap_accuracy": 1.0,
+              "trap_overclaim_rate": 0.0,
+              "control_accuracy": 0.0,
+              "control_abstention_rate": 1.0
+            },
+            "drosophila_melanogaster::whole_organism": {
+              "n_items": 10,
+              "n_pairs": 5,
+              "pdr": 0.0,
+              "trap_accuracy": 1.0,
+              "trap_overclaim_rate": 0.0,
+              "control_accuracy": 0.0,
+              "control_abstention_rate": 1.0
+            },
+            "mus_musculus::left_lobe_of_the_liver": {
+              "n_items": 26,
+              "n_pairs": 13,
+              "pdr": 0.0,
+              "trap_accuracy": 1.0,
+              "trap_overclaim_rate": 0.0,
+              "control_accuracy": 0.0,
+              "control_abstention_rate": 1.0
+            },
+            "arabidopsis_thaliana::seedlings": {
+              "n_items": 50,
+              "n_pairs": 25,
+              "pdr": 0.0,
+              "trap_accuracy": 1.0,
+              "trap_overclaim_rate": 0.0,
+              "control_accuracy": 0.0,
+              "control_abstention_rate": 1.0
+            },
+            "homo_sapiens::cells": {
+              "n_items": 50,
+              "n_pairs": 25,
+              "pdr": 0.0,
+              "trap_accuracy": 1.0,
+              "trap_overclaim_rate": 0.0,
+              "control_accuracy": 0.0,
+              "control_abstention_rate": 1.0
+            },
+            "homo_sapiens::cells_cultured": {
+              "n_items": 50,
+              "n_pairs": 25,
+              "pdr": 0.0,
+              "trap_accuracy": 1.0,
+              "trap_overclaim_rate": 0.0,
+              "control_accuracy": 0.0,
+              "control_abstention_rate": 1.0
+            },
+            "mus_musculus::left_cerebral_hemisphere": {
+              "n_items": 50,
+              "n_pairs": 25,
+              "pdr": 0.0,
+              "trap_accuracy": 1.0,
+              "trap_overclaim_rate": 0.0,
+              "control_accuracy": 0.0,
+              "control_abstention_rate": 1.0
+            },
+            "mus_musculus::left_kidney": {
+              "n_items": 50,
+              "n_pairs": 25,
+              "pdr": 0.0,
+              "trap_accuracy": 1.0,
+              "trap_overclaim_rate": 0.0,
+              "control_accuracy": 0.0,
+              "control_abstention_rate": 1.0
+            },
+            "mus_musculus::liver": {
+              "n_items": 50,
+              "n_pairs": 25,
+              "pdr": 0.0,
+              "trap_accuracy": 1.0,
+              "trap_overclaim_rate": 0.0,
+              "control_accuracy": 0.0,
+              "control_abstention_rate": 1.0
+            },
+            "mus_musculus::thymus": {
+              "n_items": 50,
+              "n_pairs": 25,
+              "pdr": 0.0,
+              "trap_accuracy": 1.0,
+              "trap_overclaim_rate": 0.0,
+              "control_accuracy": 0.0,
+              "control_abstention_rate": 1.0
+            },
+            "arabidopsis_thaliana::leaf_root": {
+              "n_items": 52,
+              "n_pairs": 26,
+              "pdr": 0.0,
+              "trap_accuracy": 1.0,
+              "trap_overclaim_rate": 0.0,
+              "control_accuracy": 0.0,
+              "control_abstention_rate": 1.0
+            }
+          }
+        },
+        {
+          "model": "gemini-3.5-flash-lite",
+          "provider": "Kaggle Model Proxy",
+          "mode": "stratified-pilot",
+          "prompt_mode": "closed-book",
+          "protocol_label": "Caution-Coached Ablation (440 items)",
+          "n_items": 440,
+          "n_pairs": 220,
+          "metrics": {
+            "pdr": 0.0,
+            "pair_complete_rate": 1.0,
+            "accuracy_total": 0.4932,
+            "trap_accuracy": 0.9864,
+            "trap_overclaim_rate": 0.0136,
+            "control_accuracy": 0.0,
+            "control_abstention_rate": 1.0,
+            "overall_abstention_rate": 0.9932,
+            "coverage": 1.0,
+            "macro_f1": 0.2202,
+            "invalid_or_missing": 0
+          },
+          "prediction_counts": {
+            "indeterminate": 437,
+            "upregulated": 3
+          },
+          "telemetry": {
+            "parse_rate": 1.0,
+            "avg_latency_ms": 667.7,
+            "p50_latency_ms": 644.8,
+            "wall_seconds": 29.7,
+            "api_errors": 0
+          },
+          "per_context": {
+            "mus_musculus::heart": {
+              "n_items": 2,
+              "n_pairs": 1,
+              "pdr": 0.0,
+              "trap_accuracy": 1.0,
+              "trap_overclaim_rate": 0.0,
+              "control_accuracy": 0.0,
+              "control_abstention_rate": 1.0
+            },
+            "drosophila_melanogaster::whole_organism": {
+              "n_items": 10,
+              "n_pairs": 5,
+              "pdr": 0.0,
+              "trap_accuracy": 1.0,
+              "trap_overclaim_rate": 0.0,
+              "control_accuracy": 0.0,
+              "control_abstention_rate": 1.0
+            },
+            "mus_musculus::left_lobe_of_the_liver": {
+              "n_items": 26,
+              "n_pairs": 13,
+              "pdr": 0.0,
+              "trap_accuracy": 0.9231,
+              "trap_overclaim_rate": 0.0769,
+              "control_accuracy": 0.0,
+              "control_abstention_rate": 1.0
+            },
+            "arabidopsis_thaliana::seedlings": {
+              "n_items": 50,
+              "n_pairs": 25,
+              "pdr": 0.0,
+              "trap_accuracy": 0.92,
+              "trap_overclaim_rate": 0.08,
+              "control_accuracy": 0.0,
+              "control_abstention_rate": 1.0
+            },
+            "homo_sapiens::cells": {
+              "n_items": 50,
+              "n_pairs": 25,
+              "pdr": 0.0,
+              "trap_accuracy": 1.0,
+              "trap_overclaim_rate": 0.0,
+              "control_accuracy": 0.0,
+              "control_abstention_rate": 1.0
+            },
+            "homo_sapiens::cells_cultured": {
+              "n_items": 50,
+              "n_pairs": 25,
+              "pdr": 0.0,
+              "trap_accuracy": 1.0,
+              "trap_overclaim_rate": 0.0,
+              "control_accuracy": 0.0,
+              "control_abstention_rate": 1.0
+            },
+            "mus_musculus::left_cerebral_hemisphere": {
+              "n_items": 50,
+              "n_pairs": 25,
+              "pdr": 0.0,
+              "trap_accuracy": 1.0,
+              "trap_overclaim_rate": 0.0,
+              "control_accuracy": 0.0,
+              "control_abstention_rate": 1.0
+            },
+            "mus_musculus::left_kidney": {
+              "n_items": 50,
+              "n_pairs": 25,
+              "pdr": 0.0,
+              "trap_accuracy": 1.0,
+              "trap_overclaim_rate": 0.0,
+              "control_accuracy": 0.0,
+              "control_abstention_rate": 1.0
+            },
+            "mus_musculus::liver": {
+              "n_items": 50,
+              "n_pairs": 25,
+              "pdr": 0.0,
+              "trap_accuracy": 1.0,
+              "trap_overclaim_rate": 0.0,
+              "control_accuracy": 0.0,
+              "control_abstention_rate": 1.0
+            },
+            "mus_musculus::thymus": {
+              "n_items": 50,
+              "n_pairs": 25,
+              "pdr": 0.0,
+              "trap_accuracy": 1.0,
+              "trap_overclaim_rate": 0.0,
+              "control_accuracy": 0.0,
+              "control_abstention_rate": 1.0
+            },
+            "arabidopsis_thaliana::leaf_root": {
+              "n_items": 52,
+              "n_pairs": 26,
+              "pdr": 0.0,
+              "trap_accuracy": 1.0,
+              "trap_overclaim_rate": 0.0,
+              "control_accuracy": 0.0,
+              "control_abstention_rate": 1.0
+            }
+          }
+        }
+      ]
+    }
+  },
+  "roadmap_v1_2": {
+    "status": "planned_secondary_diagnostic",
+    "credit": "@Mym04Tak14 (NASA OSDR AWG)",
+    "title": "Scale-Invariant Natural-Log Viscoelastic Trajectory Diagnostic",
+    "formula": "ln[S(t)/S_0]",
+    "rationale": "Extends v1.1 directional fragility audits to quantify low-replicate (n=5) temporal trajectory instability and hysteresis across spaceflight exposure durations once v1.1 baseline sign-off closes out."
+  }
+}

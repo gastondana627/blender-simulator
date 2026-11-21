@@ -35,6 +35,9 @@ def setup_lighting(recipe=None):
     key_power = light_cfg.get("key_intensity", 800.0)
     fill_power = light_cfg.get("fill_intensity", 350.0)
     rim_power = light_cfg.get("rim_intensity", 1200.0)
+    key_color = tuple(light_cfg.get("key_color", (1.0, 0.95, 0.88))[:3])
+    fill_color = tuple(light_cfg.get("fill_color", (0.75, 0.85, 1.0))[:3])
+    rim_color = tuple(light_cfg.get("rim_color", (0.2, 0.8, 1.0))[:3])
 
     # Clean existing lights
     for obj in list(bpy.data.objects):
@@ -50,30 +53,30 @@ def setup_lighting(recipe=None):
 
     lights = []
 
-    # 1. Key Light (Upper Right Front - Warm White)
+    # 1. Key Light (Upper Right Front - Warm White by default)
     key_data = bpy.data.lights.new(name="Light_Key", type='AREA')
     key_data.energy = key_power
-    key_data.color = (1.0, 0.95, 0.88)
+    key_data.color = key_color
     key_data.size = 3.0
     key_obj = bpy.data.objects.new("Light_Key", key_data)
     key_obj.location = Vector((4.5, -4.0, 5.0))
     coll.objects.link(key_obj)
     lights.append(key_obj)
 
-    # 2. Fill Light (Left Front - Cool Blue/Cyan)
+    # 2. Fill Light (Left Front - Cool Blue/Cyan by default)
     fill_data = bpy.data.lights.new(name="Light_Fill", type='AREA')
     fill_data.energy = fill_power
-    fill_data.color = (0.75, 0.85, 1.0)
+    fill_data.color = fill_color
     fill_data.size = 5.0
     fill_obj = bpy.data.objects.new("Light_Fill", fill_data)
     fill_obj.location = Vector((-5.0, -3.5, 3.0))
     coll.objects.link(fill_obj)
     lights.append(fill_obj)
 
-    # 3. Rim / Accent Back Light (Back Right High - Electric Cyan)
+    # 3. Rim / Accent Back Light (Back Right High - Electric Cyan by default)
     rim_data = bpy.data.lights.new(name="Light_Rim", type='AREA')
     rim_data.energy = rim_power
-    rim_data.color = (0.2, 0.8, 1.0)
+    rim_data.color = rim_color
     rim_data.size = 2.0
     rim_obj = bpy.data.objects.new("Light_Rim", rim_data)
     rim_obj.location = Vector((2.0, 5.5, 4.0))

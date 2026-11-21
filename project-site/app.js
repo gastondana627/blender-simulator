@@ -22,10 +22,10 @@ const GOOGLE_SCHOLAR_URL = 'https://scholar.google.com/citations?view_op=view_ci
 
 /**
  * 3. NASA GeneLab Analysis Working Group (AWG) Direct Discussion URLs
- * Replace with published thread URLs after AWG review.
+ * Live NASA OSDR AWG thread tagged both `aiml` and `brainawg`.
  */
-const AWG_BRAIN_POST_URL = ''; 
-const AWG_AIML_POST_URL = ''; 
+const AWG_BRAIN_POST_URL = 'https://awg.osdr.space/t/can-frontier-llms-accurately-interpret-spaceflight-biology-rr-10-benchmark-interactive-3d-viewer/4569';
+const AWG_AIML_POST_URL = 'https://awg.osdr.space/t/can-frontier-llms-accurately-interpret-spaceflight-biology-rr-10-benchmark-interactive-3d-viewer/4569';
 
 /**
  * 4. Live Production Project Deployment URL
@@ -44,6 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initCitationCopyButton();
   initPlaceholderLinks();
   initSmoothScroll();
+  initV11CorpusSummary();
 });
 
 /**
@@ -215,4 +216,217 @@ function initSmoothScroll() {
       }
     });
   });
+}
+
+/**
+ * Dynamic RR-10 v1.1 Full Corpus Scale-Up Card (5,630 Items)
+ * Loads strictly aggregated, public-safe metrics from ../data/processed/rr10_v1_1_public_summary.json
+ */
+function initV11CorpusSummary() {
+  const tbody = document.getElementById('site-v11-scoreboard-tbody');
+  const shaBtn = document.getElementById('site-copy-v11-sha');
+  const shaShort = document.getElementById('site-v11-sha-short');
+  const shaStatus = document.getElementById('site-v11-sha-status');
+  const ablationText = document.getElementById('site-v11-ablation-text');
+  const roadmapText = document.getElementById('site-v11-roadmap-text');
+
+  if (shaBtn) {
+    shaBtn.addEventListener('click', () => {
+      const fullSha = shaBtn.dataset.sha || '';
+      if (!fullSha) return;
+      navigator.clipboard
+        .writeText(fullSha)
+        .then(() => {
+          if (shaStatus) {
+            shaStatus.textContent = 'Copied ✓';
+            setTimeout(() => {
+              shaStatus.textContent = 'Copy';
+            }, 2200);
+          }
+        })
+        .catch(() => {
+          if (shaStatus) shaStatus.textContent = 'Ready';
+        });
+    });
+  }
+
+  if (!tbody) return;
+
+  const fmtPct = (v) => (typeof v === 'number' && !Number.isNaN(v) ? `${(v * 100).toFixed(2)}%` : '--');
+  const esc = (s) =>
+    String(s)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+
+  fetch('../data/processed/rr10_v1_1_public_summary.json')
+    .then((res) => {
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      return res.json();
+    })
+    .then((data) => {
+      if (data.canonical_sha256 && shaBtn && shaShort) {
+        shaBtn.dataset.sha = data.canonical_sha256;
+        shaShort.textContent = `${data.canonical_sha256.slice(0, 8)}...${data.canonical_sha256.slice(-6)}`;
+      }
+
+      const rows = [];
+      const baselines = (data.verification && data.verification.baselines) || {};
+      if (baselines.gold_oracle_5630) {
+        const b = baselines.gold_oracle_5630;
+        rows.push({
+          name: 'Gold Oracle Baseline',
+          protocol: 'Canonical Reference (5,630)',
+          n: `${b.n_items.toLocaleString()} (${b.n_pairs.toLocaleString()})`,
+          pdr: b.pdr,
+          trapAcc: b.trap_accuracy,
+          trapOver: b.trap_overclaim_rate,
+          ctrlAcc: b.control_accuracy,
+          ctrlAbst: b.control_abstention_rate,
+          rowCls: 'row-perfect',
+        });
+      }
+      if (baselines.all_indeterminate_5630) {
+        const b = baselines.all_indeterminate_5630;
+        rows.push({
+          name: 'All-Indeterminate Baseline',
+          protocol: 'Blanket Abstention (5,630)',
+          n: `${b.n_items.toLocaleString()} (${b.n_pairs.toLocaleString()})`,
+          pdr: b.pdr,
+          trapAcc: b.trap_accuracy,
+          trapOver: b.trap_overclaim_rate,
+          ctrlAcc: b.control_accuracy,
+          ctrlAbst: b.control_abstention_rate,
+          rowCls: '',
+        });
+      }
+
+      const sb = data.scoreboard || {};
+      (sb.full_5630_neutral_runs || []).forEach((run) => {
+        rows.push({
+          name: run.model,
+          protocol: 'Full Neutral Closed-Book',
+          n: `${run.n_items.toLocaleString()} (${run.n_pairs.toLocaleString()})`,
+          pdr: run.metrics.pdr,
+          trapAcc: run.metrics.trap_accuracy,
+          trapOver: run.metrics.trap_overclaim_rate,
+          ctrlAcc: run.metrics.control_accuracy,
+          ctrlAbst: run.metrics.control_abstention_rate,
+          rowCls: '',
+        });
+      });
+      (sb.stratified_440_neutral_runs || []).forEach((run) => {
+        rows.push({
+          name: run.model,
+          protocol: 'Stratified 440 Neutral Pilot',
+          n: `${run.n_items.toLocaleString()} (${run.n_pairs.toLocaleString()})`,
+          pdr: run.metrics.pdr,
+          trapAcc: run.metrics.trap_accuracy,
+          trapOver: run.metrics.trap_overclaim_rate,
+          ctrlAcc: run.metrics.control_accuracy,
+          ctrlAbst: run.metrics.control_abstention_rate,
+          rowCls: '',
+        });
+      });
+
+      tbody.innerHTML = rows
+        .map(
+          (r) => `
+        <tr class="${r.rowCls}">
+          <th scope="row">${esc(r.name)}</th>
+          <td>${esc(r.protocol)}</td>
+          <td class="text-center">${esc(r.n)}</td>
+          <td class="text-center"><span class="score-pill ${r.pdr >= 0.99 ? 'total-100' : r.pdr >= 0.1 ? 'total-high' : 'total-mid'}">${fmtPct(r.pdr)}</span></td>
+          <td class="text-center">${fmtPct(r.trapAcc)}</td>
+          <td class="text-center"><span class="score-pill ${r.trapOver > 0.25 ? 'fail' : 'pass'}">${fmtPct(r.trapOver)}</span></td>
+          <td class="text-center">${fmtPct(r.ctrlAcc)}</td>
+          <td class="text-center">${fmtPct(r.ctrlAbst)}</td>
+        </tr>`
+        )
+        .join('');
+
+      if (ablationText && sb.caution_coached_ablation_440) {
+        const ab = sb.caution_coached_ablation_440;
+        const runBits = (ab.runs || [])
+          .map(
+            (r) =>
+              `<code>${esc(r.model)}</code> (PDR ${fmtPct(r.metrics.pdr)}, Trap Overclaim ${fmtPct(r.metrics.trap_overclaim_rate)}, Ctrl Abstention ${fmtPct(r.metrics.control_abstention_rate)})`
+          )
+          .join(' · ');
+        ablationText.innerHTML = `${esc(ab.note)}<br><span class="v11-ablation-runs">${runBits}</span>`;
+      }
+
+      if (roadmapText && data.roadmap_v1_2) {
+        const rm = data.roadmap_v1_2;
+        roadmapText.innerHTML = `<strong>${esc(rm.credit)}</strong> - ${esc(rm.title)} (<code>${esc(rm.formula)}</code>): ${esc(rm.rationale)}`;
+      }
+
+      // Render Per-Model Summary Cards beneath the scoreboard
+      const modelCardsContainer = document.getElementById('site-v11-model-cards');
+      if (modelCardsContainer) {
+        const allRuns = [
+          ...(sb.full_5630_neutral_runs || []),
+          ...(sb.stratified_440_neutral_runs || []),
+          ...((sb.caution_coached_ablation_440 && sb.caution_coached_ablation_440.runs) || []),
+        ];
+
+        const classifyFailure = (run) => {
+          const m = run.metrics;
+          if (run.prompt_mode === 'closed-book') return 'Caution-Induced Blanket Abstention Collapse';
+          if (m.trap_overclaim_rate >= 0.9) return 'Unchecked Directional Overclaiming';
+          if (m.control_abstention_rate >= 0.95) return 'Native Conservative Over-Abstention';
+          return 'Mixed Calibration Trade-Off (~44% Trap Overclaim)';
+        };
+
+        const pickExtremes = (perCtx) => {
+          const entries = Object.entries(perCtx || {});
+          const sized = entries.filter(([, v]) => v.n_pairs >= 25);
+          const pool = sized.length ? sized : entries;
+          if (!pool.length) return { best: 'n/a', worst: 'n/a' };
+          const best = [...pool].sort((a, b) => (b[1].pdr - a[1].pdr) || (b[1].control_accuracy - a[1].control_accuracy))[0];
+          const worst = [...pool].sort((a, b) => (b[1].trap_overclaim_rate - a[1].trap_overclaim_rate) || (a[1].pdr - b[1].pdr))[0];
+          return {
+            best: `${best[0]} (PDR ${fmtPct(best[1].pdr)})`,
+            worst: `${worst[0]} (Over ${fmtPct(worst[1].trap_overclaim_rate)})`,
+          };
+        };
+
+        modelCardsContainer.innerHTML = allRuns
+          .map((run) => {
+            const m = run.metrics;
+            const t = run.telemetry || {};
+            const ex = pickExtremes(run.per_context);
+            const tagCls =
+              run.prompt_mode === 'closed-book'
+                ? 'badge-gold'
+                : m.trap_overclaim_rate >= 0.9
+                ? 'badge-terracotta'
+                : 'badge-cyan';
+            return `
+              <article class="v11-model-card">
+                <div class="v11-model-card-top">
+                  <code class="v11-model-card-name">${esc(run.model)}</code>
+                  <span class="badge ${tagCls}">${esc(run.protocol_label)}</span>
+                </div>
+                <div class="v11-model-card-metrics">
+                  <span><strong>PDR:</strong> ${fmtPct(m.pdr)}</span>
+                  <span><strong>TrapOver:</strong> ${fmtPct(m.trap_overclaim_rate)}</span>
+                  <span><strong>CtrlAcc:</strong> ${fmtPct(m.control_accuracy)}</span>
+                  <span><strong>CtrlAbst:</strong> ${fmtPct(m.control_abstention_rate)}</span>
+                  <span><strong>Parse:</strong> ${fmtPct(t.parse_rate)}</span>
+                  <span><strong>Scale:</strong> ${run.n_items.toLocaleString()} items</span>
+                </div>
+                <p class="v11-model-card-mode"><strong>Failure Mode:</strong> ${esc(classifyFailure(run))}</p>
+                <p class="v11-model-card-ctx"><strong>Strongest:</strong> <code>${esc(ex.best)}</code><br><strong>Highest Risk:</strong> <code>${esc(ex.worst)}</code></p>
+              </article>`;
+          })
+          .join('');
+      }
+    })
+    .catch((err) => {
+      console.warn('Could not load RR-10 v1.1 public summary:', err);
+      tbody.innerHTML =
+        '<tr><th scope="row">Summary unavailable offline</th><td colspan="7">Serve via HTTP (<code>python3 run_pipeline.py --serve</code>) to inspect live v1.1 metrics.</td></tr>';
+    });
 }
