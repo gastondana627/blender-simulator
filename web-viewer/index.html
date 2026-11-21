@@ -3,11 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Orbiting Minds — 3D Simulation Viewer</title>
+  <title>Orbiting Minds - 3D Simulation Viewer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧠</text></svg>">
   <!-- Import map for Three.js ES modules -->
   <script type="importmap">
     {
@@ -22,40 +23,64 @@
   <div id="app">
     <!-- Header overlay -->
     <header class="glass-panel header-bar">
-      <div class="brand">
-        <div class="brand-badge"></div>
-        <div class="brand-text">
-          <h1>ANTIGRAVITY SIMULATOR</h1>
-          <span class="subtitle">BLENDER PROCEDURAL EXECUTION ENGINE</span>
+      <div class="header-left">
+        <a href="../project-site/index.html" class="site-back-link" title="Back to Orbiting Minds Project Site">
+          <span aria-hidden="true">←</span>
+          <span>Site</span>
+        </a>
+        <div class="brand">
+          <div class="brand-badge"></div>
+          <div class="brand-text">
+            <h1>ORBITING MINDS</h1>
+            <span class="subtitle">NASA RR-10 · 3D SIMULATION VIEWER</span>
+          </div>
         </div>
       </div>
-      <div class="branch-selector">
-        <button class="branch-btn active" id="btn-branch-technical" data-branch="technical" title="NASA RR-10 Murine Neuro-Adaptation Technical Benchmark">
-          <span class="branch-icon">🔬</span> TECHNICAL BENCHMARK
-        </button>
-        <button class="branch-btn" id="btn-branch-media" data-branch="media" title="Astro-Mice Zero-G Odyssey Media Storytelling Companion">
-          <span class="branch-icon">🚀</span> MEDIA COMPANION
-        </button>
+
+      <div class="header-controls">
+        <div class="branch-selector" role="group" aria-label="Simulation Branch">
+          <button type="button" class="branch-btn active" id="btn-branch-technical" data-branch="technical" title="NASA RR-10 Murine Neuro-Adaptation Technical Benchmark">
+            <span class="branch-icon" aria-hidden="true">🔬</span>
+            <span class="btn-label">TECHNICAL</span>
+          </button>
+          <button type="button" class="branch-btn" id="btn-branch-media" data-branch="media" title="Astro-Mice Zero-G Odyssey Media Storytelling Companion">
+            <span class="branch-icon" aria-hidden="true">🚀</span>
+            <span class="btn-label">COMMANDER PIP</span>
+          </button>
+        </div>
+
+        <div class="analytics-toggle-group">
+          <button type="button" class="analytics-toggle-btn" id="btn-toggle-analytics" aria-expanded="false" aria-controls="analytics-drawer" title="Toggle Notebook Analytic Evidence &amp; v1.1 Corpus (A)">
+            <span class="btn-icon" aria-hidden="true">📊</span>
+            <span class="btn-label">ANALYTICS</span>
+          </button>
+        </div>
+
+        <div class="view-mode-selector" role="group" aria-label="Viewport Display Mode">
+          <button type="button" class="mode-btn active" data-mode="presentation" id="btn-mode-presentation" title="Clean 3D presentation view (1)">
+            <span class="mode-icon" aria-hidden="true">✦</span>
+            <span class="btn-label">PRESENT</span>
+          </button>
+          <button type="button" class="mode-btn" data-mode="annotated" id="btn-mode-annotated" title="Interactive 3D anatomical and telemetry hotspots (2)">
+            <span class="mode-icon" aria-hidden="true">◎</span>
+            <span class="btn-label">ANNOTATED</span>
+          </button>
+          <button type="button" class="mode-btn" data-mode="diagnostic" id="btn-mode-diagnostic" title="Cyan CAD topology overlay (3)">
+            <span class="mode-icon" aria-hidden="true">⛶</span>
+            <span class="btn-label">DIAGNOSTIC</span>
+          </button>
+        </div>
       </div>
-      <div class="analytics-toggle-group">
-        <button class="analytics-toggle-btn" id="btn-toggle-analytics" title="Toggle Notebook Analytic Evidence (Figures A & B)">
-          <span class="btn-icon">📊</span> ANALYTIC EVIDENCE
+
+      <div class="header-right">
+        <button type="button" class="inspector-toggle-btn active" id="btn-toggle-inspector" aria-expanded="true" aria-controls="inspector-panel" title="Toggle Inspector Panel (I)">
+          <span aria-hidden="true">⚙</span>
+          <span class="btn-label">INSPECTOR</span>
         </button>
-      </div>
-      <div class="view-mode-selector">
-        <button class="mode-btn active" data-mode="presentation" id="btn-mode-presentation" title="Clean 3D presentation view">
-          <span class="mode-icon">✦</span> PRESENTATION
-        </button>
-        <button class="mode-btn" data-mode="annotated" id="btn-mode-annotated" title="Interactive 3D anatomical and telemetry hotspots">
-          <span class="mode-icon">◎</span> ANNOTATED
-        </button>
-        <button class="mode-btn" data-mode="diagnostic" id="btn-mode-diagnostic" title="Wireframe topology and telemetry reference grid">
-          <span class="mode-icon">⛶</span> DIAGNOSTIC
-        </button>
-      </div>
-      <div class="header-status">
-        <span class="status-indicator live"></span>
-        <span id="pipeline-status">PIPELINE READY</span>
+        <div class="header-status" title="WebGL Pipeline Live">
+          <span class="status-indicator live"></span>
+          <span id="pipeline-status" class="status-text">LIVE</span>
+        </div>
       </div>
     </header>
 
@@ -98,6 +123,9 @@
               </div>
               <div class="pca-chart-viewport" id="pca-chart-viewport">
                 <!-- Dynamic SVG Scatter Plot rendered here -->
+              </div>
+              <div class="pca-hover-readout" id="pca-hover-readout" aria-live="polite">
+                Hover or focus any sample dot to inspect exact PC1 / PC2 coordinates.
               </div>
               <div class="pca-chart-legend">
                 <div class="legend-item"><span class="legend-chip flt"></span> FLT = Spaceflight</div>
@@ -222,14 +250,30 @@
         <div class="tooltip-metric" id="tooltip-metric">Adaptation Index: 0.942 | ICP Volatility: 0.32</div>
         <p id="tooltip-desc">Rodent smooth cerebral lobes divided by sagittal fissure.</p>
         <div class="tooltip-footer">
-          <span class="tooltip-dataset" id="tooltip-dataset">NASA-OSDR-RR10-B42</span>
+          <span class="tooltip-dataset" id="tooltip-dataset">OSD-563 / OSD-564</span>
           <span class="tooltip-hint">Click pin to focus view</span>
         </div>
       </div>
+
+      <!-- Subtle Keyboard Shortcut Bar -->
+      <div class="keyboard-hint-bar" aria-label="Keyboard shortcuts">
+        <span><kbd>Space</kbd> Play</span>
+        <span><kbd>R</kbd> Reset</span>
+        <span><kbd>1-3</kbd> Modes</span>
+        <span><kbd>X</kbd> X-Ray</span>
+        <span><kbd>A</kbd> Analytics</span>
+        <span><kbd>I</kbd> Inspector</span>
+        <span><kbd>Esc</kbd> Close</span>
+      </div>
     </div>
 
-    <!-- Inspector / Metadata Drawer -->
-    <aside class="glass-panel inspector-panel">
+    <!-- Collapsible Inspector / Metadata Drawer -->
+    <aside id="inspector-panel" class="glass-panel inspector-panel" aria-label="Scene Inspector">
+      <div class="inspector-head">
+        <span class="inspector-title">SCENE INSPECTOR</span>
+        <button type="button" class="drawer-close" id="btn-close-inspector" aria-label="Close Inspector">×</button>
+      </div>
+
       <div class="panel-section">
         <h2>SCENE TELEMETRY</h2>
         <div class="telemetry-grid">
@@ -255,8 +299,10 @@
       <div class="panel-section">
         <h2>SIMULATION TIMELINE</h2>
         <div class="playback-controls">
-          <button id="btn-play" class="control-btn primary">PAUSE</button>
-          <button id="btn-reset" class="control-btn">RESET</button>
+          <div class="playback-btn-row">
+            <button type="button" id="btn-play" class="control-btn primary">PAUSE</button>
+            <button type="button" id="btn-reset" class="control-btn">RESET VIEW</button>
+          </div>
           <div class="speed-selector">
             <label for="speed-slider">Speed: <span id="speed-label">1.0x</span></label>
             <input type="range" id="speed-slider" min="0.1" max="2.0" step="0.1" value="1.0">
@@ -267,6 +313,10 @@
       <div class="panel-section">
         <h2>VIEWPORT TOGGLES</h2>
         <div class="toggle-group">
+          <label class="switch-label" id="row-toggle-xray">
+            <span>Cortex X-Ray (Synaptic Core)</span>
+            <input type="checkbox" id="toggle-xray">
+          </label>
           <label class="switch-label">
             <span>Wireframe Mode</span>
             <input type="checkbox" id="toggle-wireframe">
@@ -283,11 +333,11 @@
       </div>
 
       <div class="panel-section">
-        <h2>MISSION CONTEXT & CITATIONS</h2>
+        <h2>MISSION CONTEXT &amp; CITATIONS</h2>
         <div class="context-card">
           <div class="context-row">
             <span class="context-key">DATASET ID</span>
-            <span class="context-badge" id="ctx-dataset-id">NASA-OSDR-RR10-B42</span>
+            <span class="context-badge" id="ctx-dataset-id">OSD-563 / OSD-564</span>
           </div>
           <div class="context-row">
             <span class="context-key">MISSION</span>
@@ -295,7 +345,7 @@
           </div>
           <div class="context-row">
             <span class="context-key">REFERENCE</span>
-            <span class="context-text mono" id="ctx-notebook-ref">cerebellum-vs-hippocampus-rr-10-spaceflight-mice</span>
+            <span class="context-text mono" id="ctx-notebook-ref">cerebellum-vs-hippocampus-rr-10-spaceflight-mice.ipynb</span>
           </div>
           <div class="context-row">
             <span class="context-key">STATUS</span>
@@ -304,17 +354,17 @@
           <div class="citation-box">
             <span class="citation-header">OFFICIAL CITATION</span>
             <div class="citation-quote" id="citation-quote">NASA OSDR OSD-563 &amp; OSD-564: Cerebellum and Hippocampus Transcriptomics from RR-10 Spaceflight Mice (SpaceX-21).</div>
-            <button class="citation-btn" id="btn-copy-citation">📋 Copy Citation</button>
+            <button type="button" class="citation-btn" id="btn-copy-citation">📋 Copy Citation</button>
           </div>
         </div>
       </div>
 
-      <div class="panel-section">
-        <h2>RECIPE METADATA</h2>
+      <details class="panel-section metadata-details">
+        <summary class="metadata-summary">RECIPE METADATA (JSON)</summary>
         <div class="metadata-scroll">
           <pre id="metadata-json">Loading metadata...</pre>
         </div>
-      </div>
+      </details>
 
       <div class="panel-footer">
         <label for="glb-file-input" class="file-upload-btn">

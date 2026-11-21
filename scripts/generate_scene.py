@@ -444,6 +444,43 @@ def build_murine_neural_scene(recipe, collection):
     return created_objects
 
 
+def load_pca_constellation_samples():
+    """Loads Figure A PCA sample coordinates from data/processed/notebook_figures_data.json."""
+    fig_path = os.path.join(PROJECT_ROOT, "data", "processed", "notebook_figures_data.json")
+    if os.path.exists(fig_path):
+        try:
+            with open(fig_path, "r", encoding="utf-8") as f:
+                fig_data = json.load(f)
+            tissues = fig_data.get("figure_a_pca", {}).get("tissues", {})
+            samples = []
+            for key, x_offset, prefix in (
+                ("cerebellum", -1.2, "OSD563"),
+                ("hippocampus", 1.2, "OSD564"),
+            ):
+                tissue = tissues.get(key, {})
+                for s in tissue.get("samples", []):
+                    samples.append(
+                        {
+                            "id": f"{prefix}_{s['id']}",
+                            "cond": s.get("condition", "GC"),
+                            "x": x_offset + 0.006 * float(s["pc1"]),
+                            "z": 0.006 * float(s["pc2"]),
+                        }
+                    )
+            if samples:
+                return samples
+        except Exception as exc:
+            print(f"[generate_scene] Warning: could not read {fig_path}, using built-in fallback ({exc})")
+
+    # Minimal fallback if notebook_figures_data.json is unavailable
+    return [
+        {"id": "OSD563_F1", "cond": "FLT", "x": -1.2 + 0.006 * 177.0, "z": 0.006 * -111.0},
+        {"id": "OSD563_G3", "cond": "GC", "x": -1.2 + 0.006 * -108.0, "z": 0.006 * -79.0},
+        {"id": "OSD564_F1", "cond": "FLT", "x": 1.2 + 0.006 * -119.0, "z": 0.006 * -38.0},
+        {"id": "OSD564_G3", "cond": "GC", "x": 1.2 + 0.006 * 117.0, "z": 0.006 * -110.0},
+    ]
+
+
 def build_pca_background_constellation(coll):
     """Constructs a subtle, low-opacity 3D background constellation derived from Figure A PCA coordinates.
 
@@ -459,33 +496,8 @@ def build_pca_background_constellation(coll):
     # Position in background behind the neural core (Y = 2.4, Z = 0.2)
     root.location = Vector((0.0, 2.4, 0.2))
 
-    # Actual normalized sample coordinates from Figure A:
-    # Cerebellum (OSD-563) and Hippocampus (OSD-564)
-    samples_data = [
-        # Cerebellum (OSD-563) - left cluster
-        {"id": "OSD563_F1", "cond": "FLT", "x": -1.2 + 0.006 * 177.0, "z": 0.006 * -111.0},
-        {"id": "OSD563_F3", "cond": "FLT", "x": -1.2 + 0.006 * 12.0, "z": 0.006 * 35.0},
-        {"id": "OSD563_F5", "cond": "FLT", "x": -1.2 + 0.006 * 42.0, "z": 0.006 * 130.0},
-        {"id": "OSD563_F7", "cond": "FLT", "x": -1.2 + 0.006 * -76.0, "z": 0.006 * -57.0},
-        {"id": "OSD563_F9", "cond": "FLT", "x": -1.2 + 0.006 * -63.0, "z": 0.006 * -25.0},
-        {"id": "OSD563_G1", "cond": "GC",  "x": -1.2 + 0.006 * 73.0, "z": 0.006 * 6.0},
-        {"id": "OSD563_G3", "cond": "GC",  "x": -1.2 + 0.006 * -108.0, "z": 0.006 * -79.0},
-        {"id": "OSD563_G5", "cond": "GC",  "x": -1.2 + 0.006 * -48.0, "z": 0.006 * 11.0},
-        {"id": "OSD563_G7", "cond": "GC",  "x": -1.2 + 0.006 * -17.0, "z": 0.006 * 49.0},
-        {"id": "OSD563_G9", "cond": "GC",  "x": -1.2 + 0.006 * 2.0, "z": 0.006 * 42.0},
-
-        # Hippocampus (OSD-564) - right cluster
-        {"id": "OSD564_F1", "cond": "FLT", "x": 1.2 + 0.006 * -119.0, "z": 0.006 * -38.0},
-        {"id": "OSD564_F3", "cond": "FLT", "x": 1.2 + 0.006 * -62.0, "z": 0.006 * 6.0},
-        {"id": "OSD564_F5", "cond": "FLT", "x": 1.2 + 0.006 * -16.0, "z": 0.006 * 144.0},
-        {"id": "OSD564_F7", "cond": "FLT", "x": 1.2 + 0.006 * -39.0, "z": 0.006 * -29.0},
-        {"id": "OSD564_F9", "cond": "FLT", "x": 1.2 + 0.006 * -68.0, "z": 0.006 * 3.0},
-        {"id": "OSD564_G1", "cond": "GC",  "x": 1.2 + 0.006 * 73.0, "z": 0.006 * 22.0},
-        {"id": "OSD564_G3", "cond": "GC",  "x": 1.2 + 0.006 * 117.0, "z": 0.006 * -110.0},
-        {"id": "OSD564_G5", "cond": "GC",  "x": 1.2 + 0.006 * 108.0, "z": 0.006 * 23.0},
-        {"id": "OSD564_G7", "cond": "GC",  "x": 1.2 + 0.006 * 87.0, "z": 0.006 * 26.0},
-        {"id": "OSD564_G9", "cond": "GC",  "x": 1.2 + 0.006 * -85.0, "z": 0.006 * -46.0},
-    ]
+    # Single source of truth: data/processed/notebook_figures_data.json
+    samples_data = load_pca_constellation_samples()
 
     node_objects = []
     for s in samples_data:

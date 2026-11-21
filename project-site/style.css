@@ -3,7 +3,7 @@
    Project Site Stylesheet (Sophisticated Space-Bioscience Editorial Aesthetic)
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+/* Fonts loaded non-blocking via <link> in index.html */
 
 :root {
   /* Color Palette - Restrained Bioscience Editorial */
@@ -58,6 +58,11 @@ html {
   scroll-behavior: smooth;
   color-scheme: dark;
   font-size: 16px;
+  container-type: scroll-state;
+}
+
+:target {
+  scroll-margin-top: 5.5rem;
 }
 
 body {
@@ -146,36 +151,55 @@ button {
   color: var(--accent-gold);
 }
 
-/* Sticky Navigation Header */
+/* Sticky Navigation Header (Compact single-row, hides on scroll-down) */
 .site-header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: var(--nav-height);
-  background: rgba(9, 11, 14, 0.82);
+  background: rgba(9, 11, 14, 0.86);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--border-subtle);
   z-index: 1000;
   display: flex;
   align-items: center;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@container scroll-state((scrolled: bottom) and (scrollable: top)) {
+  .site-header:not(:focus-within):not(.nav-menu-open) {
+    transform: translateY(-100%);
+  }
+}
+
+.site-header.is-hidden:not(:focus-within):not(.nav-menu-open) {
+  transform: translateY(-100%);
 }
 
 .nav-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: nowrap;
 }
 
 .nav-brand {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.65rem;
   font-family: var(--font-display);
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   font-weight: 700;
   letter-spacing: -0.01em;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.nav-brand .badge {
+  white-space: nowrap;
 }
 
 .nav-brand-dot {
@@ -184,19 +208,22 @@ button {
   border-radius: 50%;
   background: var(--accent-terracotta);
   box-shadow: 0 0 8px var(--accent-terracotta);
+  flex-shrink: 0;
 }
 
 .nav-menu {
   display: flex;
   align-items: center;
-  gap: 1.75rem;
+  gap: 1.25rem;
   list-style: none;
+  flex-wrap: nowrap;
 }
 
 .nav-link {
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   font-weight: 500;
   color: var(--text-secondary);
+  white-space: nowrap;
   transition: color var(--transition-fast);
 }
 
@@ -207,14 +234,16 @@ button {
 .nav-cta-btn {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.45rem;
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid var(--border-medium);
   color: var(--text-primary);
-  padding: 0.5rem 1rem;
-  font-size: 0.85rem;
+  padding: 0.48rem 0.95rem;
+  font-size: 0.84rem;
   font-weight: 600;
   border-radius: var(--radius-sm);
+  white-space: nowrap;
+  flex-shrink: 0;
   transition: all var(--transition-fast);
 }
 
@@ -1469,8 +1498,46 @@ a.resource-card:hover {
    Responsive Breakpoints
    ========================================================================== */
 
+/* Compact laptop nav (<= 1240px): hide redundant badge so single row never wraps */
+@media (max-width: 1240px) {
+  .nav-brand .badge {
+    display: none;
+  }
+
+  .nav-menu {
+    gap: 1rem;
+  }
+}
+
 /* Tablet (<= 1024px) */
 @media (max-width: 1024px) {
+  .nav-menu {
+    display: none;
+    position: absolute;
+    top: var(--nav-height);
+    left: 0;
+    width: 100%;
+    background: rgba(9, 11, 14, 0.98);
+    border-bottom: 1px solid var(--border-subtle);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.25rem 1.5rem 1.5rem;
+    gap: 1rem;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.65);
+  }
+
+  .nav-menu.is-open {
+    display: flex;
+  }
+
+  .mobile-nav-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 40px;
+    min-height: 40px;
+  }
+
   .hero-grid {
     grid-template-columns: 1fr;
     gap: 2.5rem;
@@ -1503,29 +1570,20 @@ a.resource-card:hover {
   }
 
   .container {
-    padding-left: 1.25rem;
-    padding-right: 1.25rem;
+    padding-left: 1.1rem;
+    padding-right: 1.1rem;
   }
 
-  .nav-menu {
-    display: none;
-    position: absolute;
-    top: var(--nav-height);
-    left: 0;
-    width: 100%;
-    background: var(--bg-primary);
-    border-bottom: 1px solid var(--border-subtle);
-    flex-direction: column;
-    padding: 1.5rem;
-    gap: 1.25rem;
+  .benchmark-scorecard-container,
+  .v11-scaleup-card,
+  .resource-console,
+  .citation-box-container,
+  .mode-card {
+    padding: 1.25rem;
   }
 
-  .nav-menu.is-open {
-    display: flex;
-  }
-
-  .mobile-nav-toggle {
-    display: block;
+  .v11-sha-pill-box {
+    align-items: flex-start;
   }
 
   .overview-grid {
@@ -1548,9 +1606,11 @@ a.resource-card:hover {
     grid-template-columns: 1fr;
   }
 
-  .footer-grid {
+  .footer-grid,
+  .footer-bottom {
     flex-direction: column;
     align-items: flex-start;
+    gap: 0.75rem;
   }
 }
 
@@ -1644,7 +1704,7 @@ a.resource-card:hover {
 
 .v11-kpi-strip {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
   gap: 1rem;
   margin-bottom: 1.5rem;
 }
@@ -1773,7 +1833,7 @@ a.resource-card:hover {
 
 .v11-notes-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
   gap: 1rem;
   margin-top: 1.25rem;
 }
@@ -1835,7 +1895,7 @@ a.resource-card:hover {
 
 .v11-model-cards-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
   gap: 1rem;
 }
 
@@ -1847,6 +1907,7 @@ a.resource-card:hover {
   display: flex;
   flex-direction: column;
   gap: 0.55rem;
+  min-width: 0;
 }
 
 .v11-model-card-top {
@@ -1857,11 +1918,18 @@ a.resource-card:hover {
   flex-wrap: wrap;
 }
 
+.v11-model-card-top .badge {
+  white-space: normal;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
 .v11-model-card-name {
   font-family: var(--font-mono);
   font-size: 0.82rem;
   font-weight: 700;
   color: var(--text-primary);
+  overflow-wrap: anywhere;
 }
 
 .v11-model-card-metrics {
@@ -1886,17 +1954,25 @@ a.resource-card:hover {
   color: var(--text-secondary);
   line-height: 1.45;
   margin: 0;
+  overflow-wrap: anywhere;
 }
 
 .v11-model-card-ctx code {
   font-size: 0.72rem;
   color: #7dd3fc;
+  overflow-wrap: anywhere;
 }
 
 .v11-figures-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
   gap: 1.25rem;
+}
+
+/* Defer rendering of strictly below-the-fold static sections (paired with contain-intrinsic-size) */
+.section-deferred {
+  content-visibility: auto;
+  contain-intrinsic-size: auto none auto 750px;
 }
 
 .v11-figure-card {
@@ -1969,6 +2045,21 @@ a.resource-card:hover {
   color: var(--text-secondary);
   line-height: 1.5;
   margin: 0;
+}
+
+/* Mobile overrides for v1.1 Scale-Up block (kept after base v1.1 rules for cascade order) */
+@media (max-width: 768px) {
+  .v11-scaleup-card {
+    padding: 1.1rem;
+  }
+
+  .v11-sha-pill-box {
+    align-items: flex-start;
+  }
+
+  .v11-model-card-metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 

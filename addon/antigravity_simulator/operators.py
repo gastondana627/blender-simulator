@@ -21,17 +21,22 @@ from scripts.export_scene import export_scene
 
 
 def _build_recipe_from_props(props):
-    """Translates UI property group into a structured recipe dictionary."""
+    """Translates UI property group into a v3 murine_neural_proxy recipe dictionary."""
     return {
         "name": props.asset_name,
+        "version": "3.0.0",
         "seed": props.seed,
         "generator": {
-            "type": "kinetic_gyroid",
+            "type": "murine_neural_proxy",
             "scale": props.scale,
-            "rings_count": props.rings_count,
             "core_radius": props.core_radius,
+            "olfactory_scale": props.olfactory_scale,
+            "cerebellar_scale": props.cerebellar_scale,
             "cage_radius": props.cage_radius,
-            "subdivisions": props.subdivisions,
+            "asymmetry": props.asymmetry,
+            "capillary_depth": props.capillary_depth,
+            "rings_count": props.rings_count,
+            "pods_per_ring": props.pods_per_ring,
             "wireframe_thickness": props.wireframe_thickness,
             "animation_frames": props.animation_frames,
             "breathing_amplitude": props.breathing_amplitude
@@ -48,6 +53,12 @@ def _build_recipe_from_props(props):
             "apply_modifiers": True
         }
     }
+
+
+def _resolve_metadata_path(glb_path):
+    """Derives the paired metadata JSON path from the target GLB path."""
+    base, _ = os.path.splitext(glb_path)
+    return f"{base}.json"
 
 
 class ANTIGRAVITY_OT_generate_scene(bpy.types.Operator):
@@ -97,7 +108,7 @@ class ANTIGRAVITY_OT_export_glb(bpy.types.Operator):
         recipe = _build_recipe_from_props(props)
 
         glb_path = os.path.join(PROJECT_ROOT, props.export_path)
-        meta_path = os.path.join(PROJECT_ROOT, "exports", "simulation.json")
+        meta_path = _resolve_metadata_path(glb_path)
 
         try:
             final_glb, meta = export_scene(
@@ -123,7 +134,7 @@ class ANTIGRAVITY_OT_run_all(bpy.types.Operator):
         recipe = _build_recipe_from_props(props)
 
         glb_path = os.path.join(PROJECT_ROOT, props.export_path)
-        meta_path = os.path.join(PROJECT_ROOT, "exports", "simulation.json")
+        meta_path = _resolve_metadata_path(glb_path)
 
         try:
             generate_scene(recipe=recipe, keep_scene=not props.clear_before_gen)

@@ -12,6 +12,7 @@ import argparse
 import glob
 import os
 import shutil
+import socket
 import subprocess
 import sys
 import time
@@ -172,15 +173,38 @@ def main():
     parser.add_argument(
         "--serve",
         action="store_true",
-        help="Start local HTTP server on port 8080 for the web-viewer"
+        help="Start local HTTP server for project-site and web-viewer (auto-falls back if port is busy)"
+    )
+    parser.add_argument(
+        "--port",
+        type=int,
+        default=8080,
+        help="Preferred port for --serve (default: 8080; auto-increments if occupied)"
     )
 
     args = parser.parse_args()
 
     if args.serve:
-        print("[Antigravity] Starting local web server on port 8080...")
-        print("Open: http://localhost:8080/web-viewer/")
-        subprocess.run([sys.executable, "-m", "http.server", "8080"], cwd=PROJECT_ROOT)
+        chosen_port = None
+        for candidate in range(args.port, args.port + 25):
+            with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+                s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+                try:
+                    s.bind(("127.0.0.1", candidate))
+                    chosen_port = candidate
+                    break
+                except OSError:
+                    continue
+        if chosen_port is None:
+            print(f"❌ Error: No open port found in range {args.port}-{args.port + 24}.")
+            sys.exit(1)
+        if chosen_port != args.port:
+            print(f"[Antigravity] Port {args.port} is busy; using open port {chosen_port}.")
+        print(f"[Antigravity] Starting local web server on http://localhost:{chosen_port}/")
+        print(f"  Project Site: http://localhost:{chosen_port}/project-site/")
+        print(f"  3D Viewer:    http://localhost:{chosen_port}/web-viewer/")
+        print(f"  Pip Media:    http://localhost:{chosen_port}/web-viewer/index.html?branch=media")
+        subprocess.run([sys.executable, "-m", "http.server", str(chosen_port)], cwd=PROJECT_ROOT)
         return
 
     # Determine simulation branch mode

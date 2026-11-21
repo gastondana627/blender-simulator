@@ -1,77 +1,134 @@
 {
-  "name": "Bio-Digital Proxy: Bio-Digital Latent Projection",
-  "version": "1.0.0",
-  "seed": 88978,
-  "source_data": {
-    "run_id": "benchmark_bio_042",
-    "experiment_name": "Bio-Digital Latent Projection",
-    "primary_score": 0.942,
-    "loss": 0.058,
-    "volatility": 0.32,
-    "convergence_state": "optimal"
+  "name": "Murine Neural Proxy: RR-10 Spaceflight Neuro-Adaptation",
+  "version": "3.0.0",
+  "mission_metadata": {
+    "mission": "NASA Rodent Research-10 (RR-10)",
+    "run_id": "rr10_flight_mouse_b42",
+    "flight_subject": "Mus musculus (C57BL/6J)",
+    "flight_duration_days": 60,
+    "adaptation_index": 0.942,
+    "microvascular_stress": 0.058,
+    "intracranial_volatility": 0.32,
+    "mission_regime": "flight_adapted"
   },
+  "seed": 93076,
   "generator": {
-    "type": "kinetic_gyroid",
-    "scale": 1.271,
+    "type": "murine_neural_proxy",
+    "scale": 1.246,
+    "core_radius": 0.965,
+    "olfactory_scale": 0.473,
+    "cerebellar_scale": 0.612,
+    "cage_radius": 3.077,
+    "asymmetry": 1.064,
+    "capillary_depth": 0.093,
+    "capillary_frequency": 0.328,
     "rings_count": 4,
-    "core_radius": 0.885,
-    "cage_radius": 2.33,
-    "subdivisions": 3,
-    "wireframe_thickness": 0.036,
+    "pods_per_ring": 2,
+    "wireframe_thickness": 0.012,
     "animation_frames": 150,
-    "breathing_amplitude": 0.24
+    "breathing_amplitude": 0.218
   },
   "materials": {
-    "outer_cage": {
+    "murine_clay": {
       "base_color": [
-        0.06,
-        0.08,
-        0.12,
+        0.46,
+        0.32,
+        0.28,
         1.0
       ],
-      "metallic": 0.95,
-      "roughness": 0.2,
+      "metallic": 0.01,
+      "roughness": 0.55,
+      "subsurface_weight": 0.35,
+      "emission_color": [
+        0.88,
+        0.26,
+        0.14,
+        1.0
+      ],
+      "emission_strength": 5.63
+    },
+    "hippocampal_core": {
+      "base_color": [
+        0.02,
+        0.12,
+        0.18,
+        1.0
+      ],
+      "emission_color": [
+        0.0,
+        0.95,
+        1.0,
+        1.0
+      ],
+      "emission_strength": 4.5
+    },
+    "telemetry_hull": {
+      "base_color": [
+        0.11,
+        0.13,
+        0.17,
+        1.0
+      ],
+      "metallic": 0.94,
+      "roughness": 0.18,
       "emission_color": [
         0.0,
         0.85,
         1.0,
         1.0
       ],
-      "emission_strength": 1.8
+      "emission_strength": 0.5
     },
-    "inner_core": {
+    "sensor_optic": {
       "base_color": [
-        0.2,
-        0.02,
-        0.35,
+        0.01,
+        0.05,
+        0.12,
         1.0
       ],
-      "metallic": 0.85,
-      "roughness": 0.12,
-      "emission_color": [
-        0.98,
-        0.15,
-        0.85,
-        1.0
-      ],
-      "emission_strength": 5.65
-    },
-    "orbital_rings": {
-      "base_color": [
-        0.82,
-        0.86,
-        0.92,
-        1.0
-      ],
-      "metallic": 0.98,
+      "metallic": 0.2,
       "roughness": 0.1,
       "emission_color": [
         0.0,
         0.95,
+        1.0,
+        1.0
+      ],
+      "emission_strength": 6.5
+    },
+    "orbital_tracks": {
+      "base_color": [
+        0.78,
+        0.82,
+        0.88,
+        1.0
+      ],
+      "metallic": 0.98,
+      "roughness": 0.12,
+      "emission_color": [
+        0.0,
+        0.9,
         0.85,
         1.0
       ],
-      "emission_strength": 1.0
+      "emission_strength": 0.5
+    },
+    "telemetry_cage": {
+      "base_color": [
+        0.1,
+        0.12,
+        0.16,
+        1.0
+      ],
+      "metallic": 0.92,
+      "roughness": 0.3,
+      "emission_color": [
+        0.0,
+        0.8,
+        1.0,
+        1.0
+      ],
+      "emission_strength": 0.25
     }
   },
   "scene": {
@@ -81,14 +138,14 @@
     "camera": {
       "focal_length": 55.0,
       "distance_multiplier": 2.7,
-      "elevation_angle": 25.0,
-      "azimuth_angle": 45.0
+      "elevation_angle": 24.0,
+      "azimuth_angle": 42.0
     },
     "lighting": {
-      "preset": "benchmark_optimal",
-      "key_intensity": 938.4,
-      "fill_intensity": 350.0,
-      "rim_intensity": 1376.8
+      "preset": "rr10_flight_adapted",
+      "key_intensity": 1055.5,
+      "fill_intensity": 380.0,
+      "rim_intensity": 1573.9
     }
   },
   "export": {

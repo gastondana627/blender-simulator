@@ -1,57 +1,94 @@
 {
-  "name": "Kinetic Gyroid Lattice Core",
-  "version": "1.0.0",
+  "name": "RR-10 Murine Neural Proxy (Default Flight Adapted)",
+  "version": "3.0.0",
+  "mission_metadata": {
+    "mission": "NASA Rodent Research-10 (SpaceX-21)",
+    "run_id": "rr10_osd563_osd564_default",
+    "flight_subject": "Mus musculus",
+    "flight_duration_days": 30,
+    "adaptation_index": 0.91,
+    "microvascular_stress": 0.14,
+    "intracranial_volatility": 0.28,
+    "mission_regime": "flight_adapted"
+  },
   "seed": 42,
   "generator": {
-    "type": "kinetic_gyroid",
+    "type": "murine_neural_proxy",
     "scale": 1.0,
-    "rings_count": 3,
-    "core_radius": 0.8,
-    "cage_radius": 2.2,
-    "subdivisions": 3,
-    "wireframe_thickness": 0.04,
-    "animation_frames": 120,
-    "rotation_speed": 1.0,
-    "breathing_amplitude": 0.15
+    "core_radius": 0.78,
+    "olfactory_scale": 0.40,
+    "cerebellar_scale": 0.50,
+    "cage_radius": 2.85,
+    "asymmetry": 1.05,
+    "capillary_depth": 0.10,
+    "capillary_frequency": 0.36,
+    "rings_count": 4,
+    "pods_per_ring": 2,
+    "wireframe_thickness": 0.012,
+    "animation_frames": 150,
+    "breathing_amplitude": 0.16
   },
   "materials": {
-    "outer_cage": {
-      "base_color": [0.08, 0.09, 0.12, 1.0],
-      "metallic": 0.95,
-      "roughness": 0.22,
-      "emission_color": [0.1, 0.7, 1.0, 1.0],
-      "emission_strength": 1.5
+    "murine_clay": {
+      "base_color": [0.46, 0.32, 0.28, 1.0],
+      "metallic": 0.01,
+      "roughness": 0.55,
+      "subsurface_weight": 0.35,
+      "emission_color": [0.88, 0.26, 0.14, 1.0],
+      "emission_strength": 0.08
     },
-    "inner_core": {
-      "base_color": [0.15, 0.02, 0.25, 1.0],
-      "metallic": 0.8,
-      "roughness": 0.15,
-      "emission_color": [0.95, 0.2, 0.8, 1.0],
-      "emission_strength": 4.0
+    "hippocampal_core": {
+      "base_color": [0.02, 0.12, 0.18, 1.0],
+      "emission_color": [0.0, 0.95, 1.0, 1.0],
+      "emission_strength": 4.5
     },
-    "orbital_rings": {
-      "base_color": [0.75, 0.78, 0.82, 1.0],
+    "telemetry_hull": {
+      "base_color": [0.11, 0.13, 0.17, 1.0],
+      "metallic": 0.94,
+      "roughness": 0.18,
+      "emission_color": [0.0, 0.85, 1.0, 1.0],
+      "emission_strength": 0.5
+    },
+    "sensor_optic": {
+      "base_color": [0.01, 0.05, 0.12, 1.0],
+      "metallic": 0.2,
+      "roughness": 0.1,
+      "emission_color": [0.0, 0.95, 1.0, 1.0],
+      "emission_strength": 6.5
+    },
+    "orbital_tracks": {
+      "base_color": [0.78, 0.82, 0.88, 1.0],
       "metallic": 0.98,
       "roughness": 0.12,
-      "emission_color": [0.0, 0.9, 0.8, 1.0],
-      "emission_strength": 0.8
+      "emission_color": [0.0, 0.9, 0.85, 1.0],
+      "emission_strength": 0.5
+    },
+    "telemetry_cage": {
+      "base_color": [0.10, 0.12, 0.16, 1.0],
+      "metallic": 0.92,
+      "roughness": 0.3,
+      "emission_color": [0.0, 0.8, 1.0, 1.0],
+      "emission_strength": 0.25
     }
   },
   "scene": {
     "fps": 30,
     "frame_start": 1,
-    "frame_end": 120,
+    "frame_end": 150,
     "camera": {
       "focal_length": 55.0,
-      "distance_multiplier": 2.6,
-      "elevation_angle": 25.0,
-      "azimuth_angle": 45.0
+      "distance_multiplier": 2.7,
+      "elevation_angle": 24.0,
+      "azimuth_angle": 42.0
     },
     "lighting": {
-      "preset": "studio_cyberpunk",
-      "key_intensity": 800.0,
-      "fill_intensity": 350.0,
-      "rim_intensity": 1200.0
+      "preset": "rr10_flight_adapted",
+      "key_color": [1.0, 0.96, 0.90],
+      "fill_color": [0.22, 0.50, 0.92],
+      "rim_color": [0.0, 0.92, 0.96],
+      "key_intensity": 920.0,
+      "fill_intensity": 380.0,
+      "rim_intensity": 1350.0
     }
   },
   "export": {

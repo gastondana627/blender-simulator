@@ -40,6 +40,7 @@ const LIVE_PROJECT_PAGE_URL = 'https://orbiting-minds.vercel.app/';
 
 document.addEventListener('DOMContentLoaded', () => {
   initMobileNavigation();
+  initHeaderScrollFallback();
   initVideoPlayerComponent();
   initCitationCopyButton();
   initPlaceholderLinks();
@@ -48,25 +49,57 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /**
+ * Fallback scroll-direction header hiding for browsers without @container scroll-state
+ */
+function initHeaderScrollFallback() {
+  if (typeof CSS !== 'undefined' && CSS.supports && CSS.supports('container-type', 'scroll-state')) {
+    return;
+  }
+  const bar = document.querySelector('.site-header');
+  if (!bar) return;
+  let lastY = window.scrollY;
+  window.addEventListener(
+    'scroll',
+    () => {
+      const maxScroll = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+      const y = Math.max(0, Math.min(window.scrollY, maxScroll));
+      if (y === lastY) return;
+      bar.classList.toggle('is-hidden', y > lastY && y > bar.offsetHeight);
+      lastY = y;
+    },
+    { passive: true }
+  );
+}
+
+/**
  * Mobile Navigation Drawer Toggle
  */
 function initMobileNavigation() {
   const toggleBtn = document.querySelector('.mobile-nav-toggle');
   const navMenu = document.querySelector('.nav-menu');
+  const headerEl = document.querySelector('.site-header');
 
   if (!toggleBtn || !navMenu) return;
 
-  toggleBtn.addEventListener('click', () => {
-    const isOpen = navMenu.classList.toggle('is-open');
+  const setOpen = (isOpen) => {
+    navMenu.classList.toggle('is-open', isOpen);
     toggleBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    if (headerEl) headerEl.classList.toggle('nav-menu-open', isOpen);
+  };
+
+  toggleBtn.addEventListener('click', () => {
+    setOpen(!navMenu.classList.contains('is-open'));
   });
 
-  // Close menu when clicking a link
-  navMenu.querySelectorAll('.nav-link').forEach((link) => {
-    link.addEventListener('click', () => {
-      navMenu.classList.remove('is-open');
-      toggleBtn.setAttribute('aria-expanded', 'false');
-    });
+  // Close menu when clicking a link or pressing Escape
+  navMenu.querySelectorAll('.nav-link, .nav-cta-btn').forEach((link) => {
+    link.addEventListener('click', () => setOpen(false));
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && navMenu.classList.contains('is-open')) {
+      setOpen(false);
+      toggleBtn.focus();
+    }
   });
 }
 
@@ -230,23 +263,40 @@ function initV11CorpusSummary() {
   const ablationText = document.getElementById('site-v11-ablation-text');
   const roadmapText = document.getElementById('site-v11-roadmap-text');
 
+  const normModel = (name) => (name === 'gemini-3.5-flash-lite' ? 'google/gemini-3.5-flash-lite' : name);
+
   if (shaBtn) {
     shaBtn.addEventListener('click', () => {
       const fullSha = shaBtn.dataset.sha || '';
       if (!fullSha) return;
-      navigator.clipboard
-        .writeText(fullSha)
-        .then(() => {
-          if (shaStatus) {
-            shaStatus.textContent = 'Copied ✓';
-            setTimeout(() => {
-              shaStatus.textContent = 'Copy';
-            }, 2200);
-          }
-        })
-        .catch(() => {
-          if (shaStatus) shaStatus.textContent = 'Ready';
-        });
+      const showCopied = () => {
+        if (shaStatus) {
+          shaStatus.textContent = 'Copied ✓';
+          setTimeout(() => {
+            shaStatus.textContent = 'Copy';
+          }, 2200);
+        }
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard
+          .writeText(fullSha)
+          .then(showCopied)
+          .catch(() => {
+            const ta = document.createElement('textarea');
+            ta.value = fullSha;
+            ta.style.position = 'fixed';
+            ta.style.opacity = '0';
+            document.body.appendChild(ta);
+            ta.select();
+            try {
+              document.execCommand('copy');
+              showCopied();
+            } catch (_) {
+              if (shaStatus) shaStatus.textContent = 'Select SHA';
+            }
+            document.body.removeChild(ta);
+          });
+      }
     });
   }
 
@@ -351,7 +401,7 @@ function initV11CorpusSummary() {
         const runBits = (ab.runs || [])
           .map(
             (r) =>
-              `<code>${esc(r.model)}</code> (PDR ${fmtPct(r.metrics.pdr)}, Trap Overclaim ${fmtPct(r.metrics.trap_overclaim_rate)}, Ctrl Abstention ${fmtPct(r.metrics.control_abstention_rate)})`
+              `<code>${esc(normModel(r.model))}</code> (PDR ${fmtPct(r.metrics.pdr)}, Trap Overclaim ${fmtPct(r.metrics.trap_overclaim_rate)}, Ctrl Abstention ${fmtPct(r.metrics.control_abstention_rate)})`
           )
           .join(' · ');
         ablationText.innerHTML = `${esc(ab.note)}<br><span class="v11-ablation-runs">${runBits}</span>`;
@@ -384,10 +434,24 @@ function initV11CorpusSummary() {
           const sized = entries.filter(([, v]) => v.n_pairs >= 25);
           const pool = sized.length ? sized : entries;
           if (!pool.length) return { best: 'n/a', worst: 'n/a' };
+          const allZeroPdr = pool.every(([, v]) => v.pdr === 0);
+          const allZeroOver = pool.every(([, v]) => v.trap_overclaim_rate === 0);
+          const allZeroCtrl = pool.every(([, v]) => v.control_accuracy === 0);
+          if (allZeroPdr && allZeroOver) {
+            return {
+              best: 'All contexts tied at 0.00% PDR / 100% CtrlAbst',
+              worst: 'None (0.00% TrapOver across all contexts)',
+            };
+          }
           const best = [...pool].sort((a, b) => (b[1].pdr - a[1].pdr) || (b[1].control_accuracy - a[1].control_accuracy))[0];
           const worst = [...pool].sort((a, b) => (b[1].trap_overclaim_rate - a[1].trap_overclaim_rate) || (a[1].pdr - b[1].pdr))[0];
           return {
-            best: `${best[0]} (PDR ${fmtPct(best[1].pdr)})`,
+            best:
+              allZeroPdr && allZeroCtrl
+                ? 'All contexts tied at 0.00% PDR / 0.00% CtrlAcc'
+                : allZeroPdr
+                ? `All tied at 0.00% PDR (max CtrlAcc: ${best[0]} ${fmtPct(best[1].control_accuracy)})`
+                : `${best[0]} (PDR ${fmtPct(best[1].pdr)})`,
             worst: `${worst[0]} (Over ${fmtPct(worst[1].trap_overclaim_rate)})`,
           };
         };
@@ -406,7 +470,7 @@ function initV11CorpusSummary() {
             return `
               <article class="v11-model-card">
                 <div class="v11-model-card-top">
-                  <code class="v11-model-card-name">${esc(run.model)}</code>
+                  <code class="v11-model-card-name">${esc(normModel(run.model))}</code>
                   <span class="badge ${tagCls}">${esc(run.protocol_label)}</span>
                 </div>
                 <div class="v11-model-card-metrics">

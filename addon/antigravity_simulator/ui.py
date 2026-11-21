@@ -14,7 +14,7 @@ class AntigravitySceneProperties(bpy.types.PropertyGroup):
     """Configuration settings exposed in Blender 3D Viewport."""
     asset_name: StringProperty(
         name="Asset Name",
-        default="Kinetic Gyroid Core"
+        default="RR-10 Murine Neural Proxy"
     )
     seed: IntProperty(
         name="Random Seed",
@@ -28,44 +28,68 @@ class AntigravitySceneProperties(bpy.types.PropertyGroup):
         max=10.0
     )
     cage_radius: FloatProperty(
-        name="Cage Radius",
-        default=2.2,
+        name="Scaffold Radius",
+        default=2.8,
         min=0.5,
         max=10.0
     )
     core_radius: FloatProperty(
-        name="Core Radius",
-        default=0.8,
+        name="Cortex Radius",
+        default=0.78,
         min=0.2,
         max=5.0
     )
+    olfactory_scale: FloatProperty(
+        name="Olfactory Scale",
+        default=0.40,
+        min=0.1,
+        max=2.0
+    )
+    cerebellar_scale: FloatProperty(
+        name="Cerebellar Scale",
+        default=0.50,
+        min=0.1,
+        max=2.0
+    )
+    asymmetry: FloatProperty(
+        name="Bilateral Asymmetry",
+        default=1.05,
+        min=0.8,
+        max=1.5
+    )
+    capillary_depth: FloatProperty(
+        name="Capillary Depth",
+        default=0.10,
+        min=0.0,
+        max=0.5
+    )
     rings_count: IntProperty(
-        name="Orbital Rings",
-        default=3,
+        name="Telemetry Tracks",
+        default=4,
         min=1,
         max=6
     )
-    subdivisions: IntProperty(
-        name="Cage Subdivisions",
-        default=3,
+    pods_per_ring: IntProperty(
+        name="Probes per Track",
+        default=2,
         min=1,
-        max=5
+        max=6
     )
     wireframe_thickness: FloatProperty(
-        name="Wireframe Thickness",
-        default=0.04,
-        min=0.005,
-        max=0.5
+        name="Scaffold Thickness",
+        default=0.012,
+        min=0.002,
+        max=0.2
     )
     breathing_amplitude: FloatProperty(
-        name="Breathing Amplitude",
-        default=0.15,
+        name="ICP Pulse Amp",
+        default=0.16,
         min=0.0,
         max=1.0
     )
     animation_frames: IntProperty(
         name="Animation Frames",
-        default=120,
+        default=150,
         min=30,
         max=600
     )
@@ -129,9 +153,14 @@ class VIEW3D_PT_antigravity_panel(bpy.types.Panel):
         col = layout.column(align=True)
         col.prop(props, "seed")
         col.prop(props, "scale")
-        col.prop(props, "cage_radius")
         col.prop(props, "core_radius")
+        col.prop(props, "olfactory_scale")
+        col.prop(props, "cerebellar_scale")
+        col.prop(props, "asymmetry")
+        col.prop(props, "capillary_depth")
+        col.prop(props, "cage_radius")
         col.prop(props, "rings_count")
+        col.prop(props, "pods_per_ring")
         col.prop(props, "wireframe_thickness")
         col.prop(props, "breathing_amplitude")
         col.prop(props, "animation_frames")

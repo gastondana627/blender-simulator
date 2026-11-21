@@ -17,6 +17,9 @@
   <meta name="twitter:description" content="Connecting NASA spaceflight mouse-brain transcriptomics, procedural Blender generation, and real-time WebGL visualization.">
   <meta name="twitter:image" content="https://orbiting-minds.vercel.app/project-site/assets/technical_preview.png">
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧠</text></svg>">
 </head>
@@ -42,13 +45,11 @@
       <nav role="navigation" aria-label="Primary Navigation">
         <ul class="nav-menu">
           <li><a href="#overview" class="nav-link">Overview</a></li>
-          <li><a href="#technical-benchmark" class="nav-link">Technical Benchmark</a></li>
-          <li><a href="#data-findings" class="nav-link">Data & Findings</a></li>
-          <li><a href="#ai-benchmark" class="nav-link">AI Benchmark</a></li>
-          <li><a href="#visual-mappings" class="nav-link">Mappings</a></li>
+          <li><a href="#technical-benchmark" class="nav-link">3D Proxy</a></li>
+          <li><a href="#data-findings" class="nav-link">Findings</a></li>
+          <li><a href="#ai-benchmark" class="nav-link">Benchmarks</a></li>
           <li><a href="#media-companion" class="nav-link">Commander Pip</a></li>
-          <li><a href="#resources" class="nav-link">Resource Hub</a></li>
-          <li><a href="#citation" class="nav-link">Citation</a></li>
+          <li><a href="#resources" class="nav-link">Resources</a></li>
           <li>
             <a href="../web-viewer/index.html" class="nav-cta-btn" target="_blank" rel="noopener noreferrer">
               <span>Launch 3D Viewer</span>
@@ -747,8 +748,8 @@
               </div>
             </div>
             <div class="benchmark-strip-buttons">
-              <a href="../web-viewer/index.html" class="btn-benchmark-primary" target="_blank" rel="noopener noreferrer">
-                <span>Open 3D Viewer HUD</span>
+              <a href="../web-viewer/index.html?drawer=v1-1" class="btn-benchmark-primary" target="_blank" rel="noopener noreferrer">
+                <span>Open v1.1 in 3D Viewer</span>
                 <span aria-hidden="true">↗</span>
               </a>
               <a href="../data/processed/rr10_guardrail_contract.json" download="rr10_guardrail_contract.json" class="btn-benchmark-secondary">
@@ -766,7 +767,7 @@
     </section>
 
     <!-- 5. Data-to-3D Mapping Table Section -->
-    <section id="visual-mappings" class="section">
+    <section id="visual-mappings" class="section section-deferred">
       <div class="container">
         <div class="section-header">
           <p class="section-eyebrow">Transformation Rules</p>
@@ -818,7 +819,7 @@
     </section>
 
     <!-- 6. Media Companion Section -->
-    <section id="media-companion" class="section">
+    <section id="media-companion" class="section section-deferred">
       <div class="container">
         <div class="section-header">
           <p class="section-eyebrow">Creative Branch</p>
@@ -902,7 +903,7 @@
     </section>
 
     <!-- 7. Resource Hub Section (Mission Console) -->
-    <section id="resources" class="section">
+    <section id="resources" class="section section-deferred">
       <div class="container">
         <div class="section-header">
           <p class="section-eyebrow">Mission Console</p>
@@ -1140,7 +1141,7 @@
                   <span>OSDR ChatBot v1.0.0</span>
                   <span aria-hidden="true">↗</span>
                 </span>
-                <span class="resource-card-desc">Companion space-biology assistant consuming the RR-10 v1.1 guardrail contract</span>
+                <span class="resource-card-desc">Companion space-biology assistant ready to consume the RR-10 v1.1 guardrail contract</span>
               </a>
 
               <a href="https://orbiting-minds.vercel.app/" class="resource-card" id="placeholder-live-site" target="_blank" rel="noopener noreferrer">
@@ -1157,7 +1158,7 @@
     </section>
 
     <!-- 8. Citation and Attribution Section -->
-    <section id="citation" class="section">
+    <section id="citation" class="section section-deferred">
       <div class="container">
         <div class="section-header">
           <p class="section-eyebrow">Scholarly Attribution</p>
@@ -1190,7 +1191,7 @@
     </section>
 
     <!-- 9. About the Creator Section -->
-    <section id="about" class="section">
+    <section id="about" class="section section-deferred">
       <div class="container">
         <div class="about-creator-card">
           <div class="hero-tag-row">
@@ -1223,7 +1224,7 @@
     </section>
 
     <!-- 10. Limitations Section -->
-    <section id="limitations" class="section" style="border-bottom: none;">
+    <section id="limitations" class="section section-deferred" style="border-bottom: none;">
       <div class="container">
         <div class="section-header" style="margin-bottom: 2.5rem;">
           <p class="section-eyebrow">Scientific Boundaries</p>

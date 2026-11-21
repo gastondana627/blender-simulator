@@ -193,3 +193,29 @@ def test_public_boundary_catches_leak(tmp_path: Path):
     (leak_dir / "leak.json").write_text(json.dumps({"id": "OSDR-" + "FRAG-" + "00001"}), encoding="utf-8")
     errors = run_boundary_check(tmp_path)
     assert errors, "Expected boundary checker to catch leaked FRAG item ID in data/processed/"
+
+
+def test_recipes_use_v3_murine_schema():
+    """Verify default_simulation.json and adapted_sample.json use the v3 murine_neural_proxy schema."""
+    for rel in ("data/recipes/default_simulation.json", "data/recipes/adapted_sample.json"):
+        recipe = json.loads((REPO_ROOT / rel).read_text(encoding="utf-8"))
+        assert recipe["generator"]["type"] == "murine_neural_proxy", f"Legacy schema in {rel}"
+        for mat_key in ("murine_clay", "hippocampal_core", "telemetry_hull", "sensor_optic"):
+            assert mat_key in recipe["materials"], f"Missing material {mat_key} in {rel}"
+
+
+def test_vercel_config_and_no_fabricated_osdr_id():
+    """Verify vercel.json is valid JSON and web-viewer contains zero fabricated NASA-OSDR-RR10-B42 IDs."""
+    vcfg = json.loads((REPO_ROOT / "vercel.json").read_text(encoding="utf-8"))
+    assert vcfg["redirects"][0]["destination"] == "/project-site/"
+    for rel in ("web-viewer/index.html", "web-viewer/app.js"):
+        txt = (REPO_ROOT / rel).read_text(encoding="utf-8")
+        assert "NASA-OSDR-RR10-B42" not in txt, f"Fabricated accession ID still present in {rel}"
+
+
+def test_notebook_figures_json_has_all_20_pca_samples():
+    """Verify single-source notebook_figures_data.json contains all 20 Figure A PCA samples."""
+    data = json.loads((REPO_ROOT / "data" / "processed" / "notebook_figures_data.json").read_text(encoding="utf-8"))
+    tissues = data["figure_a_pca"]["tissues"]
+    assert len(tissues["cerebellum"]["samples"]) == 10
+    assert len(tissues["hippocampus"]["samples"]) == 10
