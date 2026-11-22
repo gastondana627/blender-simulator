@@ -90,6 +90,8 @@ The biological foundation of this project is based on the **NASA Rodent Research
 - [Video Walkthrough (YouTube)](https://youtu.be/nmOXcB6kAaQ)
 - [14-Slide Executive Deck](https://docs.google.com/presentation/d/1ULCjimhcRYlGojjiCp9aLXnk8GEH-mGTVUfiIKSJX6c/edit?usp=sharing)
 - [Source code — GitHub](https://github.com/gastondana627/blender-simulator)
+- [Technical Report v1.1 (Zenodo DOI: 10.5281/zenodo.24439497)](https://doi.org/10.5281/zenodo.24439497)
+- [ORCID Profile (0009-0007-1011-860X)](https://orcid.org/0009-0007-1011-860X)
 - [Google Scholar Profile](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=juOv0f0AAAAJ&citation_for_view=juOv0f0AAAAJ:d1gkVwhDpl0C)
 - [Brain AWG Project Post — NASA OSDR AWG Discourse](https://awg.osdr.space/t/can-frontier-llms-accurately-interpret-spaceflight-biology-rr-10-benchmark-interactive-3d-viewer/4569)
 - [AI/ML AWG Project Post — NASA OSDR AWG Discourse](https://awg.osdr.space/t/can-frontier-llms-accurately-interpret-spaceflight-biology-rr-10-benchmark-interactive-3d-viewer/4569)
@@ -296,7 +298,7 @@ All pipeline executions produce standardized artifacts in the `exports/` directo
 If you use this data-to-3D pipeline, procedural generation architecture, or visualization proxy in academic work, benchmarks, or creative simulations, please cite:
 
 ```text
-Gaston Dana. “Orbiting Minds: An RR-10 Data-to-3D Simulation Experience.” GitHub repository, 2026. URL: https://github.com/gastondana627/blender-simulator.
+Dana, G. (2026). Orbiting Minds and the RR-10 v1.1 Directional Fragility Audit: Deterministic Spaceflight Multi-Omics Visualization, Epistemic Calibration Guardrails, and Exploratory World-Model Evaluation (Version 1.1.0, Technical Report OM-TR-2026-01). Zenodo. https://doi.org/10.5281/zenodo.24439497
 ```
 
 ### Primary Research & Dataset Attributions

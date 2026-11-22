@@ -263,6 +263,13 @@ def test_genie4_pip_world_assets_and_guardrails():
     assert "GENIE_ENABLE_PROD" in stop_api
     assert "construction-tape-overlay" in world_html
     assert "applyComingSoonLock" in client_src
+    assert "MediaRecorder" in client_src
+    assert "CUSTOM_SEED_TARGET_MAX_BYTES = 40000" in client_src
+    assert "customSeedFileInput" in client_src
+    assert "toggleAutoRecord" in client_src
+    assert "custom-seed-file" in world_html
+    assert "btn-download-clip" in world_html
+    assert "toggle-auto-record" in world_html
     assert "auth_tokens" in session_api
     assert "timingSafeEqual" in session_api
     assert "/cancel" in stop_api

@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Commander Pip Live World (Genie 4) | Orbiting Minds</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="pip-world.css">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
 </head>
+
 <body>
   <a href="#world-main" class="skip-link visually-hidden">Skip to Commander Pip World</a>
 
@@ -37,7 +42,8 @@
 
     <div class="header-status-group">
       <span id="live-status-pill" class="status-pill standby">STANDBY</span>
-      <span id="session-timer-badge" class="timer-pill" aria-label="Elapsed session time and estimated cost">00:00 / 00:20 · ~$0.00</span>
+      <span id="session-timer-badge" class="timer-pill" aria-label="Elapsed session time and estimated cost">00:00 /
+        00:20 · ~$0.00</span>
     </div>
   </header>
 
@@ -48,11 +54,14 @@
         <div>
           <h1 id="world-heading" tabindex="-1">Commander Pip: Live Interactive Orbital World</h1>
           <p class="stage-subtitle">
-            Real-time 16:9 world simulation seeded from Commander Pip's orbital habitat. Steer with <kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> + Arrow keys and trigger live environment events mid-stream.
+            Real-time 16:9 world simulation seeded from Commander Pip's orbital habitat. Steer with
+            <kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> + Arrow keys and trigger live environment events
+            mid-stream.
           </p>
         </div>
         <div class="stage-quick-links">
-          <a href="https://aistudio.google.com/live?model=genie-4" target="_blank" rel="noopener noreferrer" class="secondary-link-btn">
+          <a href="https://aistudio.google.com/live?model=genie-4" target="_blank" rel="noopener noreferrer"
+            class="secondary-link-btn">
             <span>Open in Google AI Studio</span>
             <span aria-hidden="true">↗</span>
           </a>
@@ -60,21 +69,12 @@
       </div>
 
       <!-- 16:9 Live Video Viewport -->
-      <div id="stage-frame" class="stage-frame" tabindex="0" aria-label="Interactive Genie 4 video viewport. Click or focus to steer with W A S D and Arrow keys.">
-        <img
-          id="seed-preview-img"
-          src="assets/pip_genie_seed.jpg"
+      <div id="stage-frame" class="stage-frame" tabindex="0"
+        aria-label="Interactive Genie 4 video viewport. Click or focus to steer with W A S D and Arrow keys.">
+        <img id="seed-preview-img" src="assets/pip_genie_seed.jpg"
           alt="Commander Pip floating in zero-gravity inside the white-and-orange orbital habitat corridor reaching toward a glowing nutrient droplet"
-          class="stage-media"
-          width="960"
-          height="540"
-        >
-        <video
-          id="world-video"
-          class="stage-media hidden"
-          autoplay
-          playsinline
-        ></video>
+          class="stage-media" width="960" height="540">
+        <video id="world-video" class="stage-media hidden" autoplay playsinline></video>
 
         <!-- Standby / Connecting Overlay -->
         <div id="stage-overlay" class="stage-overlay">
@@ -82,7 +82,8 @@
             <span class="overlay-kicker">GENIE 4 REAL-TIME WORLD MODEL</span>
             <h2 id="overlay-title">Ready to Step Inside Commander Pip's Habitat</h2>
             <p id="overlay-desc">
-              Initial world generation takes ~5-9 seconds before frame 1 arrives. Native stereo Foley audio starts automatically once connected.
+              Initial world generation takes ~5-9 seconds before frame 1 arrives. Native stereo Foley audio starts
+              automatically once connected.
             </p>
             <div class="overlay-progress hidden" id="overlay-progress">
               <progress aria-label="Connecting to Genie 4 live world"></progress>
@@ -104,18 +105,22 @@
         </div>
 
         <!-- Production Coming Soon Construction Tape X Overlay (hidden on localhost R&D mode) -->
-        <div id="construction-tape-overlay" class="construction-tape-overlay hidden" aria-label="Coming soon: Genie 4 world simulation is under construction and disabled in production">
+        <div id="construction-tape-overlay" class="construction-tape-overlay hidden"
+          aria-label="Coming soon: Genie 4 world simulation is under construction and disabled in production">
           <div class="hazard-tape tape-diag-1" aria-hidden="true">
-            <span>CAUTION · COMING SOON · EXPLORATORY R&amp;D · UNDER CONSTRUCTION · CAUTION · COMING SOON · EXPLORATORY R&amp;D · UNDER CONSTRUCTION</span>
+            <span>CAUTION · COMING SOON · EXPLORATORY R&amp;D · UNDER CONSTRUCTION · CAUTION · COMING SOON · EXPLORATORY
+              R&amp;D · UNDER CONSTRUCTION</span>
           </div>
           <div class="hazard-tape tape-diag-2" aria-hidden="true">
-            <span>COMING SOON · GENIE 4 SANDBOX · UNDER CONSTRUCTION · NO LIVE OUTPUTS YET · COMING SOON · GENIE 4 SANDBOX · UNDER CONSTRUCTION</span>
+            <span>COMING SOON · GENIE 4 SANDBOX · UNDER CONSTRUCTION · NO LIVE OUTPUTS YET · COMING SOON · GENIE 4
+              SANDBOX · UNDER CONSTRUCTION</span>
           </div>
           <div class="construction-center-card">
             <span class="construction-pill">EXPLORATORY R&amp;D · UNDER CONSTRUCTION</span>
             <h2>Coming Soon</h2>
             <p>
-              Live Genie 4 world outputs are disabled in production while we evaluate spatial permanence, hardware framing, and hallucination guardrails.
+              Live Genie 4 world outputs are disabled in production while we evaluate spatial permanence, hardware
+              framing, and hallucination guardrails.
             </p>
             <div class="construction-links">
               <a href="index.html?branch=media" class="btn-primary-launch">Explore Pip 3D Viewer (Live)</a>
@@ -129,6 +134,7 @@
           <div class="hud-left">
             <span class="hud-live-dot" aria-hidden="true"></span>
             <span id="hud-preset-name">Orbital Habitat Corridor</span>
+            <span id="hud-rec-pill" class="hud-rec-pill hidden" aria-label="Recording clean video stream">● REC</span>
             <span id="hud-focus-hint" class="hud-chip">Click viewport for WASD</span>
           </div>
           <div class="hud-right">
@@ -139,6 +145,24 @@
         </div>
       </div>
 
+      <!-- Recorded Clean Clip Export Banner (shown after stopping an auto-recorded local session) -->
+      <section id="clip-export-banner" class="clip-export-banner hidden" aria-label="Recorded Genie 4 clip download">
+        <div class="clip-export-header">
+          <div class="clip-export-info">
+            <span class="clip-ready-badge">CLEAN CAPTURE READY</span>
+            <p id="clip-export-meta" class="clip-export-meta">Raw 1280x720 WebRTC stream + 48 kHz audio (zero HUD overlay)</p>
+          </div>
+          <div class="clip-export-actions">
+            <a id="btn-download-clip" class="btn-download-clip" href="#" download="orbiting_minds_genie4_clip.mp4">
+              <span aria-hidden="true">⬇</span>
+              <span>Download Clean Clip (MP4)</span>
+            </a>
+            <button type="button" id="btn-clear-clip" class="btn-ghost-sm">Discard</button>
+          </div>
+        </div>
+        <video id="clip-preview-video" class="clip-preview-video" controls playsinline></video>
+      </section>
+
       <!-- Centralized accessible live regions -->
       <div id="polite-announcer" class="visually-hidden" aria-live="polite" aria-atomic="true"></div>
       <div id="error-banner" class="error-banner hidden" role="alert"></div>
@@ -148,7 +172,8 @@
         <div class="steering-header">
           <div>
             <h2>Live Scene Steering &amp; Action Verbs</h2>
-            <p class="steering-hint">Custom keys fire a 10x / 150ms steering impulse (2s cooldown) so Genie 4's 4-frame planner picks up changes cleanly (~1-2s visual uptake).</p>
+            <p class="steering-hint">Custom keys fire a 10x / 150ms steering impulse (2s cooldown) so Genie 4's 4-frame
+              planner picks up changes cleanly (~1-2s visual uptake).</p>
           </div>
           <span id="cooldown-indicator" class="cooldown-pill">READY</span>
         </div>
@@ -174,16 +199,13 @@
 
         <!-- Free-form Mid-Session Prompt Bar -->
         <form id="custom-steer-form" class="steer-form">
-          <label for="custom-steer-input" class="steer-label">Mid-session world event or quoted character dialogue</label>
-          <span id="custom-steer-hint" class="field-hint">Describe continuous in-world physical changes, or wrap dialogue in quotes (e.g. "How is zero gravity today, Pip?").</span>
+          <label for="custom-steer-input" class="steer-label">Mid-session world event or quoted character
+            dialogue</label>
+          <span id="custom-steer-hint" class="field-hint">Describe continuous in-world physical changes, or wrap
+            dialogue in quotes (e.g. "How is zero gravity today, Pip?").</span>
           <div class="steer-input-row">
-            <input
-              id="custom-steer-input"
-              type="text"
-              autocomplete="off"
-              aria-describedby="custom-steer-hint"
-              placeholder='e.g. Slide open the side viewport to reveal drifting solar panels'
-            >
+            <input id="custom-steer-input" type="text" autocomplete="off" aria-describedby="custom-steer-hint"
+              placeholder='e.g. Slide open the side viewport to reveal drifting solar panels'>
             <button type="submit" id="btn-send-steer" class="btn-send-steer">Send Event</button>
           </div>
         </form>
@@ -203,9 +225,12 @@
             <span class="dpad-title">Camera Look (Arrows)</span>
             <div class="dpad-keys">
               <button type="button" class="pad-key" data-genie-input="arrow_up" aria-label="Tilt camera up">↑</button>
-              <button type="button" class="pad-key" data-genie-input="arrow_left" aria-label="Pan camera left">←</button>
-              <button type="button" class="pad-key" data-genie-input="arrow_down" aria-label="Tilt camera down">↓</button>
-              <button type="button" class="pad-key" data-genie-input="arrow_right" aria-label="Pan camera right">→</button>
+              <button type="button" class="pad-key" data-genie-input="arrow_left"
+                aria-label="Pan camera left">←</button>
+              <button type="button" class="pad-key" data-genie-input="arrow_down"
+                aria-label="Tilt camera down">↓</button>
+              <button type="button" class="pad-key" data-genie-input="arrow_right"
+                aria-label="Pan camera right">→</button>
             </div>
           </div>
         </div>
@@ -218,9 +243,13 @@
         <h2>1. Choose Commander Pip World</h2>
         <div class="field-group">
           <label for="preset-select">World Scenario Preset</label>
-          <span id="preset-hint" class="field-hint">Written to Genie 4 planner rules: frame-0 propulsion, distant causal triggers, and broadband physical Foley audio.</span>
+          <span id="preset-hint" class="field-hint">Written to Genie 4 planner rules: frame-0 propulsion, distant causal
+            triggers, and broadband physical Foley audio.</span>
           <select id="preset-select" aria-describedby="preset-hint">
-            <option value="pip_corridor">Orbital Habitat Corridor (Image-Seeded Pip)</option>
+            <option value="lunar_ice_ambush">Moon: Shackleton Ice-Core Ambush (Pip vs. Captain Tapioca)</option>
+            <option value="pip_vs_tapioca">Orbital Corridor: Zero-G Boba Chase (Pip vs. Tapioca v2)</option>
+            <option value="pip_vs_tapioca_wide">Orbital Corridor: Wide Runway Chase (Pip vs. Tapioca v1)</option>
+            <option value="pip_corridor">Orbital Habitat Corridor (Solo Commander Pip)</option>
             <option value="cupola_sunrise">Cupola Earth-Sunrise Bay (First-Person EVA)</option>
             <option value="botany_dome">Zero-G Bio-Botany Dome (Outreach Explorer)</option>
           </select>
@@ -228,21 +257,42 @@
 
         <div class="field-group">
           <label for="world-prompt-textarea">World Setup Prompt</label>
-          <span id="prompt-hint" class="field-hint">Sent once inside the initial world_setup event. Editable before launching.</span>
+          <span id="prompt-hint" class="field-hint">Sent once inside the initial world_setup event. Editable before
+            launching.</span>
           <textarea id="world-prompt-textarea" rows="5" aria-describedby="prompt-hint"></textarea>
         </div>
 
         <label class="checkbox-row" for="toggle-use-seed-image">
           <input type="checkbox" id="toggle-use-seed-image" checked>
-          <span>Include 16:9 Commander Pip seed image (31.9 KB JPEG, WebRTC-safe)</span>
+          <span>Include 16:9 seed image in world_setup (&lt; 48 KB WebRTC cap)</span>
         </label>
+
+        <div id="seed-dropzone" class="seed-dropzone">
+          <input type="file" id="custom-seed-file" name="custom_seed_file" class="visually-hidden"
+            accept="image/png,image/jpeg,image/webp" aria-describedby="seed-upload-hint">
+          <label for="custom-seed-file" class="seed-dropzone-label">
+            <img id="seed-thumb-img" src="assets/pip_genie_seed.jpg" alt="Active 16:9 seed image thumbnail"
+              class="seed-thumb-img" width="96" height="54">
+            <span class="seed-dropzone-copy">
+              <strong class="seed-dropzone-title">Upload or drop custom 16:9 seed</strong>
+              <span id="seed-upload-status" class="seed-upload-status">Default: Commander Pip (31.9 KB JPEG)</span>
+            </span>
+          </label>
+          <span id="seed-upload-hint" class="field-hint">
+            PNG, JPEG, or WebP. Auto center-crops to 16:9 (960x540) and compresses strictly under 40 KB client-side.
+          </span>
+          <div class="seed-uploader-actions">
+            <button type="button" id="btn-reset-seed" class="btn-ghost-sm" disabled>Reset to Commander Pip Seed</button>
+          </div>
+        </div>
       </div>
 
       <div class="panel-card">
         <h2>2. Cost Guardrails &amp; Session Cap</h2>
         <div class="field-group">
           <label for="duration-select">Auto-Stop Session Limit</label>
-          <span id="duration-hint" class="field-hint">Genie 4 bills ~$0.10/sec (~5,760 tokens/sec) and calls session.complete() automatically at the limit or after 10s hidden tab.</span>
+          <span id="duration-hint" class="field-hint">Genie 4 bills ~$0.10/sec (~5,760 tokens/sec) and calls
+            session.complete() automatically at the limit or after 10s hidden tab.</span>
           <select id="duration-select" aria-describedby="duration-hint">
             <option value="10">10 seconds (~$1.00 max, Quick Test)</option>
             <option value="20" selected>20 seconds (~$2.00 max, Recommended Test)</option>
@@ -253,21 +303,30 @@
           </select>
         </div>
 
+        <label class="checkbox-row" for="toggle-auto-record">
+          <input type="checkbox" id="toggle-auto-record" checked>
+          <span>Auto-record clean raw 1280x720 clip + stereo audio for 1-click download</span>
+        </label>
+
         <div class="auth-section">
           <p id="backend-status-text" class="backend-status">Checking /api/genie-session endpoint...</p>
 
           <div class="field-group" id="passcode-group">
             <label for="passcode-input">Demo Invite Passcode (Optional on Localhost)</label>
-            <span id="passcode-hint" class="field-hint">Required on public Vercel deployments when using the host server's Gemini API key.</span>
-            <input id="passcode-input" type="password" autocomplete="off" aria-describedby="passcode-hint" placeholder="Enter invite passcode">
+            <span id="passcode-hint" class="field-hint">Required on public Vercel deployments when using the host
+              server's Gemini API key.</span>
+            <input id="passcode-input" type="password" autocomplete="off" aria-describedby="passcode-hint"
+              placeholder="Enter invite passcode">
           </div>
 
           <details class="byok-details" id="byok-details">
             <summary>Or Bring Your Own Paid Gemini API Key (BYOK)</summary>
             <div class="byok-body">
               <label for="byok-key-input">Paid-Tier Gemini API Key</label>
-              <span id="byok-hint" class="field-hint">Sent once over HTTPS to mint a single-session ephemeral auth_token; never stored in localStorage or server logs.</span>
-              <input id="byok-key-input" type="password" autocomplete="off" aria-describedby="byok-hint" placeholder="AIza...">
+              <span id="byok-hint" class="field-hint">Sent once over HTTPS to mint a single-session ephemeral
+                auth_token; never stored in localStorage or server logs.</span>
+              <input id="byok-key-input" type="password" autocomplete="off" aria-describedby="byok-hint"
+                placeholder="AIza...">
             </div>
           </details>
         </div>
@@ -287,13 +346,31 @@
       <div class="panel-card telemetry-card">
         <h2>Session Telemetry &amp; Boundary</h2>
         <dl class="telemetry-list">
-          <div><dt>Transport</dt><dd id="tel-transport">WebRTC (v1beta)</dd></div>
-          <div><dt>Seed Payload</dt><dd id="tel-seed-size">32.7 KB JPEG (&lt; 48 KB cap)</dd></div>
-          <div><dt>Interaction ID</dt><dd id="tel-interaction-id" class="mono-truncate">--</dd></div>
-          <div><dt>Session State</dt><dd id="tel-state">Standby</dd></div>
+          <div>
+            <dt>Transport</dt>
+            <dd id="tel-transport">WebRTC (v1beta)</dd>
+          </div>
+          <div>
+            <dt>Seed Payload</dt>
+            <dd id="tel-seed-size">31.9 KB JPEG (&lt; 48 KB cap)</dd>
+          </div>
+          <div>
+            <dt>Clip Recorder</dt>
+            <dd id="tel-rec-status">Armed (Auto MP4)</dd>
+          </div>
+          <div>
+            <dt>Session State</dt>
+            <dd id="tel-state">Standby</dd>
+          </div>
+          <div class="telemetry-wide">
+            <dt>Interaction ID</dt>
+            <dd id="tel-interaction-id" class="mono-truncate">--</dd>
+          </div>
         </dl>
         <p class="boundary-notice">
-          <strong>Scientific Boundary:</strong> Stylized generative outreach simulation powered by Google DeepMind Genie 4 (SynthID watermarked). Not empirical NASA RR-10 data; use the <a href="index.html">RR-10 Technical Viewer</a> for OSD-563/564 and v1.1 5,630-item evidence.
+          <strong>Scientific Boundary:</strong> Stylized generative outreach simulation powered by Google DeepMind Genie
+          4 (SynthID watermarked). Not empirical NASA RR-10 data; use the <a href="index.html">RR-10 Technical
+            Viewer</a> for OSD-563/564 and v1.1 5,630-item evidence.
         </p>
       </div>
     </aside>
@@ -301,4 +378,5 @@
 
   <script type="module" src="pip-world.js"></script>
 </body>
+
 </html>
