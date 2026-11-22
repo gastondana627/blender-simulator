@@ -219,3 +219,51 @@ def test_notebook_figures_json_has_all_20_pca_samples():
     tissues = data["figure_a_pca"]["tissues"]
     assert len(tissues["cerebellum"]["samples"]) == 10
     assert len(tissues["hippocampus"]["samples"]) == 10
+
+
+def _read_jpeg_dimensions(data: bytes) -> tuple[int, int]:
+    """Read (width, height) from a baseline/progressive JPEG header using stdlib only."""
+    assert data[:2] == b"\xff\xd8", "Not a valid JPEG file"
+    idx = 2
+    while idx < len(data):
+        while idx < len(data) and data[idx] == 0xFF:
+            idx += 1
+        marker = data[idx]
+        idx += 1
+        if marker in (0xC0, 0xC1, 0xC2):
+            height = int.from_bytes(data[idx + 3 : idx + 5], "big")
+            width = int.from_bytes(data[idx + 5 : idx + 7], "big")
+            return width, height
+        seg_len = int.from_bytes(data[idx : idx + 2], "big")
+        idx += seg_len
+    raise AssertionError("JPEG SOF header not found")
+
+
+def test_genie4_pip_world_assets_and_guardrails():
+    """Verify Commander Pip Genie 4 WebRTC seed stays <48KB (16:9) and enforces billing/auth guardrails."""
+    seed_path = REPO_ROOT / "web-viewer" / "assets" / "pip_genie_seed.jpg"
+    assert seed_path.exists(), "Missing web-viewer/assets/pip_genie_seed.jpg"
+    raw = seed_path.read_bytes()
+    assert len(raw) < 48000, f"Seed JPEG ({len(raw)}B) exceeds 48 KB WebRTC SCTP limit"
+    w, h = _read_jpeg_dimensions(raw)
+    assert abs((w / h) - (16 / 9)) < 0.02, f"Seed image must be 16:9, got {w}x{h}"
+
+    client_src = (REPO_ROOT / "web-viewer" / "pip-world.js").read_text(encoding="utf-8")
+    assert "event_type: 'world_setup'" in client_src
+    assert "reference_image" in client_src
+    assert "session.complete()" in client_src
+    assert "HIDDEN_TAB_AUTOSTOP_MS" in client_src
+    assert "sendBeacon" in client_src
+
+    session_api = (REPO_ROOT / "api" / "genie-session.js").read_text(encoding="utf-8")
+    stop_api = (REPO_ROOT / "api" / "genie-stop.js").read_text(encoding="utf-8")
+    world_html = (REPO_ROOT / "web-viewer" / "pip-world.html").read_text(encoding="utf-8")
+    assert "GENIE_ACCESS_CODE" in session_api
+    assert "GENIE_ENABLE_PROD" in session_api
+    assert "GENIE_ENABLE_PROD" in stop_api
+    assert "construction-tape-overlay" in world_html
+    assert "applyComingSoonLock" in client_src
+    assert "auth_tokens" in session_api
+    assert "timingSafeEqual" in session_api
+    assert "/cancel" in stop_api
+    assert "AIzaSy" not in session_api and "AIzaSy" not in stop_api

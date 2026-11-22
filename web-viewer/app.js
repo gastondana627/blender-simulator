@@ -47,6 +47,7 @@ const ctxMissionName = document.getElementById('ctx-mission-name');
 const ctxNotebookRef = document.getElementById('ctx-notebook-ref');
 const ctxFindingsText = document.getElementById('ctx-findings-text');
 const citationQuote = document.getElementById('citation-quote');
+const btnOpenPipGenie = document.getElementById('btn-open-pip-genie');
 
 // Analytics Drawer Elements (Notebook Figures A & B + RR-10 v1.1 Corpus)
 const btnToggleAnalytics = document.getElementById('btn-toggle-analytics');
@@ -1231,14 +1232,16 @@ function switchBranch(branchKey) {
   if (ctxFindingsText) ctxFindingsText.textContent = branchCfg.status;
   if (citationQuote) citationQuote.textContent = branchCfg.citation;
 
-  // Show/hide Technical-only controls (Analytics Drawer & Cortex X-Ray)
+  // Show/hide Technical-only controls (Analytics Drawer & Cortex X-Ray) vs Media-only Genie 4 link
   if (branchKey === 'technical') {
     if (btnToggleAnalytics) btnToggleAnalytics.classList.remove('hidden');
+    if (btnOpenPipGenie) btnOpenPipGenie.classList.add('hidden');
     if (rowToggleXray) rowToggleXray.style.display = 'flex';
     if (rimLight) rimLight.color.setHex(0x40c4ff);
     if (starField) starField.material.opacity = 0.35;
   } else {
     if (btnToggleAnalytics) btnToggleAnalytics.classList.add('hidden');
+    if (btnOpenPipGenie) btnOpenPipGenie.classList.remove('hidden');
     if (analyticsDrawer) analyticsDrawer.classList.add('hidden');
     if (btnToggleAnalytics) {
       btnToggleAnalytics.classList.remove('active');

@@ -26,6 +26,8 @@ tmp/
 private_eval/
 *.jsonl
 .env
+.env.local
+.env.*
 .pytest_cache/
 
 

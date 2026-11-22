@@ -890,6 +890,34 @@ body, html {
   color: #00ffaa;
 }
 
+.genie-launch-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 6px;
+  padding: 8px 10px;
+  border-radius: 7px;
+  text-decoration: none;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  color: #fff;
+  background: linear-gradient(135deg, rgba(255, 123, 28, 0.85), rgba(229, 89, 40, 0.85));
+  border: 1px solid rgba(255, 179, 107, 0.65);
+  box-shadow: 0 4px 16px rgba(255, 123, 28, 0.25);
+  transition: transform 0.14s ease, filter 0.16s ease;
+}
+
+.genie-launch-btn:hover {
+  filter: brightness(1.12);
+  transform: translateY(-1px);
+}
+
+.genie-launch-btn.hidden {
+  display: none !important;
+}
+
 /* =========================================================
    ANALYTICS EVIDENCE TOGGLE BUTTON & DRAWER
    ========================================================= */
