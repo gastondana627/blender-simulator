@@ -106,11 +106,15 @@ def build_html() -> str:
     for rule in contract["epistemic_caution_rules"]:
         sev = rule["severity"].upper()
         badge_cls = "sev-crit" if sev == "CRITICAL" else "sev-high"
+        credit_txt = rule.get("method_credit") or (
+            "Joint synthesis" if rule["id"] in ("EC-01", "EC-04") else "Orbiting Minds"
+        )
         rule_rows_html.append(
             f"<tr>"
             f"<td class='center'><code>{html.escape(rule['id'])}</code></td>"
             f"<td class='center'><span class='sev-badge {badge_cls}'>{sev}</span></td>"
             f"<td>{html.escape(rule['rule'])}</td>"
+            f"<td>{html.escape(credit_txt)}</td>"
             f"</tr>"
         )
 
@@ -494,15 +498,15 @@ def build_html() -> str:
 <body>
 
   <header class="report-header">
-    <div class="report-kicker">Technical Report OM-TR-2026-01 · Version 1.1.0 · Zenodo DOI: 10.5281/zenodo.24439497</div>
+    <div class="report-kicker">Technical Report OM-TR-2026-01 · Version 1.1.1 · Zenodo DOI: 10.5281/zenodo.24439497</div>
     <h1 class="doc-title">Orbiting Minds and the RR-10 v1.1 Directional Fragility Audit: Deterministic Spaceflight Multi-Omics Visualization, Epistemic Calibration Guardrails, and Exploratory World-Model Evaluation</h1>
-    <div class="author-line">Gaston Dana</div>
-    <div class="affiliation-line">Independent Computational Space Biology Researcher · NASA OSDR Analysis Working Group Contributor · November 22, 2026</div>
+    <div class="author-line">Gaston Dana<sup>1</sup> &amp; Omar Rafael P&eacute;rez Gallardo<sup>2</sup></div>
+    <div class="affiliation-line"><sup>1</sup>Independent Computational Space Biology Researcher (Orbiting Minds Pipeline, Model Execution &amp; World-Model Sandbox) · <sup>2</sup>OMROS LAB (RR-10 Directional Fragility Benchmark, PDR, Scoring Layer, EC-02/EC-03 Methods &amp; Output Re-Scoring) · November 27, 2026</div>
     <div class="meta-grid">
       <div><strong>Primary Repository:</strong> <a href="https://github.com/gastondana627/blender-simulator">github.com/gastondana627/blender-simulator</a></div>
       <div><strong>Live 3D Viewer:</strong> <a href="https://orbiting-minds.vercel.app/">orbiting-minds.vercel.app</a></div>
       <div><strong>Companion Consumer:</strong> <a href="https://osdr-chatbot-kappa.vercel.app">OSDR ChatBot v1.0.0</a></div>
-      <div><strong>ORCID / Scholar:</strong> <a href="https://orcid.org/0009-0007-1011-860X">0009-0007-1011-860X</a> · Google Scholar Verified</div>
+      <div><strong>ORCIDs:</strong> <a href="https://orcid.org/0009-0007-1011-860X">0009-0007-1011-860X</a> (G. Dana) · <a href="https://orcid.org/0009-0008-8328-6978">0009-0008-8328-6978</a> (O. R. P&eacute;rez Gallardo)</div>
       <div><strong>AWG Source Thread:</strong> <a href="https://awg.osdr.space/t/can-frontier-llms-accurately-interpret-spaceflight-biology-rr-10-benchmark-interactive-3d-viewer/4569">awg.osdr.space/t/4569</a></div>
       <div><strong>Zenodo DOI:</strong> <a href="https://doi.org/10.5281/zenodo.24439497">10.5281/zenodo.24439497</a> · <a href="https://zenodo.org/records/24439497">Record #24439497</a></div>
       <div><strong>License:</strong> MIT (Code) · CC-BY-4.0 (Report &amp; Aggregate Figures)</div>
@@ -513,7 +517,7 @@ def build_html() -> str:
   <section class="abstract-box">
     <h2>Abstract</h2>
     <p>Spaceflight multi-omics portals maintained by the NASA Open Science Data Repository (OSDR) remain predominantly two-dimensional, while frontier large language models (LLMs) deployed to interpret spaceflight transcriptomics frequently overclaim consistent directional gene regulation across studies that empirically contradict one another at FDR <em>q</em> &lt; 0.05. This report documents a strictly decoupled two-tier architecture built between September and November 2026 to address both gaps without compromising provenance.</p>
-    <p><strong>Tier 1</strong> comprises <em>Orbiting Minds</em> (released September 6, 2026), a deterministic SHA-256 JSON-to-Blender-to-WebGL pipeline translating NASA Rodent Research-10 (RR-10) murine cerebellum (<code>OSD-563</code>, PC1 = 25.6%, rRNA-removal VST concordance <em>r</em> = 1.000) and hippocampus (<code>OSD-564</code>, PC1 = 28.3%) transcriptomics into compact GLB assets paired with an external vector SVG Analytic Evidence Drawer, alongside an independent full-corpus verification of OMROSLAB's frozen <strong>RR-10 v1.1 Directional Fragility Benchmark</strong> (<code>5,630</code> items, <code>11</code> <code>organism::tissue</code> contexts, <code>34</code> OSD studies, <code>11,711</code> provenance rows). Neutral closed-book sweeps expose a hard <strong>~10% Paired Directional Robustness (PDR) ceiling</strong> (<code>10.44%</code> for <code>openai/gpt-oss-120b</code>; <code>10.27%</code> for <code>google/gemini-3.5-flash-lite</code>; <code>0.53%</code> for <code>openai/gpt-5.4-nano-2026-03-17</code>). A 440-item caution-coached ablation demonstrates the <strong>Epistemic Caution Trap</strong>: prompt-only caution cuts <code>gemini-3.5-flash-lite</code> trap overclaiming from <code>44.65%</code> to <code>1.36%</code> but collapses control accuracy (<code>20.89% -&gt; 0.00%</code>) and PDR (<code>10.27% -&gt; 0.00%</code>), with all <code>3</code> remaining directional claims being false trap overclaims. We bridge this finding to production via a machine-readable guardrail contract (<code>EC-01..EC-06</code>) consumed by <strong>OSDR ChatBot v1.0.0</strong>.</p>
+    <p><strong>Tier 1</strong> comprises <em>Orbiting Minds</em> (released September 6, 2026 by G. Dana), a deterministic SHA-256 JSON-to-Blender-to-WebGL pipeline translating NASA Rodent Research-10 (RR-10) murine cerebellum (<code>OSD-563</code>, PC1 = 25.6%, rRNA-removal VST concordance <em>r</em> = 1.000) and hippocampus (<code>OSD-564</code>, PC1 = 28.3%) transcriptomics into compact GLB assets paired with an external vector SVG Analytic Evidence Drawer, alongside a closed-book model evaluation on <strong>OMROS LAB's frozen RR-10 v1.1 Directional Fragility Benchmark</strong> (created by Omar Rafael P&eacute;rez Gallardo, ORCID <code>0009-0008-8328-6978</code>; <code>5,630</code> items, <code>11</code> <code>organism::tissue</code> contexts, <code>34</code> OSD studies, <code>11,711</code> provenance rows), with all 10 supplied run outputs re-scored bit-for-bit by the benchmark author (model API calls not independently replicated; <code>evidence-synthesis</code> mode not run in v1.1). Context-stratified 10,000-permutation shuffled-pair null testing shows that full-corpus closed-book <strong>Paired Directional Robustness (PDR)</strong> sits inside the random null (<code>10.44%</code> vs. null <code>10.02%</code> for <code>openai/gpt-oss-120b</code>; <code>10.27%</code> vs. null <code>10.33%</code> for <code>google/gemini-3.5-flash-lite</code>; <code>0.53%</code> vs. null <code>0.53%</code> for <code>openai/gpt-5.4-nano-2026-03-17</code>), demonstrating no pair-level discrimination between traps and controls. A 440-item caution-coached ablation demonstrates the <strong>Epistemic Caution Trap</strong>: prompt-only caution cuts <code>gemini-3.5-flash-lite</code> trap overclaiming from <code>44.65%</code> to <code>1.36%</code> but collapses control accuracy (<code>20.89% -&gt; 0.00%</code>) and PDR (<code>10.27% -&gt; 0.00%</code>), with all <code>3</code> remaining directional claims being false trap overclaims. We bridge these diagnostics to production via a machine-readable guardrail contract (<code>EC-01..EC-06</code>, crediting OMROS LAB's benchmark methods in <code>EC-02</code> and <code>EC-03</code>) consumed by <strong>OSDR ChatBot v1.0.0</strong>.</p>
     <p><strong>Tier 2</strong> reports a controlled 10-second live WebRTC evaluation of Google DeepMind's real-time interactive world model (<code>genie-4</code>, <code>1280x720 @ 24 fps</code>, <code>48 kHz</code> stereo audio) seeded with a <code>31.9 KB</code> 16:9 image. While mid-stream event steering works reliably (<code>10x / 150 ms</code> impulses), observed frame-1 close-up subject morphing, ~8-10 s spatial permanence drift, and illegible in-frame text confirm that generative world models must remain strictly isolated to outreach behind production construction locks in compliance with the NASA OSDR Synthetic Intelligence Charter.</p>
     <div class="keywords"><strong>Keywords:</strong> NASA OSDR · Rodent Research-10 · Spaceflight Transcriptomics · LLM Epistemic Calibration · Directional Fragility Benchmark · Deterministic 3D Scientific Visualization · Interactive World Models · Synthetic Intelligence Governance</div>
   </section>
@@ -521,11 +525,11 @@ def build_html() -> str:
   <div class="kpi-grid">
     <div class="kpi-card cyan">
       <div class="kpi-val">5,630 / 2,815</div>
-      <div class="kpi-lbl">Canonical v1.1 items &amp; 1:1 matched pairs across 34 OSD studies (11,711 provenance rows)</div>
+      <div class="kpi-lbl">Canonical v1.1 items &amp; 1:1 matched pairs (OMROS LAB) across 34 OSD studies (11,711 provenance rows)</div>
     </div>
     <div class="kpi-card">
-      <div class="kpi-val">10.44% PDR</div>
-      <div class="kpi-lbl">Best full-corpus neutral closed-book ceiling (gpt-oss-120b); Gemini 3.5 Flash-Lite: 10.27%</div>
+      <div class="kpi-val">At Shuffled Null</div>
+      <div class="kpi-lbl">Closed-book PDR sits at null (10.44% vs 10.02%; 10.27% vs 10.33%): zero pair-level discrimination</div>
     </div>
     <div class="kpi-card amber">
       <div class="kpi-val">44.65% -&gt; 0%</div>
@@ -620,9 +624,9 @@ def build_html() -> str:
     </tbody>
   </table>
 
-  <h2>3. Independent Verification of the RR-10 v1.1 Directional Fragility Benchmark</h2>
-  <p>We conducted an independent structural audit and full-corpus evaluation of <strong>OMROSLAB's frozen RR-10 v1.1 Directional Fragility Benchmark</strong> (authored by Omar Rafael Perez Gallardo; NASA OSDR AWG Discourse Thread <code>#4569</code>). Filtering <code>244</code> initial OSDR differential expression tables down to <code>95</code> clean tables (excluding <code>17</code> confounded-only 1G/duration studies, <code>118</code> tables lacking clean SF-vs-GC contrasts, <code>12</code> missing exact <code>Material Type</code> keys, and <code>2</code> missing <code>SYMBOL</code> columns) and enforcing 1:1 matching without replacement yields <strong><code>5,630</code> canonical items</strong> (<code>2,815</code> multi-study fragility traps labeled <code>indeterminate</code> + <code>2,815</code> matched concordant controls: <code>1,459</code> <code>upregulated</code>, <code>1,356</code> <code>downregulated</code>) across <code>11</code> exact <code>organism::tissue</code> contexts, <code>34</code> OSD studies, and <code>11,711</code> provenance rows.</p>
-  <p>Four verification gates passed inside a quarantined evaluation workspace prior to model sweeps: (1) schema validation passed <code>5,630 / 5,630</code> (<code>0</code> errors); (2) the Paired Directional Robustness (PDR) denominator audit verified dynamic pair counting (<code>2,815</code> pairs, replacing legacy hardcoded <code>100</code>-pair denominators, proven via partial-pair check <code>1,407 / 2,815 = 0.499822380107</code>); (3) Gold Oracle (<code>PDR = 1.0000</code>) and All-Indeterminate (<code>PDR = 0.0000</code>, raw item accuracy <code>50.0%</code>) baselines confirmed immunity to blanket-abstention gaming; and (4) <code>5</code> canonical files matched bit-for-bit across local and private internet-disabled Kaggle verification.</p>
+  <h2>3. RR-10 v1.1 Directional Fragility Benchmark &amp; Author Re-Scoring</h2>
+  <p>We evaluated closed-book LLM calibration on <strong>OMROS LAB's frozen RR-10 v1.1 Directional Fragility Benchmark</strong> (created by <strong>Omar Rafael P&eacute;rez Gallardo</strong>, OMROS LAB, ORCID <code>0009-0008-8328-6978</code>, across September 9-23, 2026; NASA OSDR AWG Discourse Thread <code>#4569</code>). Filtering <code>244</code> initial OSDR differential expression tables down to <code>95</code> clean tables (excluding <code>17</code> confounded-only 1G/duration studies, <code>118</code> tables lacking clean SF-vs-GC contrasts, <code>12</code> missing exact <code>Material Type</code> keys, and <code>2</code> missing <code>SYMBOL</code> columns) and enforcing 1:1 matching without replacement yields <strong><code>5,630</code> canonical items</strong> (<code>2,815</code> multi-study fragility traps labeled <code>indeterminate</code> + <code>2,815</code> matched concordant controls: <code>1,459</code> <code>upregulated</code>, <code>1,356</code> <code>downregulated</code>) across <code>11</code> exact <code>organism::tissue</code> contexts, <code>34</code> OSD studies, and <code>11,711</code> provenance rows.</p>
+  <p>Four structural checks passed inside a quarantined evaluation workspace prior to model sweeps: (1) schema validation passed <code>5,630 / 5,630</code> (<code>0</code> errors); (2) the Paired Directional Robustness (PDR) denominator check confirmed dynamic pair counting (<code>2,815</code> pairs, replacing legacy hardcoded <code>100</code>-pair denominators, via partial-pair check <code>1,407 / 2,815 = 0.499822380107</code>); (3) Gold Oracle (<code>PDR = 1.0000</code>) and All-Indeterminate (<code>PDR = 0.0000</code>, raw item accuracy <code>50.0%</code>) baselines confirmed immunity to blanket-abstention gaming; and (4) <code>5</code> canonical files matched bit-for-bit across local execution and an offline private Kaggle scorer notebook (verifying scorer/schema parity on synthetic baselines, not live model inference). Subsequently, the benchmark author (<strong>OMROS LAB</strong>) independently re-scored all <code>10</code> supplied run outputs against canonical <code>benchmark_full.jsonl</code> and <code>score.py</code>, reproducing every score bit-for-bit (model API calls were not independently replicated, and <code>evidence-synthesis</code> mode was not run in v1.1).</p>
 
   <figure class="figure-block">
     <img src="{fig_funnel_uri}" alt="RR-10 v1.1 Corpus Filter Funnel and 11-Context Breakdown">
@@ -675,18 +679,19 @@ def build_html() -> str:
   </figure>
 
   <div class="callout">
-    <strong>Core Finding - The Epistemic Caution Trap:</strong> Under closed-book conditions, models exhibit a hard <strong>~10% PDR ceiling</strong> (<code>10.44%</code> best). Aggressive guessing (<code>gemini-3-flash-preview</code>) zeroes PDR via <code>99.55%</code> trap overclaiming, while neutral conservatism (<code>gpt-5.4-nano</code>) collapses control accuracy to <code>0.53%</code> via <code>98.86%</code> abstention. Most critically, adding prompt-only epistemic caution to <code>gemini-3.5-flash-lite</code> eliminated <code>100%</code> of valid control recall (<code>20.89% -&gt; 0.00%</code>), and <strong>all 3 directional claims it still emitted (out of 440 items) were false overclaims on fragility traps</strong>. Breaking the ~10% PDR ceiling therefore requires grounded OSDR tool retrieval rather than prompt wording alone.
+    <strong>Core Finding - Shuffled-Pair Permutation Null &amp; Epistemic Caution Trap (Closed-Book Only):</strong> Context-stratified 10,000-permutation null testing by <strong>Omar Rafael P&eacute;rez Gallardo (OMROS LAB)</strong> shows that every evaluated closed-book model sits inside its shuffled-pair null: <code>openai/gpt-oss-120b</code> <code>0.1044</code> vs. null <code>0.1002</code> (95% <code>0.0934-0.1069</code>); <code>google/gemini-3.5-flash-lite</code> <code>0.1027</code> vs. null <code>0.1033</code> (95% <code>0.0963-0.1101</code>); <code>openai/gpt-5.4-nano</code> <code>0.0053</code> vs. null <code>0.0053</code> (95% <code>0.0050-0.0053</code>). Thus, ~10% PDR is <strong>not</strong> a calibration ceiling - it reflects marginal trap abstention &times; control accuracy with <strong>zero pair-level discrimination</strong>. Meanwhile, prompt-only epistemic caution on <code>gemini-3.5-flash-lite</code> eliminated <code>100%</code> of valid control recall (<code>20.89% -&gt; 0.00%</code>), with <strong>all 3 remaining directional claims being false overclaims on fragility traps</strong>. Because no <code>evidence-synthesis</code> run was executed in v1.1, testing whether live OSDR table retrieval lifts PDR above the shuffled-pair null remains future work.
   </div>
 
   <h2>5. Machine-Readable Epistemic Guardrail Contract &amp; v1.2 Roadmap</h2>
-  <p>To operationalize these diagnostics across space-biology assistants, <em>Orbiting Minds</em> publishes <code>data/processed/rr10_guardrail_contract.json</code> (schema <code>1.1.0</code>, zero raw item leakage) for direct runtime consumption by <strong>OSDR ChatBot v1.0.0</strong> (<code>https://osdr-chatbot-kappa.vercel.app</code>):</p>
+  <p>To operationalize these diagnostics across space-biology assistants, <em>Orbiting Minds</em> publishes <code>data/processed/rr10_guardrail_contract.json</code> (schema <code>1.1.1</code>, zero raw item leakage) for direct runtime consumption by <strong>OSDR ChatBot v1.0.0</strong> (<code>https://osdr-chatbot-kappa.vercel.app</code>). Rules <strong><code>EC-02</code></strong> and <strong><code>EC-03</code></strong> explicitly credit the benchmark methodology originated by <strong>Omar Rafael P&eacute;rez Gallardo (OMROS LAB, ORCID 0009-0008-8328-6978)</strong>:</p>
 
   <table>
     <thead>
       <tr>
-        <th class="center" style="width:10%">Rule ID</th>
-        <th class="center" style="width:12%">Severity</th>
-        <th>Runtime Epistemic Guardrail Specification</th>
+        <th class="center" style="width:9%">Rule ID</th>
+        <th class="center" style="width:10%">Severity</th>
+        <th style="width:55%">Runtime Epistemic Guardrail Specification</th>
+        <th style="width:26%">Method Attribution</th>
       </tr>
     </thead>
     <tbody>
@@ -738,9 +743,9 @@ def build_html() -> str:
     <strong>NASA OSDR Synthetic Intelligence Charter Alignment &amp; Production Lock:</strong> Consistent with the NASA OSDR AWG Synthetic Intelligence Charter (revised September 2025), zero restricted rodent behavioral video (e.g., <code>OSD-952</code>) or human clinical SOMA data is transmitted to external generative world-model APIs. On public production hosts (<code>orbiting-minds.vercel.app</code>), <code>pip-world.html</code> displays a full-viewport diagonal construction-tape <strong>"UNDER CONSTRUCTION - COMING SOON"</strong> X-barrier locking all controls, reinforced by server-side <code>HTTP 503</code> rejection unless explicitly unlocked via <code>GENIE_ENABLE_PROD=true</code>.
   </div>
 
-  <h2>7. Public/Private Boundary Firewall, Reproducibility &amp; Acknowledgments</h2>
-  <p>Pending formal OSDR/OMROSLAB licensing sign-off for raw benchmark redistribution, an automated firewall script (<code>scripts/check_public_boundary.py</code>) audits <code>.gitignore</code> enforcement, git index/working-tree status, and every public directory (<code>data/</code>, <code>exports/</code>, <code>web-viewer/</code>, <code>project-site/</code>) to guarantee <strong>zero</strong> leaked per-item identifiers, raw provenance rows, or API credentials. Public artifacts remain strictly aggregate summaries, the <code>EC-01..EC-06</code> guardrail contract, and deterministic Tier 1 3D assets.</p>
-  <p><strong>Acknowledgments:</strong> We gratefully credit <strong>OMROSLAB (Omar Rafael Perez Gallardo)</strong> for authoring the frozen RR-10 v1.1 Directional Fragility benchmark specification (AWG Discourse <code>#4569</code>), NASA OSDR AWG contributor <code>@Mym04Tak14</code> for the planned v1.2 viscoelastic trajectory framework, and the NASA OSDR Brain and AI/ML Analysis Working Groups. NASA, OSDR, and GeneLab are cited solely for factual scientific attribution; this work is an independent contribution not affiliated with or endorsed by NASA.</p>
+  <h2>7. Public/Private Boundary Firewall, Authorship Contributions &amp; Acknowledgments</h2>
+  <p>Pending formal OSDR/OMROS LAB licensing sign-off for raw benchmark redistribution, an automated firewall script (<code>scripts/check_public_boundary.py</code>) audits <code>.gitignore</code> enforcement, git index/working-tree status, and every public directory (<code>data/</code>, <code>exports/</code>, <code>web-viewer/</code>, <code>project-site/</code>) to guarantee <strong>zero</strong> leaked per-item identifiers, raw provenance rows, or API credentials. Public artifacts remain strictly aggregate summaries, the <code>EC-01..EC-06</code> guardrail contract, and deterministic Tier 1 3D assets.</p>
+  <p><strong>Component Ownership &amp; Acknowledgments:</strong> <strong>Gaston Dana</strong> (ORCID <code>0009-0007-1011-860X</code>) built <em>Orbiting Minds</em> (Tier 1 3D pipeline, SVG drawer, original 5-task RR-10 pilot), executed the closed-book sweeps, packaged the guardrail JSON contract, and evaluated the Tier 2 Genie 4 sandbox. <strong>Omar Rafael P&eacute;rez Gallardo</strong> (OMROS LAB, ORCID <code>0009-0008-8328-6978</code>) created the RR-10 Directional Fragility Benchmark (<code>benchmark_full.jsonl</code>, <code>validate.py</code>, <code>score.py</code>, <code>manifest_full.json</code>), defined PDR, originated the <code>EC-02</code>/<code>EC-03</code> rules, re-scored all 10 supplied outputs bit-for-bit, and contributed the 10,000-permutation shuffled-pair null analysis. We also acknowledge NASA OSDR AWG contributor <code>@Mym04Tak14</code> for the planned v1.2 viscoelastic trajectory framework and the NASA OSDR Brain and AI/ML AWGs. NASA, OSDR, and GeneLab are cited solely for factual scientific attribution; this work is an independent contribution not affiliated with or endorsed by NASA.</p>
 
   <h2>8. Verified References</h2>
   <ol class="ref-list">
@@ -764,13 +769,13 @@ def build_html() -> str:
 
   <h3>BibTeX Deposition Template</h3>
   <div class="bibtex-box">@techreport{{dana2026orbitingminds,
-  author      = {{Dana, Gaston}},
+  author      = {{Dana, Gaston and P{{\\'e}}rez Gallardo, Omar Rafael}},
   title       = {{Orbiting Minds and the RR-10 v1.1 Directional Fragility Audit: Deterministic Spaceflight Multi-Omics Visualization, Epistemic Calibration Guardrails, and Exploratory World-Model Evaluation}},
-  institution = {{Independent Computational Space Biology Research / NASA OSDR AWG Community Contribution}},
+  institution = {{Independent Computational Space Biology Research / OMROS LAB / NASA OSDR AWG Community Contribution}},
   year        = {{2026}},
   month       = {{November}},
   number      = {{OM-TR-2026-01}},
-  version     = {{1.1.0}},
+  version     = {{1.1.1}},
   doi         = {{10.5281/zenodo.24439497}},
   url         = {{https://zenodo.org/records/24439497}}
 }}</div>
@@ -789,8 +794,8 @@ def render_pdf(output_path: Path = OUTPUT_PDF_PATH) -> Path:
     header_tpl = (
         '<div style="width:100%;font-family:-apple-system,Helvetica,Arial,sans-serif;'
         'font-size:7pt;color:#64748b;padding:0 0.72in;display:flex;justify-content:space-between;">'
-        '<span>Orbiting Minds &amp; RR-10 v1.1 Technical Report (OM-TR-2026-01)</span>'
-        '<span>G. Dana · November 2026</span>'
+        '<span>Orbiting Minds &amp; RR-10 v1.1 Technical Report (OM-TR-2026-01 · v1.1.1)</span>'
+        '<span>G. Dana &amp; O. R. P&eacute;rez Gallardo · November 2026</span>'
         '</div>'
     )
     footer_tpl = (

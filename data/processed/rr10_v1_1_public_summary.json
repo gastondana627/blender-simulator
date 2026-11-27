@@ -1,9 +1,21 @@
 {
-  "schema_version": "1.1.0",
+  "schema_version": "1.1.1",
   "benchmark_version": "v1.1",
-  "benchmark_name": "RR-10 Evidence-Aware Directional Interpretation \u2014 Full OSDR Corpus",
-  "generated_utc": "2026-11-21T19:58:07.175993+00:00",
-  "status": "public-safe aggregate summary (zero raw items or gene-level provenance rows; raw corpus remains privately quarantined pending OSDR/OMROSLAB redistribution sign-off)",
+  "benchmark_name": "RR-10 Evidence-Aware Directional Interpretation — Full OSDR Corpus (OMROS LAB)",
+  "benchmark_creator": {
+    "name": "Omar Rafael Pérez Gallardo",
+    "affiliation": "OMROS LAB",
+    "orcid": "0009-0008-8328-6978"
+  },
+  "generated_utc": "2026-11-27T11:38:00+00:00",
+  "status": "public-safe aggregate summary (zero raw items or gene-level provenance rows; closed-book model outputs re-scored bit-for-bit by benchmark author OMROS LAB; model API calls not independently replicated; evidence-synthesis mode not run in v1.1)",
+  "shuffled_pair_null_10000_permutations": {
+    "credit": "Omar Rafael Pérez Gallardo (OMROS LAB, ORCID 0009-0008-8328-6978)",
+    "note": "All three full-corpus closed-book PDR values sit within the context-stratified 10,000-permutation shuffled-pair null, demonstrating no pair-level discrimination between fragility traps and concordant controls.",
+    "google/gemini-3.5-flash-lite": { "observed_pdr": 0.1027, "null_mean": 0.1033, "null_ci95": [0.0963, 0.1101] },
+    "openai/gpt-oss-120b": { "observed_pdr": 0.1044, "null_mean": 0.1002, "null_ci95": [0.0934, 0.1069] },
+    "openai/gpt-5.4-nano-2026-03-17": { "observed_pdr": 0.0053, "null_mean": 0.0053, "null_ci95": [0.0050, 0.0053] }
+  },
   "canonical_sha256": "92915008e0431549ff0f7572f8436cf3bd8c3f416050f9dd127423080114785c",
   "source_thread": "https://awg.osdr.space/t/can-frontier-llms-accurately-interpret-spaceflight-biology-rr-10-benchmark-interactive-3d-viewer/4569",
   "companion_links": {

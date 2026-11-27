@@ -192,12 +192,12 @@ def build_figure_1_svg(data: dict) -> str:
   <text x="1429" y="717" fill="#38bdf8" font-family="{esc(FONT_MONO)}" font-size="11" font-weight="700" text-anchor="middle">3. OSDR ChatBot</text>
   <text x="1429" y="735" fill="#94a3b8" font-family="{esc(FONT_SANS)}" font-size="11" text-anchor="middle">v1.0.0 Grounded Lookup</text>
 
-  <text x="918" y="776" fill="#e0f2fe" font-family="{esc(FONT_SANS)}" font-size="13.2">Takeaway: Prompt coaching alone trades away valid control accuracy. Pairing</text>
-  <text x="918" y="796" fill="#e0f2fe" font-family="{esc(FONT_SANS)}" font-size="13.2">rr10_guardrail_contract.json with live OSDR retrieval breaks the ~10% PDR ceiling.</text>
+  <text x="918" y="776" fill="#e0f2fe" font-family="{esc(FONT_SANS)}" font-size="13.2">Takeaway: Closed-book PDR sits at the shuffled-pair null; prompt caution erases</text>
+  <text x="918" y="796" fill="#e0f2fe" font-family="{esc(FONT_SANS)}" font-size="13.2">valid controls. Pairing EC-01..06 with live OSDR retrieval targets real lift.</text>
   <text x="918" y="814" fill="#7dd3fc" font-family="{esc(FONT_MONO)}" font-size="11">v1.2 planned secondary diagnostic (@Mym04Tak14): ln[S(t)/S_0] viscoelastic trajectory</text>
 
   <!-- Footer -->
-  <text x="40" y="878" fill="#64748b" font-family="{esc(FONT_MONO)}" font-size="11.5">Orbiting Minds (https://orbiting-minds.vercel.app/)  |  Public-Safe Aggregates Only  |  PDR Denominator Audited = 2,815 (Gold 1.0, Indet 0.0, 1407/2815 Proof)</text>
+  <text x="40" y="878" fill="#64748b" font-family="{esc(FONT_MONO)}" font-size="11.5">Orbiting Minds + OMROS LAB (O. R. Pérez Gallardo, ORCID 0009-0008-8328-6978)  |  Re-scored by Benchmark Author  |  Closed-Book Only (No Evidence-Synthesis Run)</text>
 </svg>
 '''
     assert "\u2014" not in svg, "Em-dash detected in Figure 1 SVG!"

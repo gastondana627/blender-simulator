@@ -1,12 +1,13 @@
 # Orbiting Minds and the RR-10 v1.1 Directional Fragility Audit: Deterministic Spaceflight Multi-Omics Visualization, Epistemic Calibration Guardrails, and Exploratory World-Model Evaluation
 
 **Technical Report ID:** `OM-TR-2026-01`  
-**Version:** `1.1.0` (Zenodo Preprint / Software & Evaluation Technical Report)  
+**Version:** `1.1.1` (Zenodo New Version / Software & Evaluation Technical Report)  
 **Zenodo DOI:** [10.5281/zenodo.24439497](https://doi.org/10.5281/zenodo.24439497) ([Record #24439497](https://zenodo.org/records/24439497))  
-**Date:** November 22, 2026  
-**Author:** Gaston Dana (Independent Computational Space Biology Researcher; NASA OSDR Analysis Working Group Contributor)  
-**ORCID:** [0009-0007-1011-860X](https://orcid.org/0009-0007-1011-860X)  
-**Google Scholar:** [Gaston Dana - Google Scholar](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=juOv0f0AAAAJ&citation_for_view=juOv0f0AAAAJ:d1gkVwhDpl0C)  
+**Date:** November 27, 2026  
+**Creators / Authors:**  
+- **Gaston Dana** (Independent Computational Space Biology Researcher; Orbiting Minds 3D Pipeline, Closed-Book Model Execution, Guardrail Packaging, Tier 2 World-Model Case Study); ORCID: [0009-0007-1011-860X](https://orcid.org/0009-0007-1011-860X)  
+- **Omar Rafael Pérez Gallardo** (OMROS LAB; RR-10 Directional Fragility Benchmark Creator, PDR Metric, `validate.py`/`score.py`, `EC-02`/`EC-03` Methodology, Output Re-Scoring & Shuffled-Pair Permutation Null); ORCID: [0009-0008-8328-6978](https://orcid.org/0009-0008-8328-6978)  
+**Google Scholar (G. Dana):** [Gaston Dana - Google Scholar](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=juOv0f0AAAAJ&citation_for_view=juOv0f0AAAAJ:d1gkVwhDpl0C)  
 **Primary Repository:** [https://github.com/gastondana627/blender-simulator](https://github.com/gastondana627/blender-simulator)  
 **Live Public Viewer:** [https://orbiting-minds.vercel.app/](https://orbiting-minds.vercel.app/)  
 **Companion Guardrail Consumer:** [OSDR ChatBot v1.0.0](https://osdr-chatbot-kappa.vercel.app)  
@@ -21,7 +22,7 @@ Spaceflight multi-omics archives maintained by the NASA Open Science Data Reposi
 
 This technical report documents a two-tier, strictly decoupled research architecture developed between September and November 2026 to address both gaps without compromising scientific provenance:
 
-1. **Tier 1 (Deterministic Data-to-3D Pipeline and Empirical Calibration Audit):** *Orbiting Minds* (initially released September 6, 2026) translates NASA Rodent Research-10 (RR-10) murine brain RNA-seq outputs (`OSD-563` cerebellum, PC1 = 25.6%; `OSD-564` hippocampus, PC1 = 28.3%; rRNA-removal VST concordance *r* = 1.000) through SHA-256 deterministic JSON recipes into headless Blender 4.1.1 GLB assets and a browser Three.js WebGL inspection interface paired with an external vector SVG Analytic Evidence Drawer. In parallel, we present an independent verification of OMROSLAB's frozen **RR-10 v1.1 Directional Fragility Benchmark** (`5,630` canonical items: `2,815` multi-study fragility traps paired 1:1 with `2,815` concordant controls across `11` `organism::tissue` contexts, `34` OSD studies, and `11,711` provenance rows; canonical SHA-256 `92915008e0431549ff0f7572f8436cf3bd8c3f416050f9dd127423080114785c`). Full-corpus neutral closed-book evaluation shows a hard **~10% Paired Directional Robustness (PDR) ceiling** (`10.44%` for `openai/gpt-oss-120b`; `10.27%` for `google/gemini-3.5-flash-lite`; `0.53%` for `openai/gpt-5.4-nano-2026-03-17`). A 440-item caution-coached ablation demonstrates the **Epistemic Caution Trap**: prompt-only caution drops `gemini-3.5-flash-lite` trap overclaiming from `44.65%` to `1.36%` but collapses control accuracy (`20.89% -> 0.00%`) and PDR (`10.27% -> 0.00%`), with all `3` remaining directional claims being false trap overclaims. To operationalize these findings, we publish a machine-readable guardrail contract (`rr10_guardrail_contract.json`, rules `EC-01` through `EC-06`) consumed by **OSDR ChatBot v1.0.0**.
+1. **Tier 1 (Deterministic Data-to-3D Pipeline and Closed-Book Directional Fragility Evaluation):** *Orbiting Minds* (initially released September 6, 2026 by G. Dana) translates NASA Rodent Research-10 (RR-10) murine brain RNA-seq outputs (`OSD-563` cerebellum, PC1 = 25.6%; `OSD-564` hippocampus, PC1 = 28.3%; rRNA-removal VST concordance *r* = 1.000) through SHA-256 deterministic JSON recipes into headless Blender 4.1.1 GLB assets and a browser Three.js WebGL inspection interface paired with an external vector SVG Analytic Evidence Drawer. In parallel, we report a closed-book model evaluation on **OMROS LAB's frozen RR-10 v1.1 Directional Fragility Benchmark** (created by Omar Rafael Pérez Gallardo, ORCID `0009-0008-8328-6978`; `5,630` canonical items: `2,815` multi-study fragility traps paired 1:1 with `2,815` concordant controls across `11` `organism::tissue` contexts, `34` OSD studies, and `11,711` provenance rows; canonical SHA-256 `92915008e0431549ff0f7572f8436cf3bd8c3f416050f9dd127423080114785c`), with all 10 supplied run outputs re-scored bit-for-bit by the benchmark author against canonical `benchmark_full.jsonl` and `score.py` (note: model API calls were not independently replicated, and `evidence-synthesis` mode was not run in v1.1). Context-stratified 10,000-permutation shuffled-pair null testing by OMROS LAB shows that full-corpus neutral closed-book **Paired Directional Robustness (PDR)** sits at the random shuffled-pair null (`10.44%` vs. null `10.02%` `[9.34%-10.69%]` for `openai/gpt-oss-120b`; `10.27%` vs. null `10.33%` `[9.63%-11.01%]` for `google/gemini-3.5-flash-lite`; `0.53%` vs. null `0.53%` `[0.50%-0.53%]` for `openai/gpt-5.4-nano-2026-03-17`), demonstrating **no pair-level discrimination between fragility traps and concordant controls** beyond marginal abstention and control accuracy. A 440-item caution-coached ablation further shows the **Epistemic Caution Trap**: prompt-only caution drops `gemini-3.5-flash-lite` trap overclaiming from `44.65%` to `1.36%` but collapses control accuracy (`20.89% -> 0.00%`) and PDR (`10.27% -> 0.00%`), with all `3` remaining directional claims being false trap overclaims. To operationalize these findings, we publish a machine-readable guardrail contract (`rr10_guardrail_contract.json`, rules `EC-01` through `EC-06`, crediting OMROS LAB's benchmark methods in `EC-02` and `EC-03`) consumed by **OSDR ChatBot v1.0.0**.
 2. **Tier 2 (Exploratory Generative World-Model Case Study):** We report a controlled, budgeted 10-second live WebRTC evaluation of Google DeepMind's real-time interactive world model (`genie-4`, `1280x720 @ 24 fps`, `48 kHz` stereo audio) seeded with a `31.9 KB` 16:9 habitat image. Empirical findings confirm responsive mid-stream event steering (`10x / 150 ms` text impulses) alongside severe foreground character morphing on frame-1 movement, ~8-10 s off-screen permanence drift, and illegible in-frame text. Consistent with the NASA OSDR Analysis Working Group Synthetic Intelligence Charter, Tier 2 remains strictly isolated from empirical OSDR data, locked behind a production construction-tape `"Coming Soon"` barrier (`HTTP 503`), and restricted to stylized public outreach.
 
 **Keywords:** NASA OSDR, Rodent Research-10, Spaceflight Transcriptomics, LLM Epistemic Calibration, Directional Fragility Benchmark, Deterministic 3D Scientific Visualization, Interactive World Models, Synthetic Intelligence Governance.
@@ -85,11 +86,11 @@ Key engineering invariants verified by automated unit tests (`tests/test_pipelin
 
 ---
 
-## 3. Independent Verification of the RR-10 v1.1 Directional Fragility Benchmark
+## 3. RR-10 v1.1 Directional Fragility Benchmark & Author Re-Scoring
 
 ### 3.1 Corpus Specification and Provenance
 
-In collaboration with the NASA OSDR AWG community (Discourse Thread `#4569`), we conducted an independent technical audit and full-corpus model sweep of **OMROSLAB's frozen RR-10 v1.1 Directional Fragility Benchmark** (authored by Omar Rafael Perez Gallardo / OMROSLAB). Whereas an earlier September 9 exploratory sweep across `244` OSDR differential expression (DE) tables yielded `21,454` loosely harmonized raw items, the frozen v1.1 contract enforces strict confound and schema exclusions:
+In collaboration with the NASA OSDR AWG community (Discourse Thread `#4569`), we evaluated closed-book LLM calibration on **OMROS LAB's frozen RR-10 v1.1 Directional Fragility Benchmark** (created by **Omar Rafael Pérez Gallardo**, OMROS LAB, ORCID `0009-0008-8328-6978`, across September 9-23, 2026). Whereas an earlier September 12 exploratory sweep across `244` OSDR differential expression (DE) tables yielded `21,454` loosely harmonized raw items, the frozen v1.1 contract enforces strict confound and schema exclusions:
 
 - Excludes `17` confounded-only studies (e.g., 1G centrifugation or mismatched exposure durations), `118` tables lacking clean `(Space Flight) vs (Ground Control)` contrasts, `12` tables missing exact OSDR `Material Type` keys, and `2` tables missing gene `SYMBOL` columns, retaining **`95` clean DE tables**.
 - Enforces exact OSDR `Material Type` keys (zero lossy tissue merging), statistical significance at FDR `q < 0.05` at the gene `SYMBOL` level, explicit sign-orientation verification, and **1:1 pairing without replacement** (`min(#traps, #controls)`) within each `organism::tissue` context.
@@ -107,7 +108,7 @@ Before evaluating LLMs, four deterministic verification gates were executed insi
 1. **Schema Validator:** `5,630 / 5,630` items passed with `0` schema or provenance errors.
 2. **Paired Directional Robustness (PDR) Denominator Audit:** Confirmed removal of legacy hardcoded `100`-pair denominators in favor of dynamic pair counting (`2,815` on full v1.1), verified via a synthetic partial-pair proof (`1,407 / 2,815 = 0.499822380107` observed vs. `0.499822380107` expected).
 3. **Analytic Baselines:** Gold Oracle achieved `PDR = 1.0000` (`100.0%` trap accuracy, `100.0%` control accuracy); an All-Indeterminate baseline achieved `PDR = 0.0000` (`100.0%` trap accuracy, `0.0%` control accuracy, `50.0%` raw item accuracy), demonstrating why single-item accuracy masks blanket abstention collapse.
-4. **Local-to-Private-Kaggle Parity:** Five canonical evaluation files matched bit-for-bit across local verification and a private, internet-disabled Kaggle evaluation kernel.
+4. **Local-to-Private-Kaggle Scorer Parity & Author Re-Scoring:** Five canonical verification files (`validate_report.json`, `gold_score.json`, `all_indeterminate_score.json`, `partial_1407_score.json`, `context_breakdown.json`) matched bit-for-bit across local execution and an offline private Kaggle scorer notebook (verifying scorer/schema parity on synthetic baselines, not live model inference). Subsequently, the benchmark author (**Omar Rafael Pérez Gallardo / OMROS LAB**) independently re-scored all `10` supplied model output files against his canonical `benchmark_full.jsonl` and `score.py` using his own driver, reproducing every headline and per-context score bit-for-bit (noting that model API calls themselves were not independently replicated, and only closed-book modes were run in v1.1; no `evidence-synthesis` provenance-reading runs were executed).
 
 ![Figure 1: RR-10 v1.1 Corpus Filter Funnel and 11-Context Fragility Breakdown](../project-site/assets/figures/rr10_v1_1_corpus_and_11_contexts.png)
 *Figure 1. Left: Confound-filtered reduction from the initial 21,454-item sweep across 244 OSDR DE tables to the 5,630-item canonical v1.1 benchmark across 95 clean tables (34 OSD studies, 11,711 provenance rows). Right: Per-context Trap Overclaim Rate versus Paired Directional Robustness (PDR) for `openai/gpt-oss-120b` and `google/gemini-3.5-flash-lite` across all 11 exact `organism::tissue` contexts.*
@@ -147,15 +148,23 @@ Under the primary evaluation protocol (**Neutral Zero-Nudge Closed-Book**: bare 
 | `google/gemini-3.5-flash-lite` | **440 Caution Ablation** | 440 (220) | **0.00%** | **1.36%** | **0.00%** | **100.00%** | 0.2202 | 667.7 ms |
 | `openai/gpt-5.4-nano-2026-03-17` | **440 Caution Ablation** | 440 (220) | **0.00%** | **0.00%** | **0.00%** | **100.00%** | 0.2222 | 1,071.0 ms |
 
-### 4.2 Interpretation: Why Prompt-Only Coaching Cannot Break the ~10% PDR Ceiling
+### 4.2 Shuffled-Pair Permutation Null and Interpretation (Closed-Book Only)
 
-The scoreboard exposes a fundamental tri-modal failure surface in closed-book spaceflight genomics:
+To test whether the observed `~10%` closed-book PDR reflects genuine pair-level discrimination between fragility traps and concordant controls or merely the product of marginal trap abstention and control recall, **Omar Rafael Pérez Gallardo (OMROS LAB)** ran a context-stratified **10,000-permutation shuffled-pair null** permuting control correctness across pairs within each `organism::tissue` context:
 
-1. **Aggressive Guessing Collapse (`gemini-3-flash-preview`):** Zero abstention (`0.00%`) produces high apparent control guessing (`48.18%`) but `99.55%` Trap Overclaim, driving `PDR` to `0.00%`.
-2. **Blanket Abstention Collapse (`gpt-5.4-nano`):** Emitting `indeterminate` on `5,575 / 5,630` items (`99.02%`) protects against traps (`0.82%` overclaim) at the cost of destroying valid scientific recall (`0.53%` control accuracy, `0.53%` PDR).
+| Full-Corpus Closed-Book Model (`5,630` items) | Observed PDR | Shuffled-Pair Null Mean | Null 95% Interval | Interpretation |
+| :--- | :---: | :---: | :---: | :--- |
+| `openai/gpt-oss-120b` | `0.1044` | `0.1002` | `[0.0934, 0.1069]` | Within null (no pair-level discrimination) |
+| `google/gemini-3.5-flash-lite` | `0.1027` | `0.1033` | `[0.0963, 0.1101]` | Within null (no pair-level discrimination) |
+| `openai/gpt-5.4-nano-2026-03-17` | `0.0053` | `0.0053` | `[0.0050, 0.0053]` | Within null (blanket abstention) |
+
+Accordingly, `~10%` PDR is **not** a calibration ceiling: every evaluated closed-book model sits inside its shuffled-pair null, confirming zero pair-level discrimination between multi-study traps and concordant controls. The scoreboard exposes a tri-modal closed-book failure surface:
+
+1. **Aggressive Guessing Collapse (`gemini-3-flash-preview`):** Zero abstention (`0.00%`) produces `48.18%` control guessing alongside `99.55%` Trap Overclaim, driving `PDR` to `0.00%`.
+2. **Blanket Abstention Collapse (`gpt-5.4-nano`):** Emitting `indeterminate` on `5,575 / 5,630` items (`99.02%`) yields `0.82%` trap overclaim while erasing valid control recall (`0.53%` control accuracy, `0.53%` PDR, identical to its `0.0053` null).
 3. **The Epistemic Caution Trap (440-Item Ablation):** Adding explicit epistemic-caution prompting to `gemini-3.5-flash-lite` reduced trap overclaiming by `-43.29` percentage points (`44.65% -> 1.36%`), yet simultaneously erased `100%` of valid control predictions (`20.89% -> 0.00%`, PDR `10.27% -> 0.00%`). Remarkably, across `440` caution-coached responses (`437` `indeterminate`, `3` `upregulated`), **all 3 directional claims emitted were false overclaims on fragility traps** (`2` in `arabidopsis_thaliana::seedlings`, `1` in `mus_musculus::left_lobe_of_the_liver`).
 
-Without live retrieval over verified NASA OSDR differential expression tables, frontier LLMs cannot reliably discriminate genuine multi-study sign concordance from multi-study contradiction.
+*Scope boundary:* No run in v1.1 used the `evidence-synthesis` mode in `run_frontier_eval.py`; therefore v1.1 evaluates closed-book parametric memory only and does not test provenance-reading performance. Testing whether live retrieval over verified NASA OSDR differential expression tables lifts PDR meaningfully above the shuffled-pair null remains future work.
 
 ![Figure 2: Before vs. After Model Calibration and the Epistemic Caution Trap](../project-site/assets/figures/rr10_v1_1_before_after_calibration.png)
 *Figure 2. Left: Raw neutral zero-nudge closed-book sweeps across all 5,630 canonical items (plus the 440-item `gemini-3-flash-preview` pilot). Right: Impact of prompt-only epistemic caution coaching on `gemini-3.5-flash-lite`, illustrating the Caution Trap (`44.65% -> 1.36%` trap overclaim coupled with `10.27% -> 0.00%` PDR collapse) and the target grounded OSDR retrieval architecture.*
@@ -164,16 +173,16 @@ Without live retrieval over verified NASA OSDR differential expression tables, f
 
 ## 5. Machine-Readable Epistemic Guardrail Contract (`EC-01..EC-06`) and v1.2 Roadmap
 
-To translate benchmark diagnostics into production AI safety, *Orbiting Minds* publishes a versioned, zero-leak JSON contract (`data/processed/rr10_guardrail_contract.json`, schema `1.1.0`) designed for direct ingestion by downstream space-biology assistants, beginning with our companion application **OSDR ChatBot v1.0.0** (`https://osdr-chatbot-kappa.vercel.app`):
+To translate benchmark diagnostics into production AI safety, *Orbiting Minds* publishes a versioned, zero-leak JSON contract (`data/processed/rr10_guardrail_contract.json`, schema `1.1.1`) designed for direct ingestion by downstream space-biology assistants, beginning with our companion application **OSDR ChatBot v1.0.0** (`https://osdr-chatbot-kappa.vercel.app`). Rules **`EC-02`** and **`EC-03`** explicitly encode methodological definitions created by **Omar Rafael Pérez Gallardo (OMROS LAB, ORCID `0009-0008-8328-6978`)** in the RR-10 Directional Fragility Benchmark (September 9-23, 2026):
 
-| Rule ID | Severity | Runtime Epistemic Guardrail Policy |
-| :---: | :---: | :--- |
-| **`EC-01`** | Critical | Never assert a single `organism::tissue` directional gene change from one spaceflight study when multiple clean NASA OSDR studies exist for that context without checking cross-study sign concordance. |
-| **`EC-02`** | Critical | Return `indeterminate` (contradictory / not determinable evidence) whenever FDR `q < 0.05` contrasts across independent clean OSD studies disagree in sign. |
-| **`EC-03`** | High | Verify contrast orientation (`(Space Flight)v(Ground Control)` vs. inverted `(GC)v(SF)`) and exclude confounded compound-factor contrasts (e.g., 1G centrifugation or unequal durations) prior to directional synthesis. |
-| **`EC-04`** | High | Avoid blanket abstention: separate genuine cross-study discordance from absent tool retrieval by querying verified OSD differential expression tables whenever available. |
-| **`EC-05`** | Critical | Do not extrapolate short-duration LEO murine or model-organism transcriptomic changes directly to multi-year human deep-space pathology without explicit epistemic boundaries. |
-| **`EC-06`** | Critical | Never fabricate NASA OSDR accession numbers (`OSD-###`), `log2FC` values, or adjusted *p*-values (*q*-values). |
+| Rule ID | Severity | Runtime Epistemic Guardrail Policy | Method Attribution |
+| :---: | :---: | :--- | :--- |
+| **`EC-01`** | Critical | Never assert a single `organism::tissue` directional gene change from one spaceflight study when multiple clean NASA OSDR studies exist for that context without checking cross-study sign concordance. | Joint synthesis |
+| **`EC-02`** | Critical | Return `indeterminate` (contradictory / not determinable evidence) whenever FDR `q < 0.05` contrasts across independent clean OSD studies disagree in sign. | **O. R. Pérez Gallardo (OMROS LAB)**, Sep 9 & 12 |
+| **`EC-03`** | High | Verify contrast orientation (`(Space Flight)v(Ground Control)` vs. inverted `(GC)v(SF)`) and exclude confounded compound-factor contrasts (e.g., 1G centrifugation or unequal durations) prior to directional synthesis. | **O. R. Pérez Gallardo (OMROS LAB)**, Sep 12, 17 & 23 |
+| **`EC-04`** | High | Avoid blanket abstention: separate genuine cross-study discordance from absent tool retrieval by querying verified OSD differential expression tables whenever available. | Joint synthesis |
+| **`EC-05`** | Critical | Do not extrapolate short-duration LEO murine or model-organism transcriptomic changes directly to multi-year human deep-space pathology without explicit epistemic boundaries. | Orbiting Minds |
+| **`EC-06`** | Critical | Never fabricate NASA OSDR accession numbers (`OSD-###`), `log2FC` values, or adjusted *p*-values (*q*-values). | Orbiting Minds |
 
 ### Planned v1.2 Secondary Diagnostic
 
@@ -244,9 +253,13 @@ python3 run_pipeline.py --serve
 
 ---
 
-## 8. Acknowledgments and Attribution
+## 8. Authorship Contributions & Acknowledgments
 
-The author gratefully acknowledges **OMROSLAB (Omar Rafael Perez Gallardo)** for constructing and sharing the frozen RR-10 v1.1 Directional Fragility benchmark specification on NASA OSDR AWG Discourse Thread `#4569`, **NASA OSDR AWG contributor `@Mym04Tak14`** for formulating the `ln[S(t)/S_0]` viscoelastic trajectory framework slated for v1.2, and the **NASA OSDR Brain and AI/ML Analysis Working Groups** for fostering open-science evaluation standards. NASA, NASA OSDR, GeneLab, and mission designations are referenced strictly for factual scientific attribution; this report is an independent research contribution and is not endorsed by or affiliated with NASA.
+**Explicit Component Ownership & Attribution:**
+- **Gaston Dana** (`ORCID: 0009-0007-1011-860X`): Created *Orbiting Minds* (Tier 1 deterministic Blender/Three.js 3D pipeline, external SVG Analytic Evidence Drawer, original 5-task RR-10 reasoning pilot), executed the closed-book v1.1 LLM sweeps, packaged `rr10_guardrail_contract.json`, and engineered/evaluated the Tier 2 Genie 4 WebRTC sandbox.
+- **Omar Rafael Pérez Gallardo** (`OMROS LAB`, `ORCID: 0009-0008-8328-6978`): Created the **RR-10 Directional Fragility Benchmark** (`benchmark_full.jsonl`, `schema.json`, `manifest_full.json`, `validate.py`, `score.py`), defined **Paired Directional Robustness (PDR)**, originated the methodological rules encoded in **`EC-02`** and **`EC-03`**, independently re-scored all 10 supplied v1.1 model outputs bit-for-bit, and contributed the 10,000-permutation shuffled-pair null analysis.
+
+The authors also acknowledge **NASA OSDR AWG contributor `@Mym04Tak14`** for formulating the `ln[S(t)/S_0]` viscoelastic trajectory framework slated for v1.2, and the **NASA OSDR Brain and AI/ML Analysis Working Groups** for fostering open-science evaluation standards. NASA, NASA OSDR, GeneLab, and mission designations are referenced strictly for factual scientific attribution; this report is an independent research contribution and is not endorsed by or affiliated with NASA.
 
 ---
 
@@ -275,15 +288,15 @@ The author gratefully acknowledges **OMROSLAB (Omar Rafael Perez Gallardo)** for
 
 ```bibtex
 @techreport{dana2026orbitingminds,
-  author      = {Dana, Gaston},
+  author      = {Dana, Gaston and P{\'e}rez Gallardo, Omar Rafael},
   title       = {Orbiting Minds and the RR-10 v1.1 Directional Fragility Audit:
                  Deterministic Spaceflight Multi-Omics Visualization, Epistemic
                  Calibration Guardrails, and Exploratory World-Model Evaluation},
-  institution = {Independent Computational Space Biology Research / NASA OSDR AWG Community Contribution},
+  institution = {Independent Computational Space Biology Research / OMROS LAB / NASA OSDR AWG Community Contribution},
   year        = {2026},
   month       = {November},
   number      = {OM-TR-2026-01},
-  version     = {1.1.0},
+  version     = {1.1.1},
   doi         = {10.5281/zenodo.24439497},
   url         = {https://zenodo.org/records/24439497}
 }
